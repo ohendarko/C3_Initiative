@@ -8,7 +8,7 @@ import IntroVideo from "@/components/introVideo"
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen space-y-16">
+    <main className="min-h-screen max-w-screen space-y-16">
       <ScrollSlideUp><Hero /></ScrollSlideUp>
       <ScrollSlideUp><IntroVideo /></ScrollSlideUp>
       <ScrollSlideUp><CoreValues /></ScrollSlideUp>

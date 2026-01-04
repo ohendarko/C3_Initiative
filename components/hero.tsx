@@ -24,7 +24,7 @@ export default function Hero() {
     }, [])
 
   return (
-    <section className="relative pt-24 pb-6 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-orange-50/30 to-blue-50/30 dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-700/30 overflow-hidden h-screen">
+    <section className="relative pt-24 pb-6 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-orange-50/30 to-blue-50/30 dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-700/30 overflow-hidden h-screen max-w-screen">
       {/* Slide Show Container */}
       <div className="absolute inset-0 z-0 flex transition-transform duration-1000 ease-in-out"
         style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}

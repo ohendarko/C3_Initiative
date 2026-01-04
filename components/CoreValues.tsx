@@ -23,7 +23,7 @@ const CoreValues = () => {
           </SlideInFromBottom>
 
         </div>
-        <SlideInFromRight>
+        <SlideInFromBottom>
           <div className='relative w-full h-96 mt-5 !p-3'>
             <Image
               src="/images/core-value.jpg"
@@ -32,7 +32,7 @@ const CoreValues = () => {
               fill
             />
           </div>
-        </SlideInFromRight>
+        </SlideInFromBottom>
       </div>
     </div>
   )

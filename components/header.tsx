@@ -55,14 +55,18 @@ export default function Header() {
 
 
 
-  const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled
-      ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white"
-      : "bg-white/30 text-white"
-    }`;
+const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-colors duration-300 w-screen ${isScrolled
+    ? "bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white"
+    : "bg-white/30 text-white"
+  }`;
 
   const textClass = isScrolled
     ? "text-gray-700 dark:text-gray-300 "
     : "text-gray-800";
+
+   const iconClass = isScrolled 
+    ? "text-gray-800 dark:text-white" 
+    : "text-gray-900 dark:text-white"
 
 
   return (
