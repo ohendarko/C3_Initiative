@@ -19,13 +19,13 @@ export default function SlideInFromRight({ children }: { children: React.ReactNo
       initial="hidden"
       animate={controls}
       variants={{
-        hidden: { opacity: 0, x: 80 },
+        hidden: { opacity: 0, x: 30 }, // Changed from 80 to 30
         visible: {
           opacity: 1,
           x: 0,
           transition: {
             duration: 0.8,
-            ease: [0.25, 0.1, 0.25, 1], // cubic-bezier ease
+            ease: [0.25, 0.1, 0.25, 1],
           },
         },
       }}
