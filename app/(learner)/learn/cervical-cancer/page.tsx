@@ -89,34 +89,26 @@ export default function CervicalCancerLearnPage() {
     }
   }
 
-  const handleLogout = async () => {
-    if (!session?.user?.email) return
+const handleLogout = async () => {
+  if (!session?.user?.email) return
+  
+  try {
+    setLoading(true)
     clearUserCache(session.user.email)
-    localStorage.setItem("isLoggingOut", "true");
-
-    try {
-      setLoading(true)
-      await signOut({
-        redirect: false, // prevent automatic redirect so you can control it
-      }); 
-      toast({
-        title: "Logged out",
-        description: "You have been signed out.",
-      });
-
-      window.location.reload()
-  
-      // setIsLoggedIn(false); // update your local state if you track login status
-  
-      router.push("/learn"); // redirect after sign out
-    } catch (error) {
-      console.error(error)
-    }
-
-    // localStorage.removeItem(`c3modules_${userId}`);
-
-  };
-  
+    
+    await signOut({
+      callbackUrl: "/learn", // NextAuth will redirect here
+    })
+    
+    toast({
+      title: "Logged out",
+      description: "You have been signed out.",
+    })
+  } catch (error) {
+    console.error(error)
+    setLoading(false)
+  }
+}
   // console.log("moduleSummary", moduleSummary)
 
   useEffect(() => {
@@ -148,6 +140,13 @@ export default function CervicalCancerLearnPage() {
     update()
   }, [userProfile, allModulesCompleted])
 
+
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     // Only refresh when user logs in
+  //     window.location.reload()
+  //   }
+  // }, [isLoggedIn])
 
 
   if (!Array.isArray(moduleSummary)) {

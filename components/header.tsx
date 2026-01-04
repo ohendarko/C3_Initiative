@@ -7,39 +7,41 @@ import { Menu, X, BookOpen, User } from "lucide-react"
 import { useLearner, UserProfile } from "@/context/LearnerContext"
 import { useRouter } from "next/navigation"
 import { useSession } from "next-auth/react"
+import { useUser } from "@/context/UserContext"
 
 export default function Header() {
   const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const { data: session, status } = useSession()
-  // const { userProfile } = useLearner()
-  const [userProfile, setUserProfile] = useState<UserProfile | null>(null)
+  const { isAdmin, userName } = useUser()
+  // const [userProfile, setUserProfile] = useState<UserProfile | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    if (status === "authenticated") {
-      setIsLoggedIn(true)
-    } else {
-      setIsLoggedIn(false)
-    }
-    const fetchUserProfile = async () => {
-      if (status === "authenticated" && session?.user?.email) {
-        try {
-          const res = await fetch(`/api/user/profile?email=${session.user.email}`)
-          const data = await res.json()
-          setUserProfile(data)
-        } catch (err) {
-          console.error("Error fetching user profile", err)
-        }
-      }
-      setLoading(false)
-    }
+  const isLoggedIn = status === "authenticated"
+  
+  // useEffect(() => {
+  //   // if (status === "authenticated") {
+  //   //   setIsLoggedIn(true)
+  //   // } else {
+  //   //   setIsLoggedIn(false)
+  //   // }
+  //   const fetchUserProfile = async () => {
+  //     if (status === "authenticated" && session?.user?.email) {
+  //       try {
+  //         const res = await fetch(`/api/user/profile?email=${session.user.email}`)
+  //         const data = await res.json()
+  //         setUserProfile(data)
+  //       } catch (err) {
+  //         console.error("Error fetching user profile", err)
+  //       }
+  //     }
+  //     setLoading(false)
+  //   }
 
-    fetchUserProfile()
+  //   fetchUserProfile()
 
-  }, [status])
+  // }, [status])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,6 +52,8 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+
 
   const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled
       ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white"
@@ -62,7 +66,7 @@ export default function Header() {
 
 
   return (
-    <header className={headerClasses}>
+    <header className={`${headerClasses} ${isMenuOpen ? 'glass-effect' : ''}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2" title="C3 Initiative">
@@ -90,7 +94,7 @@ export default function Header() {
                 Modules
               </Link>
             )}
-            {isLoggedIn && userProfile?.admin && (
+            {isLoggedIn && isAdmin && (
               <Link
                 href="/instructor"
                 className={`${textClass} hover:text-orange-500 transition-colors `}
@@ -120,7 +124,7 @@ export default function Header() {
             {isLoggedIn && (
               <div className={`${textClass} flex`}>
                 <User />
-                {userProfile?.name}
+                {userName}
               </div>
             )}
 
@@ -150,7 +154,7 @@ export default function Header() {
                   Modules
                 </Link>
               )}
-              {isLoggedIn && userProfile?.admin && (
+              {isLoggedIn && isAdmin && (
                 <Link
                   href="/instructor"
                   className={`${textClass} hover:text-orange-500 transition-colors bg-orange-300/50 p-2 rounded-sm`}

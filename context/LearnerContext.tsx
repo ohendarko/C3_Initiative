@@ -53,29 +53,48 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
   const [moduleProgress, setModuleProgress] = useState<ModuleProgress | null>(null)
   const [loading, setLoading] = useState(true)
 
-  const isLoggedIn = !loading && !!userProfile
-  const isLoggedOut = !loading && !userProfile
+  const isLoggedIn = status === "authenticated" && !!userProfile
+  const isLoggedOut = status === "unauthenticated"
+
+  // Calculate module progress whenever userProfile or moduleSummary changes
+  useEffect(() => {
+    if (!userProfile || !moduleSummary.length) {
+      setModuleProgress(null)
+      return
+    }
+
+    const progress: ModuleProgress = {}
+    
+    moduleSummary.forEach((module) => {
+      const isCompleted = userProfile.completedModules.includes(module.module)
+      const isUnlocked = canAccessModule(module.module)
+      
+      progress[module.order] = {
+        completed: isCompleted,
+        unlocked: isUnlocked,
+      }
+    })
+
+    setModuleProgress(progress)
+  }, [userProfile, moduleSummary])
 
   useEffect(() => {
     let mounted = true
 
     const fetchModuleSummary = async (email: string) => {
-      console.log("Fetching module summary...");
+      console.log("Fetching module summary...")
       try {
         const cached = localStorage.getItem(`c3-moduleSummary-${email}`)
-        if (cached) {
+        if (cached && mounted) {
           setModuleSummary(JSON.parse(cached))
         }
 
         const res = await fetch(`/api/module-summary`)
         const data = await res.json()
-        console.log(data)
 
-        if (Array.isArray(data.summaries)) {
-          if (mounted) {
-            setModuleSummary(data.summaries)
-            localStorage.setItem(`c3-moduleSummary-${email}`, JSON.stringify(data.summaries))
-          }
+        if (Array.isArray(data.summaries) && mounted) {
+          setModuleSummary(data.summaries)
+          localStorage.setItem(`c3-moduleSummary-${email}`, JSON.stringify(data.summaries))
         } else {
           console.error("Invalid module summary format:", data)
           if (mounted) setModuleSummary([])
@@ -86,37 +105,69 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
       }
     }
 
-
     const loadData = async () => {
-      if (status === "unauthenticated") {
-        router.push('/learn')
+      // Handle NextAuth loading state
+      if (status === "loading") {
+        setLoading(true)
         return
       }
 
-      if (status !== "authenticated" || !session?.user?.email) return
-
-      try {
-        const [profileResult, modulesResult] = await Promise.allSettled([
-          fetch(`/api/user/profile?email=${session.user.email}`),
-          fetch('/api/modules')
-        ])
-
+      // Handle unauthenticated - clear everything
+      if (status === "unauthenticated") {
         if (mounted) {
+          setUserProfile(null)
+          setModules([])
+          setModuleSummary([])
+          setModuleProgress(null)
+          setLoading(false)
+        }
+        return
+      }
+
+      // Handle authenticated - fetch data
+      if (status === "authenticated" && session?.user?.email) {
+        setLoading(true)
+        
+        try {
+          const [profileResult, modulesResult] = await Promise.allSettled([
+            fetch(`/api/user/profile?email=${session.user.email}`),
+            fetch('/api/modules')
+          ])
+
+          if (!mounted) return
+
+          // Handle profile
           if (profileResult.status === "fulfilled") {
             const profileData = await profileResult.value.json()
             setUserProfile(profileData)
-            fetchModuleSummary(profileData.email) // Run summary fetch once email is known
+            
+            // Fetch module summary after we have the email
+            await fetchModuleSummary(profileData.email)
+          } else {
+            console.error("Failed to fetch profile:", profileResult.reason)
+            setUserProfile(null)
           }
 
+          // Handle modules
           if (modulesResult.status === "fulfilled") {
             const modulesData = await modulesResult.value.json()
             setModules(modulesData)
+          } else {
+            console.error("Failed to fetch modules:", modulesResult.reason)
+            setModules([])
+          }
+        } catch (err) {
+          console.error("Error loading learner data", err)
+          if (mounted) {
+            setUserProfile(null)
+            setModules([])
+            setModuleSummary([])
+          }
+        } finally {
+          if (mounted) {
+            setLoading(false)
           }
         }
-      } catch (err) {
-        console.error("Error loading learner data", err)
-      } finally {
-        if (mounted) setLoading(false)
       }
     }
 
@@ -125,16 +176,13 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
     return () => {
       mounted = false
     }
-  }, [session, status, router])
+  }, [status, session?.user?.email, router])
 
   const canAccessModule = (moduleName: string) => {
     if (!userProfile) return false
     if (!userProfile.hasCompletedQuestionnaire) return false
 
-    // Extract the numeric part (e.g., "module-3" -> 3)
     const currentIndex = parseInt(moduleName.split("-")[1], 10)
-
-    // Name of the previous module
     const prevModule = currentIndex > 1 ? `module-${currentIndex - 1}` : null
 
     return (
@@ -144,7 +192,6 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
       (prevModule !== null && userProfile.completedModules.includes(prevModule))
     )
   }
-
 
   return (
     <LearnerContext.Provider value={{

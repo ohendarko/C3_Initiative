@@ -10,6 +10,7 @@ import Footer from "@/components/footer"
 import SessionWrapper from "@/providers/SessionWrapper"
 import Header from "@/components/header"
 import { Poppins } from "next/font/google"
+import { UserProvider } from "@/context/UserContext"
 
 
 const inter = Inter({ subsets: ["latin"] })
@@ -42,13 +43,15 @@ export default function RootLayout({
       <body className={`${inter.className} ${poppins.variable}`}>
         <SessionWrapper>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-            <Header />
-            <ThemeToggle />
-            <main>
-              {children}
-              <Toaster />
-            </main>
-            <Footer />
+            <UserProvider>
+              <Header />
+              <ThemeToggle />
+              <main>
+                {children}
+                <Toaster />
+              </main>
+              <Footer />
+            </UserProvider>
           </ThemeProvider>
         </SessionWrapper>
       </body>
