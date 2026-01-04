@@ -9,66 +9,104 @@ import Link from "next/link"
 
 const modules = [
   {
-    id: 1,
-    title: "Introduction to Cervical Cancer",
-    description: "Understanding the basics of cervical cancer, anatomy, and risk factors",
-    duration: "45 min",
-    progress: 100,
-    status: "completed",
-    lessons: 8,
+    "order": 1,
+    "name": "Module 1",
+    "module": "module-1",
+    "title": "Why Focus On Cervical Cancer",
+    "shortTitle": "Introduction",
+    "description": "Learn the global, regional, and local impact of cervical cancer and why it matters.",
+    "completed": false,
+    "unlocked": true,
+    "icon": "BookOpen",
+    "introVideo": "https://cdn.example.com/module-6-intro.mp4",
+    "lessons": 7
   },
   {
-    id: 2,
-    title: "HPV and Cervical Cancer Connection",
-    description: "Learn about Human Papillomavirus and its role in cervical cancer development",
-    duration: "60 min",
-    progress: 75,
-    status: "in-progress",
-    lessons: 10,
+    "order": 2,
+    "name": "Module 2: Part 1",
+    "module": "module-2",
+    "title": "Cervical Cancer: An Overview",
+    "shortTitle": "Cervical Cancer 1",
+    "description": "Understand what cervical cancer is, how HPV causes it, and the disease's progression.",
+    "completed": false,
+    "unlocked": true,
+    "icon": "Microscope",
+    "introVideo": "https://cdn.example.com/module-6-intro.mp4",
+    "lessons": 7
   },
   {
-    id: 3,
-    title: "Screening Methods and Guidelines",
-    description: "Pap smears, HPV testing, and screening recommendations",
-    duration: "50 min",
-    progress: 0,
-    status: "not-started",
-    lessons: 9,
+    "order": 3,
+    "name": "Module 2: Part 2",
+    "module": "module-3",
+    "title": "Cervical Cancer: An Overview 2",
+    "shortTitle": "Cervical Cancer 2",
+    "description": "Understand how HPV causes cervical cancer, and the disease's progression.",
+    "completed": false,
+    "unlocked": true,
+    "icon": "Microscope",
+    "introVideo": "https://cdn.example.com/module-6-intro.mp4",
+    "lessons": 7
   },
   {
-    id: 4,
-    title: "Prevention Strategies",
-    description: "Vaccination, lifestyle factors, and preventive measures",
-    duration: "40 min",
-    progress: 0,
-    status: "not-started",
-    lessons: 7,
+    "order": 4,
+    "name": "Module 3",
+    "module": "module-4",
+    "title": "Risk Factors, Signs, Symptoms and Screening Tests For Cervical Cancer",
+    "shortTitle": "Etiology",
+    "description": "Explore risk factors, symptoms, and screening options for early detection of cervical cancer.",
+    "completed": false,
+    "unlocked": true,
+    "icon": "Search",
+    "introVideo": "https://cdn.example.com/module-6-intro.mp4",
+    "lessons": 7
   },
   {
-    id: 5,
-    title: "Treatment Options",
-    description: "Surgical and non-surgical treatment approaches",
-    duration: "55 min",
-    progress: 0,
-    status: "not-started",
-    lessons: 11,
+    "order": 5,
+    "name": "Module 4",
+    "module": "module-5",
+    "title": "HPV Vaccination",
+    "shortTitle": "Vaccination",
+    "description": "Learn how HPV vaccination prevents cervical cancer and understand vaccination schedules.",
+    "completed": false,
+    "unlocked": true,
+    "icon": "Shield",
+    "introVideo": "https://cdn.example.com/module-6-intro.mp4",
+    "lessons": 7
   },
   {
-    id: 6,
-    title: "Patient Communication",
-    description: "Effective communication strategies for healthcare providers",
-    duration: "35 min",
-    progress: 0,
-    status: "not-started",
-    lessons: 6,
+    "order": 6,
+    "name": "Module 5",
+    "module": "module-6",
+    "title": "Diagnosis and Staging of Cervical Cancer",
+    "shortTitle": "Diagnosis",
+    "description": "Discover how cervical cancer is diagnosed and staged to guide effective treatment planning.",
+    "completed": false,
+    "unlocked": true,
+    "icon": "Stethoscope",
+    "introVideo": "https://cdn.example.com/module-6-intro.mp4",
+    "lessons": 7
   },
+  {
+    "order": 7,
+    "name": "Module 6",
+    "module": "module-7",
+    "title": "Treatment and Palliative Care",
+    "shortTitle": "Treatment",
+    "description": "Understand the main treatment options and supportive palliative care for advanced cervical cancer.",
+    "completed": false,
+    "unlocked": true,
+    "icon": "Users",
+    "introVideo": "https://cdn.example.com/module-6-intro.mp4",
+    "lessons": 7
+  }
 ]
 
+
 const stats = [
-  { label: "Modules Completed", value: "1/6", icon: BookOpen, color: "text-orange-500" },
-  { label: "Total Study Time", value: "45 min", icon: Clock, color: "text-blue-500" },
-  { label: "Current Streak", value: "3 days", icon: TrendingUp, color: "text-pink-500" },
-  { label: "Certificates Earned", value: "0", icon: Award, color: "text-purple-500" },
+  { label: "Modules", value: "7", icon: BookOpen, color: "text-orange-500" },
+  // { label: "Total Study Time", value: "45 min", icon: Clock, color: "text-blue-500" },
+  // { label: "Current Streak", value: "3 days", icon: TrendingUp, color: "text-pink-500" },
+  { label: "Certificates Attainable", value: "1", icon: Award, color: "text-purple-500" },
 ]
 
 export default function DashboardPage() {
@@ -100,13 +138,13 @@ export default function DashboardPage() {
         {/* Welcome Section */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">
-            Welcome back to the{" "}
-            <span className="bg-gradient-to-r from-orange-500 to-blue-600 bg-clip-text text-transparent">
+            {/* <span className="bg-gradient-to-r from-orange-500 to-blue-600 bg-clip-text text-transparent">
               C3 Initiative
-            </span>
+            </span>  */}
+            Modules Overview
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
-            Continue your cervical cancer education journey. You're making a difference!
+            Your cervical cancer education journey overview. You're making a difference!
           </p>
         </div>
 
@@ -128,7 +166,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Current Progress */}
-        <Card className="mb-8 hover-shadow-gradient">
+        {/* <Card className="mb-8 hover-shadow-gradient">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <TrendingUp className="w-5 h-5 text-orange-500" />
@@ -149,36 +187,36 @@ export default function DashboardPage() {
               </div>
             </div>
           </CardContent>
-        </Card>
+        </Card> */}
 
         {/* Modules Grid */}
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-bold">Learning Modules</h2>
-            <Button variant="outline" className="hover-shadow-gradient bg-transparent">
+            {/* <Button variant="outline" className="hover-shadow-gradient bg-transparent">
               <Users className="w-4 h-4 mr-2" />
               Study Group
-            </Button>
+            </Button> */}
           </div>
 
           <div className="grid lg:grid-cols-2 gap-6">
             {modules.map((module) => (
-              <Card key={module.id} className="hover-shadow-gradient group">
+              <Card key={module.order} className="hover-shadow-gradient group">
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div className="flex items-center space-x-3">
-                      {getStatusIcon(module.status)}
+                      {/* {getStatusIcon(module.status)} */}
                       <div>
                         <CardTitle className="text-lg">{module.title}</CardTitle>
                         <CardDescription className="mt-1">{module.description}</CardDescription>
                       </div>
                     </div>
-                    {getStatusBadge(module.status)}
+                    {/* {getStatusBadge(module.status)} */}
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {module.progress > 0 && (
+                    {/* {module.progress > 0 && (
                       <div className="space-y-2">
                         <div className="flex justify-between text-sm">
                           <span>Progress</span>
@@ -186,13 +224,13 @@ export default function DashboardPage() {
                         </div>
                         <Progress value={module.progress} className="h-2" />
                       </div>
-                    )}
+                    )} */}
 
                     <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
-                      <span>
-                        {module.lessons} lessons • {module.duration}
-                      </span>
-                      <div className="flex space-x-2">
+                      {/* <span>
+                        {module.lessons} lessons
+                      </span> */}
+                      {/* <div className="flex space-x-2">
                         {module.status === "completed" && (
                           <Button size="sm" variant="outline">
                             Review
@@ -216,7 +254,7 @@ export default function DashboardPage() {
                                 : "Start"}
                           </Button>
                         </Link>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </CardContent>
@@ -226,7 +264,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Quick Actions */}
-        <Card className="mt-8 hover-shadow-gradient">
+        {/* <Card className="mt-8 hover-shadow-gradient">
           <CardHeader>
             <CardTitle>Quick Actions</CardTitle>
             <CardDescription>Shortcuts to help you continue your learning journey</CardDescription>
@@ -253,7 +291,7 @@ export default function DashboardPage() {
               </Button>
             </div>
           </CardContent>
-        </Card>
+        </Card> */}
       </div>
     </div>
   )

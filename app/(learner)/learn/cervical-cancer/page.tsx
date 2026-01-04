@@ -159,8 +159,8 @@ const handleLogout = async () => {
     <div className="min-h-screen pt-24 pb-16 px-0 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
       <QuestionnaireAlert shouldShow={userProfile?.hasCompletedQuestionnaire === false} />
       
-      <Button variant="outline" onClick={handleLogout} className="" disabled={localloading} > {localloading && <Spinner />} Log Out</Button>
-      <div className="container mx-auto max-w-7xl">
+      <Button variant="outline" onClick={handleLogout} className="ml-4" disabled={localloading} > {localloading && <Spinner />} Log Out</Button>
+      <div className="container mx-auto max-w-7xl p-3">
         {/* Header */}
         <div className="mb-8">
           <div>
@@ -191,7 +191,7 @@ const handleLogout = async () => {
         {(allModulesCompleted && !loading) ? (
           <Card className="mb-8 hover-shadow-gradient border-2 border-green-700">
             <CardContent className="p-6">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col items-center justify-between">
                 <div className="flex items-center space-x-4">
                   {loading ? <Skeleton variant="circular" width={70} height={70} className="bg-gray-400" />: <div className="w-16 h-16 bg-green-700 rounded-full flex items-center justify-center">
                     <Award className="w-10 h-10 text-white" />
@@ -232,7 +232,7 @@ const handleLogout = async () => {
                     <div
                       className={`relative z-10 w-16 h-16 rounded-full flex items-center justify-center border-4 mr-6 md:flex ${
                         moduleCompleted(module.module)
-                          ? "bg-green-700 border-green-700"
+                          ? "bg-green-700 border-green-700 hidden sm:flex"
                           : moduleUnlocked(module.module)
                             ? "gradient-orange-blue border-transparent"
                             : "bg-gray-300 border-gray-300"

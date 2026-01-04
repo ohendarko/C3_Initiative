@@ -78,7 +78,7 @@ export default function CTA() {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link href="/learn/cervical-cancer">
+            <Link href="/overview">
               <Button size="lg" variant="outline" className="hover-shadow-gradient bg-transparent text-white border-white">
                 Explore Modules
               </Button>

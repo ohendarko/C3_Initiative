@@ -120,6 +120,7 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
           setModuleSummary([])
           setModuleProgress(null)
           setLoading(false)
+          router.push('/learn')
         }
         return
       }
