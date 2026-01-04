@@ -1,0 +1,109 @@
+[
+  {
+
+    "module": "module-1",
+    "completed": false,
+    "unlocked": true,
+    "icon": "Users",
+    "title": "Why Focus on Cervical Cancer",
+    "description": "Learn the global, regional, and local impact of cervical cancer and why it matters.",
+    "order": 1,
+    "introVideo": "https://cdn.example.com/module-1-intro.mp4",
+    "sections": [
+      {
+        "id": "section-1-1",
+        "title": "Reasons to Focus on Cervical Cancer",
+        "description": "Why cervical cancer is a global health priority.",
+        "order": 1,
+        "learningCards": [
+          {
+            "id": "card-1",
+            "title": "Global Statistics",
+            "content": "Every year, around 266,000 women die from cervical cancer worldwide. Most of these deaths can be prevented.",
+            "infographic": "/images/placeholder.svg"
+          },
+          {
+            "id": "card-2",
+            "title": "HPV and Disease Timeline",
+            "content": "Almost all cervical cancer is caused by long-lasting infection with HPV. The disease usually develops over 10\u201320 years.",
+            "infographic": "/images/placeholder.svg"
+          },
+          {
+            "id": "card-3",
+            "title": "Vaccination and Prevention",
+            "content": "There are low-cost tests that detect pre-cancer early, and HPV vaccines can prevent most cervical cancer if given early.",
+            "infographic": "/images/placeholder.svg"
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "id": "section-1-2",
+        "title": "Epidemiology of Cervical Cancer",
+        "description": "Understanding the global and African burden of the disease.",
+        "order": 2,
+        "learningCards": [
+          {
+            "id": "card-1",
+            "title": "Global Burden",
+            "content": "Cervical cancer is the 4th most common cancer in women, with 660,000 new cases and 350,000 deaths in 2022.",
+            "infographic": "/images/placeholder.svg"
+          },
+          {
+            "id": "card-2",
+            "title": "Africa's Burden",
+            "content": "Africa has the highest rates of cervical cancer and deaths, with low access to screening and vaccines.",
+            "infographic": "/images/placeholder.svg"
+          },
+          {
+            "id": "card-3",
+            "title": "Ghana\u2019s Burden",
+            "content": "Ghana sees about 29.3 cases per 100,000 women annually, with high mortality due to low screening and cultural beliefs.",
+            "infographic": "/images/placeholder.svg"
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "id": "section-1-3",
+        "title": "Female Pelvic Anatomy and Physiology",
+        "description": "Learn about internal and external female reproductive anatomy.",
+        "order": 3,
+        "learningCards": [
+          {
+            "id": "card-1",
+            "title": "External Organs",
+            "content": "Includes the vulva, labia, clitoris, urethra, perineum, and Bartholin glands.",
+            "infographic": "/images/placeholder.svg"
+          },
+          {
+            "id": "card-2",
+            "title": "Internal Organs",
+            "content": "Includes the uterus, bladder, ureters, and how they function in reproduction.",
+            "infographic": "/images/placeholder.svg"
+          },
+          {
+            "id": "card-3",
+            "title": "Diagnostic Tools",
+            "content": "These organs are examined using a speculum or laparoscopy to detect abnormalities.",
+            "infographic": "/images/placeholder.svg"
+          }
+        ],
+        "quizzes": []
+      }
+    ],
+    "postTest": [
+      {
+        "id": "posttest-1",
+        "question": "What virus is the main cause of cervical cancer?",
+        "options": [
+          "HIV",
+          "HBV",
+          "HPV",
+          "EBV"
+        ],
+        "correct": "HPV"
+      }
+    ]
+  }
+]

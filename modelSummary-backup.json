@@ -1,0 +1,68 @@
+[
+  {
+    "order": 1,
+    "name": "module-1",
+    "title": "Why Focus On Cervical Cancer",
+    "shortTitle": "Introduction",
+    "description": "Learn the global, regional, and local impact of cervical cancer and why it matters.",
+    "completed": false,
+    "unlocked": true,
+    "icon": "BookOpen",
+    "introVideo": "https://cdn.example.com/module-6-intro.mp4"
+  },
+  {
+    "order": 2,
+    "name": "module-2",
+    "title": "Cervical Cancer: An Overview",
+    "shortTitle": "HPV Connection",
+    "description": "Understand what cervical cancer is, how HPV causes it, and the disease's progression.",
+    "completed": false,
+    "unlocked": false,
+    "icon": "Microscope",
+    "introVideo": "https://cdn.example.com/module-6-intro.mp4"
+  },
+  {
+    "order": 3,
+    "name": "module-3",
+    "title": "Risk Factors, Signs, Symptoms and Screening Tests For Cervical Cancer",
+    "shortTitle": "Screening",
+    "description": "Explore risk factors, symptoms, and screening options for early detection of cervical cancer.",
+    "completed": false,
+    "unlocked": false,
+    "icon": "Search",
+    "introVideo": "https://cdn.example.com/module-6-intro.mp4"
+  },
+  {
+    "order": 4,
+    "name": "module-4",
+    "title": "HPV Vaccination",
+    "shortTitle": "Prevention",
+    "description": "Learn how HPV vaccination prevents cervical cancer and understand vaccination schedules.",
+    "completed": false,
+    "unlocked": false,
+    "icon": "Shield",
+    "introVideo": "https://cdn.example.com/module-6-intro.mp4"
+  },
+  {
+    "order": 5,
+    "name": "module-5",
+    "title": "Diagnosis and Staging of Cervical Cancer",
+    "shortTitle": "Treatment",
+    "description": "Discover how cervical cancer is diagnosed and staged to guide effective treatment planning.",
+    "completed": false,
+    "unlocked": false,
+    "icon": "Stethoscope",
+    "introVideo": "https://cdn.example.com/module-6-intro.mp4"
+  },
+  {
+    "order": 6,
+    "name": "module-6",
+    "title": "Treatment and Palliative Care",
+    "shortTitle": "Community Health",
+    "description": "Understand the main treatment options and supportive palliative care for advanced cervical cancer.",
+    "completed": false,
+    "unlocked": false,
+    "icon": "Users",
+    "introVideo": "https://cdn.example.com/module-6-intro.mp4"
+  }
+]

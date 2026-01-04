@@ -1,0 +1,1819 @@
+[
+  {
+    "module": "module-1",
+    "name": "Module 1",
+    "completed": false,
+    "unlocked": true,
+    "icon": "Users",
+    "title": "Why Focus on Cervical Cancer",
+    "description": "Learn the global, regional, and local impact of cervical cancer and why it matters.",
+    "order": 1,
+    "introVideo": "https://drive.google.com/file/d/1NXkDIY0ryboVj61KgCUS15a8efSeeUz5/preview?usp=drivesdk",
+    "sections": [
+      {
+        "name": "section-1-1",
+        "title": "Reasons to Focus on Cervical Cancer",
+        "description": "Why cervical cancer is a global health priority.",
+        "order": 1,
+        "learningCards": [
+          {
+            "name": "section-1-1-card-1",
+            "title": "Global Impact of Cervical Cancer",
+            "content": "Every year, around 266,000 women die from cervical cancer worldwide. This staggering number represents not just statistics, but real lives lost to a largely preventable disease.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-1-1-card-2",
+            "title": "Global Impact of Cervical Cancer",
+            "content": "Most of these deaths can be prevented through proper cervical cancer prevention and treatment programs. This highlights the critical importance of education, screening, and accessible healthcare.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-1-1-card-3",
+            "title": "HPV Connection",
+            "content": "Almost all cervical cancer is caused by a long-lasting infection with certain harmful types of the human papillomavirus (HPV). \nUnderstanding this connection is key to prevention strategies.",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-1-1-card-4",
+            "title": "HPV Connection",
+            "content": "The disease usually develops slowly over 10–20 years. This gives enough time to detect and treat it early, making regular screening incredibly valuable for prevention.",
+            "infographic": "/images/placeholder.svg",
+            "order": 4
+          },
+          {
+            "name": "section-1-1-card-5",
+            "title": "Early Detection Methods",
+            "content": "There are low-cost tests that can find pre-cancer early. These screening methods are accessible and effective tools for preventing cervical cancer development.",
+            "infographic": "/images/placeholder.svg",
+            "order": 5
+          },
+          {
+            "name": "section-1-1-card-6",
+            "title": "Early Detection Methods",
+            "content": "HPV vaccines are now available. If given to girls before they become sexually active, a large portion of cervical cancer can be prevented. This represents a major breakthrough in prevention.",
+            "infographic": "/images/placeholder.svg",
+            "order": 6
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-1-2",
+        "title": "Epidemiology of Cervical Cancer",
+        "description": "Understanding the global and African burden of the disease.",
+        "order": 2,
+        "learningCards": [
+          {
+            "name": "section-1-2-card-1",
+            "title": "Global Burden",
+            "content": "Cervical cancer is the 4th most common cancer in women, with 660,000 new cases and 350,000 deaths in 2022.\nNew cases of cervical cancer are estimated to rise to 760,100 cases, with 411,000 deaths by 2030.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-1-2-card-1b",
+            "title": "Global Burden",
+            "content": "Around 94% of these deaths happened in low- and middle-income countries, showing a major gap in access to care.\nThe highest rates of cervical cancer and deaths are seen in Sub-Saharan Africa, Central America, and South-East Asia.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-1-2-card-1c",
+            "title": "Global Burden",
+            "content": "These differences are mainly due to inequality in access to HPV vaccines, cervical cancer screening and proper treatment\nAfrica bears a disproportionate cervical cancer burden.",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-1-2-card-2",
+            "title": "Africa's Cervical Cancer Burden",
+            "content": "Africa has the highest rates of both new and cervical cancer cases and deaths from the disease. \nIn Africa, 34 out of every 100,000 women are diagnosed with cervical cancer and 23 out of every 100,000 women die from cervical cancer every year.",
+            "infographic": "/images/placeholder.svg",
+            "order": 4
+          },
+          {
+            "name": "section-1-2-card-2b",
+            "title": "Africa's Cervical Cancer Burden",
+            "content": "These disparities are mainly due to: \nLimited access to healthcare \nLow vaccination rates against HPV. \nFew women getting screening or treated early.",
+            "infographic": "/images/placeholder.svg",
+            "order": 5
+          },
+          {
+            "name": "section-1-2-card-3a",
+            "title": "Ghana's Cervical Cancer Burden",
+            "content": "The country has a high incidence rate of cervical cancer, about 18.3 cases per 100,000 women each year.\nIn Ghana, 29.3 out of every 100,000 women are diagnosed with cervical cancer and 27.6 out of every 100,000 women die from it every year.",
+            "infographic": "/images/placeholder.svg",
+            "order": 6
+          },
+          {
+            "name": "section-1-2-card-3b",
+            "title": "Ghana's Cervical Cancer Burden",
+            "content": "Several factors contribute to these high numbers, including: \nStrong trust in traditional healers and mistrust of hospital care.\nCultural beliefs about the causes and treatment of cervical cancer.\nLimited access to HPV vaccine.\nLow awareness of cervical cancer and its symptoms.\nLow screening uptake",
+            "infographic": "/images/placeholder.svg",
+            "order": 7
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-1-3",
+        "title": "Female Pelvic Anatomy and Physiology",
+        "description": "Learn about internal and external female reproductive anatomy.",
+        "order": 3,
+        "learningCards": [
+          {
+            "name": "section-1-3card-1",
+            "title": "The External Organs",
+            "content": "The external organs are the parts of the body visible either with the naked eye or by using a tool known as the speculum.\nThe female reproductive external organs are:",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-1-3card-1b",
+            "title": "The External Organs",
+            "content": "The vulva: It is the area around the vaginal opening\nThe labia (major and minor): They are the skin folds that protect the vaginal opening\nThe clitoris: It is a small and very sensitive organ that enhances sexual pleasure",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-1-3card-1b",
+            "title": "The External Organs",
+            "content": "The urethra: It is a small opening that expels urine\nThe perineum: It is the area between the vaginal opening and the anus\nThe Bartholin glands: They produce clear mucus which lubricates the introitus when a woman is sexually stimulated",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-1-3card-2",
+            "title": "The Internal Organs",
+            "content": "These are organs inside the pelvis that are not visible except when exposed by an incision or laparoscopy. \nA laparoscopy is a surgical procedure used to examine the organs in the belly (abdomen).",
+            "infographic": "/images/placeholder.svg",
+            "order": 4
+          },
+          {
+            "name": "section-1-3card-2a",
+            "title": "The Internal Organs",
+            "content": "The female reproductive internal organs include:\n\n• The bladder: It receives urine from the kidneys and stores it for excretion.\n• The uterus: It is the area where a fetus (unborn baby) develops and grows.\n• The ureters: these carry urine from the kidneys to the bladder.",
+            "infographic": "/images/placeholder.svg",
+            "order": 5
+          }
+        ],
+        "quizzes": []
+      }
+    ],
+    "preTest" : {
+      "name": "pretest-1",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Why is cervical cancer considered a major global health issue?",
+          "options": [
+            "A. It is a disease with a long history of research.",
+            "B. It cannot be screened or prevented with vaccines.",
+            "C. It only affects women in developed countries.",
+            "D. It kills thousands of women annually."
+          ],
+          "correctAnswer": "D. It kills thousands of women annually.",
+          "explanation":
+            "Every year, around 266,000 women die from cervical cancer worldwide; however, most of these deaths can be prevented through proper cervical cancer prevention and treatment programs."
+        },
+        {
+          "order": 2,
+          "question": "Why do most cervical cancer deaths occur in low- and middle-income countries?",
+          "options": [
+            "A. These countries have better screening programs.",
+            "B. There is less exposure to the HPV virus.",
+            "C. There is limited access to HPV vaccines and screening.",
+            "D. Women in these countries are more health conscious."
+          ],
+          "correctAnswer": "C. There is limited access to HPV vaccines and screening.",
+          "explanation":
+            "Around 94% of cervical cancer deaths happened in low- and middle-income countries, showing a major gap in access to care. These differences are mainly due to inequality in access to HPV vaccines, cervical cancer screening and proper treatment."
+        },
+        {
+          "order": 3,
+          "question": "What are the estimated cervical cancer statistics in Ghana?",
+          "options": [
+            "A. 10 per 100,000 women are diagnosed, 5 per 100,000 die.",
+            "B. 18.3 per 100,000 women are diagnosed, 10 per 100,000 die.",
+            "C. 29.3 per 100,000 women are diagnosed, 27.6 per 100,000 die.",
+            "D. 50 per 100,000 women are diagnosed, 45 per 100,000 die."
+          ],
+          "correctAnswer": "C. 29.3 per 100,000 women are diagnosed, 27.6 per 100,000 die.",
+          "explanation":
+            "In Ghana, 29.3 out of every 100,000 women are diagnosed with cervical cancer and 27.6 out of every 100,000 women die from it every year."
+        }
+      ]
+    },
+    "postTest": {
+      "name": "posttest-1",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Why is cervical cancer considered a major global health issue?",
+          "options": [
+            "A. It is a disease with a long history of research.",
+            "B. It cannot be screened or prevented with vaccines.",
+            "C. It only affects women in developed countries.",
+            "D. It kills thousands of women annually."
+          ],
+          "correctAnswer": "D. It kills thousands of women annually.",
+          "explanation": "Every year, around 266,000 women die from cervical cancer worldwide; however, most of these deaths can be prevented through proper cervical cancer prevention and treatment programs."
+        },
+        {
+          "order": 2,
+          "question": "Why do most cervical cancer deaths occur in low- and middle-income countries?",
+          "options": [
+            "A. These countries have better screening programs.",
+            "B. There is less exposure to the HPV virus.",
+            "C. There is limited access to HPV vaccines and screening.",
+            "D. Women in these countries are more health conscious."
+          ],
+          "correctAnswer": "C. There is limited access to HPV vaccines and screening.",
+          "explanation": "Around 94% of cervical cancer deaths happened in low- and middle-income countries, showing a major gap in access to care. These differences are mainly due to inequality in access to HPV vaccines, cervical cancer screening and proper treatment."
+        },
+        {
+          "order": 3,
+          "question": "What are the estimated cervical cancer statistics in Ghana?",
+          "options": [
+            "A. 10 per 100,000 women are diagnosed, 5 per 100,000 die.",
+            "B. 18.3 per 100,000 women are diagnosed, 10 per 100,000 die.",
+            "C. 29.3 per 100,000 women are diagnosed, 27.6 per 100,000 die.",
+            "D. 50 per 100,000 women are diagnosed, 45 per 100,000 die."
+          ],
+          "correctAnswer": "C. 29.3 per 100,000 women are diagnosed, 27.6 per 100,000 die.",
+          "explanation": "In Ghana, 29.3 out of every 100,000 women are diagnosed with cervical cancer and 27.6 out of every 100,000 women die from it every year."
+        }
+      ]
+    }  
+  },
+  {
+    "module": "module-2",
+    "name": "Module 2. Part 1",
+    "completed": false,
+    "unlocked": false,
+    "icon": "Users",
+    "title": "Cervical Cancer: An Overview",
+    "description": "Learn how HPV infection leads to cervical cancer and how it's transmitted.",
+    "order": 2,
+    "introVideo": "https://drive.google.com/file/d/1MOHVNW985kgEmbBiU1xSBEnYMSNllilZ/preview?usp=drivesdk",
+    "sections": [
+      {
+        "name": "section-2-1",
+        "title": "What is Cancer?",
+        "description": "Introduction to cancer.",
+        "order": 1,
+        "learningCards": [
+          {
+            "name": "section-2-1card-1",
+            "title": "The normal",
+            "content": "The body is made up of millions of cells.\nEvery day, the body makes new cells to grow and replace old and damaged cells.\nSometimes during this process, some cells may grow abnormally and become unhealthy.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-2-1card-2",
+            "title": "The Abnormal",
+            "content": "Normally, the body fixes these abnormal cells. But if it can’t, they may keep growing and dividing.\nWhen this happens, it can lead to cancer.\nCancer is a term used for the malignant, autonomous and uncontrolled growth of cells and tissues.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-2-2",
+        "title": "What is Cervical Pre-Cancer",
+        "description": "Cervical Pre-Cancer",
+        "order": 2,
+        "learningCards": [
+          {
+            "name": "section-2-2card-1",
+            "title": "Cell Changes",
+            "content": "Cervical pre-cancer happens when the cells in the transformation zone of the cervix start to grow in an abnormal way.\nThis usually occurs when a high-risk HPV infection stays in the body for a long time.\n",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-2-2card-2",
+            "title": "Precancer and Cancer",
+            "content": "What makes cervical cancer different from many other cancers is that it usually starts as a pre-cancer that develops slowly over many years.\nThis provides ample opportunity for detection and treatment.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-2-3",
+        "title": "What is Cervical Cancer",
+        "description": "Cervical Cancer",
+        "order": 3,
+        "learningCards": [
+          {
+            "name": "section-2-3card-1",
+            "title": "Cervical Cancer and HPV",
+            "content": "Cervical cancer is caused by long-lasting infection with certain high-risk types of HPV.\nIt starts when cells in the cervix begin to change abnormally.\nIt is the only gynecologic cancer that can be prevented through regular screening and HPV vaccination.\n",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-2-3card-2",
+            "title": "Precancer and Cancer",
+            "content": "Vaccination helps detect or stop these abnormal changes before they turn into cancer.\nIn addition, if detected early and treated, cervical cancer can be cured.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-2-4",
+        "title": "HPV Infection",
+        "description": "Cervical Cancer and HPV",
+        "order": 4,
+        "learningCards": [
+          {
+            "name": "section-2-4card-1",
+            "title": "Human Papilloma Virus",
+            "content": "Almost all cancers of the cervix are caused by a virus called the human papillomavirus, also known as HPV.\nThere are more than 100 different types of HPV, but not all types of HPV cause cervical cancer.\nHPV spreads from person to person through skin-to-skin contact of the genitals during sexual activity.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-2-4card-2",
+            "title": "Human Papilloma Virus",
+            "content": "It’s very common and can affect both women and men.\nAnyone who has ever been sexually active could have HPV.\nIn most cases, the body clears the virus on its own within one to two years.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-2-4card-3",
+            "title": "Human Papilloma Virus",
+            "content": "However, in rare cases where the virus doesn’t go away, certain types of HPV can cause abnormal cell changes that may develop into cervical cancer over time.",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          }
+        ],
+        "quizzes": []
+      }
+    ],
+    "preTest": {
+      "name": "pretest-2",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Which of the following best describes cancer?",
+          "options": [
+            "A. Process where the body repairs damaged cells.",
+            "B. Normal cell growth that replaces worn-out cells.",
+            "C. Uncontrolled growth of cells and tissues.",
+            "D. Condition where cells change in appearance."
+          ],
+          "correctAnswer": "C. Uncontrolled growth of cells and tissues.",
+          "explanation": "Cancer is a term used for the malignant, autonomous and uncontrolled growth of cells and tissues."
+        },
+        {
+          "order": 2,
+          "question": "How is cervical pre-cancer different from cervical cancer?",
+          "options": [
+            "A. Pre-cancer affects only the uterus, not the cervix.",
+            "B. Cervical cancer is less serious than per-cancer.",
+            "C. Pre-cancer cells do not spread and may return to normal",
+            "D. Pre-cancer cannot be detected through screening."
+          ],
+          "correctAnswer": "C. Pre-cancer cells do not spread and may return to normal",
+          "explanation": "Cervical pre-cancer happens when the cells in the transformation zone of the cervix start to grow in an abnormal way; however, it does not have the ability to spread to other organs. Cervical cancer can invade other organs."
+        },
+        {
+          "order": 3,
+          "question": "How long does cervical cancer typically take to develop?",
+          "options": [
+            "A. 1-2 years",
+            "B. 10-20 years",
+            "C. 1 month",
+            "D. 50 years"
+          ],
+          "correctAnswer": "B. 10-20 years",
+          "explanation": "Cervical cancer usually develops gradually, often over 10-20 years, as abnormal cells in the cervix progress to precancerous conditions like CIN (cervical intraepithelial neoplasia) and eventually to cancer"
+        },
+        {
+          "order": 4,
+          "question": "Which of the following best explains the link between HPV and cervical cancer?",
+          "options": [
+            "A. All types of HPV can directly lead to the development of cervical cancer.",
+            "B. HPV causes immediate onset of cervical cancer in all individuals that are infected.",
+            "C. Only certain types of HPV that persist in the body can cause abnormal cell changes.",
+            "D. Cervical cancer is caused by skin-to-skin contact unrelated to the type of HPV infection."
+          ],
+          "correctAnswer": "C. Only certain types of HPV that persist in the body can cause abnormal cell changes.",
+          "explanation": "Only specific types of HPV, and only in rare cases when the virus is not cleared by the body, can lead to cervical cancer through abnormal cell changes."
+        }
+      ]
+    },
+    "postTest": {
+      "name": "posttest-2",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Which of the following best describes cancer?",
+          "options": [
+            "A. Process where the body repairs damaged cells.",
+            "B. Normal cell growth that replaces worn-out cells.",
+            "C. Uncontrolled growth of cells and tissues.",
+            "D. Condition where cells change in appearance."
+          ],
+          "correctAnswer": "C. Uncontrolled growth of cells and tissues.",
+          "explanation": "Cancer is a term used for the malignant, autonomous and uncontrolled growth of cells and tissues."
+        },
+        {
+          "order": 2,
+          "question": "How is cervical pre-cancer different from cervical cancer?",
+          "options": [
+            "A. Pre-cancer affects only the uterus, not the cervix.",
+            "B. Cervical cancer is less serious than per-cancer.",
+            "C. Pre-cancer cells do not spread and may return to normal",
+            "D. Pre-cancer cannot be detected through screening."
+          ],
+          "correctAnswer": "C. Pre-cancer cells do not spread and may return to normal",
+          "explanation": "Cervical pre-cancer happens when the cells in the transformation zone of the cervix start to grow in an abnormal way; however, it does not have the ability to spread to other organs. Cervical cancer can invade other organs."
+        },
+        {
+          "order": 3,
+          "question": "How long does cervical cancer typically take to develop?",
+          "options": [
+            "A. 1-2 years",
+            "B. 10-20 years",
+            "C. 1 month",
+            "D. 50 years"
+          ],
+          "correctAnswer": "B. 10-20 years",
+          "explanation": "Cervical cancer usually develops gradually, often over 10-20 years, as abnormal cells in the cervix progress to precancerous conditions like CIN (cervical intraepithelial neoplasia) and eventually to cancer"
+        },
+        {
+          "order": 4,
+          "question": "Which of the following best explains the link between HPV and cervical cancer?",
+          "options": [
+            "A. All types of HPV can directly lead to the development of cervical cancer.",
+            "B. HPV causes immediate onset of cervical cancer in all individuals that are infected.",
+            "C. Only certain types of HPV that persist in the body can cause abnormal cell changes.",
+            "D. Cervical cancer is caused by skin-to-skin contact unrelated to the type of HPV infection."
+          ],
+          "correctAnswer": "C. Only certain types of HPV that persist in the body can cause abnormal cell changes.",
+          "explanation": "Only specific types of HPV, and only in rare cases when the virus is not cleared by the body, can lead to cervical cancer through abnormal cell changes."
+        }
+      ]
+    }
+  },
+  {
+    "module": "module-3",
+    "name": "Module 2. Part 2",
+    "completed": false,
+    "unlocked": false,
+    "icon": "Users",
+    "title": "Cervical Cancer: An Overview: 2",
+    "description": "Continue to learn how HPV infection leads to cervical cancer and how it's transmitted.",
+    "order": 3,
+    "introVideo": "https://drive.google.com/file/d/1MOHVNW985kgEmbBiU1xSBEnYMSNllilZ/preview?usp=drivesdk",
+    "sections": [
+      {
+        "name": "section-3-1",
+        "title": "The Development Timeline of Cervical Cancer",
+        "description": "Cervical Cancer and HPV",
+        "order": 1,
+        "learningCards": [
+          {
+            "name": "section-2-5card-1",
+            "title": "Human Papilloma Virus",
+            "content": "Cervical cancer usually develops gradually, often over 10–20 years, as abnormal cells in the cervix progress to precancerous conditions like CIN (cervical intraepithelial neoplasia) and eventually to cancer.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-2-5card-2",
+            "title": "Human Papilloma Virus",
+            "content": "In some cases, especially with weakened immune systems, this process can be faster, taking 5–10 years.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-3-2",
+        "title": "Routes Taken By Invasive Cancer Through The Body As It Progresses",
+        "description": "Cervical Cancer and HPV",
+        "order": 2,
+        "learningCards": [
+          {
+            "name": "section-2-6card-1",
+            "title": "Invasion Routes",
+            "content": "There are four, usually sequential, routes through which invasive cancer progresses.\n\nHow cervical cancer spreads:\n\na) Within the cervix: It can start small and gradually grow to cover the whole cervix, which may become as large as 8 cm. The cancer might form an open sore, grow outward, or spread inward.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-2-6card-2",
+            "title": "Invasion Routes",
+            "content": "b) To nearby organs: It can directly spread in all directions. It can spread downwards to the vagina, upwards into the uterus, sideways into the tissues supporting the uterus in the pelvis and the ureters, backwards to the rectum, and forwards to the bladder.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-2-6card-3",
+            "title": "Cancer Spread",
+            "content": "c) Through the lymph system: Even if the cancer is still in the cervix, it can spread to nearby lymph nodes in about 15% of cases. \nAs the cancer grows, it may spread to more distant nodes, even as far as the collarbone. \nIf cancer spreads to the lower vagina, the groin nodes may also be affected.",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-2-6card-4",
+            "title": "Cancer Spread",
+            "content": "d) To distant parts of the body: Cancer cells can travel through the blood or lymph and reach places like the liver, bones, lungs, or brain.\n\nImportant note:\nInvasive cervical cancer can often be cured with proper treatment if caught early. But without treatment, it usually spreads and becomes life-threatening.",
+            "infographic": "/images/placeholder.svg",
+            "order": 4
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-3-3",
+        "title": "Cervical Cancer And Human Immunodeficiency Virus (HIV) Infection",
+        "description": "Cervical Cancer and HIV",
+        "order": 3,
+        "learningCards": [
+          {
+            "name": "section-2-7card-1",
+            "title": "HIV",
+            "content": "Cervical cancer is one of the defining illnesses linked to AIDS in women with HIV. \nWomen with HIV (and others with weak immune systems) are more likely to get infected with HPV. \nThe weaker the immune system, the higher the risk.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-2-7card-2",
+            "title": "Human Papilloma Virus",
+            "content": "Because of this, women with HIV:\n• Are more likely to develop cervical pre-cancer or cancer at a younger age.\n• Can develop cervical cancer up to 10 years earlier than women without HIV.\n• Often have more advanced cancer by the time it’s diagnosed, reducing their chances of surviving by 5 years.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          }
+        ],
+        "quizzes": []
+      }
+    ],
+    "preTest": {
+      "name": "pretest-3",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Which group of individuals are most at risk of HPV infection?",
+          "options": [
+            "A. Only women who have had multiple sexual partners",
+            "B. Only men who engage in unprotected multiple sex",
+            "C. Sexually active individuals, regardless of gender.",
+            "D. Individuals with weakened immune systems only"
+          ],
+          "correctAnswer": "C. Sexually active individuals, regardless of gender.",
+          "explanation": "The passage states that HPV is very common and can affect both women and men. Anyone who has ever been sexually active could have HPV."
+        },
+        {
+          "order": 2,
+          "question": "What are the sequential ways by which cervical cancer can spread to other parts of the body?",
+          "options": [
+            "A. Cervix → nearby organs → lymph system → distant parts of the body",
+            "B. Cervix → lymph system → nearby organs → distant parts of the body",
+            "C. Cervix → distant parts of the body → lymph system → nearby organs",
+            "D. Cervix → lower vagina → blood vessels → distant parts of the body"
+          ],
+          "correctAnswer": "A. Cervix → nearby organs → lymph system → distant parts of the body",
+          "explanation": "Cervical cancer spreads within the cervix to nearby organs through the lymph system to distant parts of the body."
+        },
+        {
+          "order": 3,
+          "question": "How does HIV increase the risk of cervical cancer development in women?",
+          "options": [
+            "A. HIV directly mutates cervical cells",
+            "B. HIV weakens the immune system",
+            "C. HIV increases estrogen levels",
+            "D. HIV causes cervical cancer independently of HPV infection."
+          ],
+          "correctAnswer": "B. HIV weakens the immune system",
+          "explanation": "HIV compromises the immune system, which reduces the body's ability to fight off HPV infection. Persistent HPV infection increases the risk of cervical pre-cancer and cancer."
+        }
+      ]
+    },
+    "postTest": {
+      "name": "posttest-3",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Which group of individuals are most at risk of HPV infection?",
+          "options": [
+            "A. Only women who have had multiple sexual partners",
+            "B. Only men who engage in unprotected multiple sex",
+            "C. Sexually active individuals, regardless of gender.",
+            "D. Individuals with weakened immune systems only"
+          ],
+          "correctAnswer": "C. Sexually active individuals, regardless of gender.",
+          "explanation": "The passage states that HPV is very common and can affect both women and men. Anyone who has ever been sexually active could have HPV."
+        },
+        {
+          "order": 2,
+          "question": "What are the sequential ways by which cervical cancer can spread to other parts of the body?",
+          "options": [
+            "A. Cervix → nearby organs → lymph system → distant parts of the body",
+            "B. Cervix → lymph system → nearby organs → distant parts of the body",
+            "C. Cervix → distant parts of the body → lymph system → nearby organs",
+            "D. Cervix → lower vagina → blood vessels → distant parts of the body"
+          ],
+          "correctAnswer": "A. Cervix → nearby organs → lymph system → distant parts of the body",
+          "explanation": "Cervical cancer spreads within the cervix to nearby organs through the lymph system to distant parts of the body."
+        },
+        {
+          "order": 3,
+          "question": "How does HIV increase the risk of cervical cancer development in women?",
+          "options": [
+            "A. HIV directly mutates cervical cells",
+            "B. HIV weakens the immune system",
+            "C. HIV increases estrogen levels",
+            "D. HIV causes cervical cancer independently of HPV infection."
+          ],
+          "correctAnswer": "B. HIV weakens the immune system",
+          "explanation": "HIV compromises the immune system, which reduces the body's ability to fight off HPV infection. Persistent HPV infection increases the risk of cervical pre-cancer and cancer."
+        }
+      ]
+    }
+  },
+  {
+    "module": "module-4",
+    "name": "Module 3",
+    "completed": false,
+    "unlocked": false,
+    "icon": "Users",
+    "title": "Risk Factors, Signs, Symptoms And Screening Tests For Cervical Cancer",
+    "description": "Understand the etiology of cervical cancer",
+    "order": 4,
+    "introVideo": "https://drive.google.com/file/d/1_IobZOZ1AMm2vmJZqi2Ds6QnhAXwllAD/preview?usp=drivesdk",
+    "sections": [
+      {
+        "name": "section-4-1",
+        "title": "Risk Factors",
+        "description": "Learn about risk factors",
+        "order": 1,
+        "learningCards": [
+          {
+            "name": "section-3-1card-1",
+            "title": "VIA",
+            "content": "• Human papillomavirus (HPV) infection\n• Weakened immune system – immunocompromised persons (eg. those living with HIV)",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-3-1card-2",
+            "title": "Risk Factors; continued",
+            "content": "• Other sexually transmitted infections (STI) – other STIs (eg. herpes, chlamydia, gonorrhoea, syphilis) increase the risk of HPV, which can lead to cervical cancer.\n• Multiple sexual partners – multiple sexual partners increase one’s chance of getting HPV.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-3-1card-3",
+            "title": "Risk Factors; continued",
+            "content": "• Early onset of sexual activity\n• Tobacco smoking\n• Use of oral contraceptives for over five years",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-4-2",
+        "title": "Signs And Symptoms",
+        "description": "Signs and Symptoms of Cervical Cancer",
+        "order": 2,
+        "learningCards": [
+          {
+            "name": "section-3-2card-1",
+            "title": "Early disease symptoms",
+            "content": "Early on, cervical cancer usually doesn’t have symptoms, making it hard to detect. \nSymptoms usually begin after the cancer has spread.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-3-2card-2",
+            "title": "Early Stage",
+            "content": "When symptoms of early-stage cervical cancer do occur, they may include:\n• Bleeding after sex\n• Bleeding after menopause",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-3-2card-3",
+            "title": "Early Stage",
+            "content": "• Bleeding between periods that are heavier or longer than normal\n• Foul-smelling vaginal discharge\n• Pain during sex",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-3-2card-4",
+            "title": "Advanced Signs and Symptoms",
+            "content": "Advanced disease symptoms\nSymptoms of advanced cervical cancer may include the symptoms of early-stage cervical cancer and:\n• Difficulty or painful bowel movements or bleeding from the rectum during excretion",
+            "infographic": "/images/placeholder.svg",
+            "order": 4
+          },
+          {
+            "name": "section-3-2card-5",
+            "title": "Advanced Signs and Symptoms",
+            "content": "• Difficult or painful urination or blood in urine\n• Swelling of the legs\n• Dull backache\n• Pain in abdomen\n• Feeling tired",
+            "infographic": "/images/placeholder.svg",
+            "order": 5
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-4-3",
+        "title": "Screening",
+        "description": "Screening Tests",
+        "order": 3,
+        "learningCards": [
+          {
+            "name": "section-3-3card-1",
+            "title": "What is screening?",
+            "content": "Screening refers to the application of a test or procedure to identify unrecognized disease in people who have no symptoms or are not suspected of having a particular condition. ",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-3-3card-2",
+            "title": "What is screening?",
+            "content": "Cervical cancer prevention programmes aim to screen the largest possible proportion of women and ensure appropriate management for all those who have a positive or abnormal test result.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-3-3card-3a",
+            "title": "Benefits",
+            "content": "Some benefits of cervical cancer screening include:\n1. Early detection of pre-cancer – screening helps to detect and treat cases of pre-cancer before they progress to cancer.",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-3-3card-3b",
+            "title": "Benefits; continued",
+            "content": "2. Early detection of cancer – screening helps to detect cervical cancer in women at an early stage when the cancer can still be successfully treated.",
+            "infographic": "/images/placeholder.svg",
+            "order": 4
+          },
+          {
+            "name": "section-3-3card-3c",
+            "title": "Benefits; continued",
+            "content": "3. Reduced incidence of cervical cancer – by treating pre-cancerous conditions, screening helps prevent cervical cancer from developing.",
+            "infographic": "/images/placeholder.svg",
+            "order": 5
+          },
+          {
+            "name": "section-3-3card-4",
+            "title": "Screening methods for cervical pre-cancer",
+            "content": "\nUntil a few years ago, the only method of screening for cervical cancer was the Papanicolaou (“Pap”) smear or cytology. \nNewer methods have now been developed for cervical cancer screening and these are molecular HPV screening tests and visual inspection with acetic acid.",
+            "infographic": "/images/placeholder.svg",
+            "order": 6
+          },
+          {
+            "name": "section-3-3card-5a",
+            "title": "HPV Testing",
+            "content": "HPV tests check for the DNA of high-risk HPV types in vaginal or cervical samples.\n• HPV testing helps find women at risk early, so they can be treated before cancer develops.",
+            "infographic": "/images/placeholder.svg",
+            "order": 7
+          },
+          {
+            "name": "section-3-3card-5b",
+            "title": "HPV Testing",
+            "content": "\n• In many places, HPV tests are done in a lab, but newer, low-cost tests that give same-day results at the clinic are being introduced.\n• It's important to use approved and reliable HPV tests to make sure the results are accurate.",
+            "infographic": "/images/placeholder.svg",
+            "order": 8
+          },
+          {
+            "name": "section-3-3card-6",
+            "title": "Who should be tested?",
+            "content": "HPV testing is recommended for women aged 30 and above.\n• This is because younger women often clear HPV naturally, and testing them may lead to unnecessary worry and treatment.\n• In women over 30, a positive HPV test is more serious. It means the virus might stay in the body and could lead to cervical cancer if not treated.",
+            "infographic": "/images/placeholder.svg",
+            "order": 9
+          },
+          {
+            "name": "section-3-3card-7a",
+            "title": "How to screen",
+            "content": "• HPV testing doesn’t always need a pelvic exam.\n• A healthcare provider can collect the sample using a small brush inserted into the vagina.",
+            "infographic": "/images/placeholder.svg",
+            "order": 10
+          },
+          {
+            "name": "section-3-3card-7b",
+            "title": "How to screen",
+            "content": "• This can be done with or without using a speculum to see the cervix.\n• Women can also collect the sample themselves using a provided brush and container after being shown how.\n• Self-collection is cheaper for health services and more convenient for many women.",
+            "infographic": "/images/placeholder.svg",
+            "order": 11
+          },
+          {
+            "name": "section-3-3card-8a",
+            "title": "Visual screening methods",
+            "content": "• VIA is best for women under 50 because the part of the cervix where cell changes usually happen is easier to see before menopause.\n• After menopause, this area moves deeper inside the body, making it harder to spot problems just by looking.",
+            "infographic": "/images/placeholder.svg",
+            "order": 12
+          },
+          {
+            "name": "section-3-3card-8b",
+            "title": "How to screen",
+            "content": "VIA requires the use of a speculum, light source, and a trained health-care provider.\n• The provider examines the cervix and applies the acetic acid using a cotton swab.",
+            "infographic": "/images/placeholder.svg",
+            "order": 13
+          },
+          {
+            "name": "section-3-3card-8c",
+            "title": "Visual screening methods",
+            "content": "After one minute, any white areas that stay (and don’t fade) could mean pre-cancer or cancer.\nIf these white areas have clear edges and are in the right spot on the cervix, the test is considered positive.",
+            "infographic": "/images/placeholder.svg",
+            "order": 14
+          },
+          {
+            "name": "section-3-3card-8d",
+            "title": "Visual screening methods",
+            "content": "Visual Inspection with Acetic Acid (VIA) is a method used to check for early changes in the cervix.\n• A health worker applies a solution (3–5% acetic acid) to the cervix and looks at it directly using a speculum.\n• This method needs trained health workers and regular quality checks to make sure it's done correctly.",
+            "infographic": "/images/placeholder.svg",
+            "order": 15
+          },
+          {
+            "name": "section-3-3card-9a",
+            "title": "Cytology-based screening methods",
+            "content": "The cytology-based screening is a method that involves collecting cells from the transformation zone of the cervix.\n• The cells are spread directly onto a glass slide and fixed with a special solution or placed in a transport medium and then sent to the laboratory.",
+            "infographic": "/images/placeholder.svg",
+            "order": 16
+          },
+          {
+            "name": "section-3-3card-9b",
+            "title": "Cytology-based screening methods",
+            "content": "In the laboratory, these cells are examined by experts under a microscope.\n• If abnormal cells are found, they are classified using a system called The Bethesda System.\n",
+            "infographic": "/images/placeholder.svg",
+            "order": 17
+          },
+          {
+            "name": "section-3-3card-9c",
+            "title": "Cytology-based screening methods",
+            "content": "A cytology-based screening programme can use one of the two available methods:\n•The conventional Pap smear (or Pap test)\n•Liquid-based cytology (LBC)",
+            "infographic": "/images/placeholder.svg",
+            "order": 18
+          },
+          {
+            "name": "section-3-3card-9d",
+            "title": "How to screen",
+            "content": "• Collection of a cytology sample requires a speculum and adequate lighting to visualize the entire surface of the cervix.\n• The provider takes specimens from the face of the cervix and the endocervix using a spatula or brush and transfers the specimen to a slide (Pap smear) or a preservative solution (LBC)",
+            "infographic": "/images/placeholder.svg",
+            "order": 19
+          },
+          {
+            "name": "section-3-3card-9e",
+            "title": "How to screen",
+            "content": "• The sample must be appropriately labelled and transported to the laboratory, where skilled personnel are needed to process and interpret it.",
+            "infographic": "/images/placeholder.svg",
+            "order": 20
+          }
+        ],
+        "quizzes": []
+      }
+    ],
+    "preTest": {
+      "name": "pretest-4",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Which combination of behaviours is most likely to increase a woman's risk of acquiring HPV?",
+          "options": [
+            "A. Tobacco smoking and eating unhealthy food regularly",
+            "B. Having multiple sexual partners and early sexual debut",
+            "C. Using antibiotics frequently and poor hygiene as a woman",
+            "D. High alcohol consumption and lack of regular exercise"
+          ],
+          "correctAnswer": "B. Having multiple sexual partners and early sexual debut",
+          "explanation": "Both multiple sexual partners and early onset of sexual activity increase the chance of exposure to HPV, which is the leading cause of cervical cancer."
+        },
+        {
+          "order": 2,
+          "question": "What role does tobacco smoking play in the development of cervical cancer?",
+          "options": [
+            "A. It reduces the efficacy and effectiveness of the HPV vaccine",
+            "B. It damages and causes chronic inflammation in the cervix",
+            "C. It weakens the immune system and damages cervical cells",
+            "D. It alters hormonal levels, increasing HPV replication"
+          ],
+          "correctAnswer": "C. It weakens the immune system and damages cervical cells",
+          "explanation": "Tobacco smoke contains carcinogens that can damage cervical cells and impair immune function, both of which may promote cervical cancer in HPV-positive individuals."
+        },
+        {
+          "order": 3,
+          "question": "Bleeding associated with early-stage cervical cancer typically present as ....",
+          "options": [
+            "A. Only heavy bleeding during regular monthly periods",
+            "B. Bleeding that is predictable and cyclical in nature",
+            "C. Bleeding after sex, between periods, or postmenopausal",
+            "D. Spotting during ovulation only"
+          ],
+          "correctAnswer": "C. Bleeding after sex, between periods, or postmenopausal",
+          "explanation": "Early-stage cervical cancer may cause irregular bleeding including postcoital bleeding, postmenopausal bleeding, and intermenstrual bleeding."
+        },
+        {
+          "order": 4,
+          "question": "What is the primary purpose of HPV testing in cervical cancer prevention?",
+          "options": [
+            "A. To confirm the presence of cancer cells",
+            "B. To identify women who are currently having HPV and HIV",
+            "C. To detect high-risk HPV types before cancer develops",
+            "D. To screen for all types of sexually transmitted infections"
+          ],
+          "correctAnswer": "C. To detect high-risk HPV types before cancer develops",
+          "explanation": "HPV testing helps identify high-risk HPV infections early, allowing for timely treatment before cervical cancer develops."
+        },
+        {
+          "order": 5,
+          "question": "What is the recommended age for HPV testing?",
+          "options": [
+            "A. 15 years",
+            "B. 20 years",
+            "C. 25 years",
+            "D. 30 years"
+          ],
+          "correctAnswer": "D. 30 years",
+          "explanation": "Younger women often clear HPV naturally, so testing them can lead to unnecessary worry and treatment. In contrast, persistent HPV in older women is more likely to cause cancer."
+        },
+        {
+          "order": 6,
+          "question": "What is the main purpose of Visual Inspection with Acetic Acid (VIA)?",
+          "options": [
+            "A. To treat cervical cancer immediately",
+            "B. To detect early changes in the cervix",
+            "C. To measure cervical pH levels",
+            "D. To test for HPV DNA presence in the cervix"
+          ],
+          "correctAnswer": "B. To detect early changes in the cervix",
+          "explanation": "VIA is used to visually detect early changes in cervical tissue that may signal precancerous lesions"
+        },
+        {
+          "order": 7,
+          "question": "What solution is used in the VIA procedure to highlight abnormal cervical areas?",
+          "options": [
+            "A. Saline",
+            "B. Iodine",
+            "C. Acetic acid",
+            "D. Hydrogen peroxide"
+          ],
+          "correctAnswer": "C. Acetic acid",
+          "explanation": "The cervix is swabbed with 3–5% acetic acid during VIA to help visualize abnormal tissue changes."
+        },
+        {
+          "order": 8,
+          "question": "Which group of women is VIA most effective for?",
+          "options": [
+            "A. Women under 30 years",
+            "B. Women under 50 years",
+            "C. Women above 60 years",
+            "D. Women who have never been sexually active"
+          ],
+          "correctAnswer": "B. Women under 50 years",
+          "explanation": "VIA is most effective in women under 50, as the area of the cervix where abnormal cell changes occur is more visible before menopause."
+        },
+        {
+          "order": 9,
+          "question": "What are the two main methods used in cytology-based cervical screening programmes?",
+          "options": [
+            "A. PCR and visual inspection cytology",
+            "B. VIA and HPV DNA testing cytology",
+            "C. Pap smear and liquid-based cytology",
+            "D. Endometrial biopsy and ultrasound"
+          ],
+          "correctAnswer": "C. Pap smear and liquid-based cytology",
+          "explanation": "The two main methods are the conventional Pap smear and liquid-based cytology (LBC)."
+        }
+      ]
+    },
+    "postTest": {
+      "name": "posttest-4",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Which combination of behaviours is most likely to increase a woman's risk of acquiring HPV?",
+          "options": [
+            "A. Tobacco smoking and eating unhealthy food regularly",
+            "B. Having multiple sexual partners and early sexual debut",
+            "C. Using antibiotics frequently and poor hygiene as a woman",
+            "D. High alcohol consumption and lack of regular exercise"
+          ],
+          "correctAnswer": "B. Having multiple sexual partners and early sexual debut",
+          "explanation": "Both multiple sexual partners and early onset of sexual activity increase the chance of exposure to HPV, which is the leading cause of cervical cancer."
+        },
+        {
+          "order": 2,
+          "question": "What role does tobacco smoking play in the development of cervical cancer?",
+          "options": [
+            "A. It reduces the efficacy and effectiveness of the HPV vaccine",
+            "B. It damages and causes chronic inflammation in the cervix",
+            "C. It weakens the immune system and damages cervical cells",
+            "D. It alters hormonal levels, increasing HPV replication"
+          ],
+          "correctAnswer": "C. It weakens the immune system and damages cervical cells",
+          "explanation": "Tobacco smoke contains carcinogens that can damage cervical cells and impair immune function, both of which may promote cervical cancer in HPV-positive individuals."
+        },
+        {
+          "order": 3,
+          "question": "Bleeding associated with early-stage cervical cancer typically present as ....",
+          "options": [
+            "A. Only heavy bleeding during regular monthly periods",
+            "B. Bleeding that is predictable and cyclical in nature",
+            "C. Bleeding after sex, between periods, or postmenopausal",
+            "D. Spotting during ovulation only"
+          ],
+          "correctAnswer": "C. Bleeding after sex, between periods, or postmenopausal",
+          "explanation": "Early-stage cervical cancer may cause irregular bleeding including postcoital bleeding, postmenopausal bleeding, and intermenstrual bleeding."
+        },
+        {
+          "order": 4,
+          "question": "What is the primary purpose of HPV testing in cervical cancer prevention?",
+          "options": [
+            "A. To confirm the presence of cancer cells",
+            "B. To identify women who are currently having HPV and HIV",
+            "C. To detect high-risk HPV types before cancer develops",
+            "D. To screen for all types of sexually transmitted infections"
+          ],
+          "correctAnswer": "C. To detect high-risk HPV types before cancer develops",
+          "explanation": "HPV testing helps identify high-risk HPV infections early, allowing for timely treatment before cervical cancer develops."
+        },
+        {
+          "order": 5,
+          "question": "What is the recommended age for HPV testing?",
+          "options": [
+            "A. 15 years",
+            "B. 20 years",
+            "C. 25 years",
+            "D. 30 years"
+          ],
+          "correctAnswer": "D. 30 years",
+          "explanation": "Younger women often clear HPV naturally, so testing them can lead to unnecessary worry and treatment. In contrast, persistent HPV in older women is more likely to cause cancer."
+        },
+        {
+          "order": 6,
+          "question": "What is the main purpose of Visual Inspection with Acetic Acid (VIA)?",
+          "options": [
+            "A. To treat cervical cancer immediately",
+            "B. To detect early changes in the cervix",
+            "C. To measure cervical pH levels",
+            "D. To test for HPV DNA presence in the cervix"
+          ],
+          "correctAnswer": "B. To detect early changes in the cervix",
+          "explanation": "VIA is used to visually detect early changes in cervical tissue that may signal precancerous lesions"
+        },
+        {
+          "order": 7,
+          "question": "What solution is used in the VIA procedure to highlight abnormal cervical areas?",
+          "options": [
+            "A. Saline",
+            "B. Iodine",
+            "C. Acetic acid",
+            "D. Hydrogen peroxide"
+          ],
+          "correctAnswer": "C. Acetic acid",
+          "explanation": "The cervix is swabbed with 3–5% acetic acid during VIA to help visualize abnormal tissue changes."
+        },
+        {
+          "order": 8,
+          "question": "Which group of women is VIA most effective for?",
+          "options": [
+            "A. Women under 30 years",
+            "B. Women under 50 years",
+            "C. Women above 60 years",
+            "D. Women who have never been sexually active"
+          ],
+          "correctAnswer": "B. Women under 50 years",
+          "explanation": "VIA is most effective in women under 50, as the area of the cervix where abnormal cell changes occur is more visible before menopause."
+        },
+        {
+          "order": 9,
+          "question": "What are the two main methods used in cytology-based cervical screening programmes?",
+          "options": [
+            "A. PCR and visual inspection cytology",
+            "B. VIA and HPV DNA testing cytology",
+            "C. Pap smear and liquid-based cytology",
+            "D. Endometrial biopsy and ultrasound"
+          ],
+          "correctAnswer": "C. Pap smear and liquid-based cytology",
+          "explanation": "The two main methods are the conventional Pap smear and liquid-based cytology (LBC)."
+        }
+      ]
+    }
+  },
+  {
+    "module": "module-5",
+    "name": "Module 4",
+    "completed": false,
+    "unlocked": false,
+    "icon": "Users",
+    "title": "Prevention Strategies",
+    "description": "Explore how vaccines, lifestyle, and safe practices help prevent cervical cancer.",
+    "order": 5,
+    "introVideo": "https://drive.google.com/file/d/1gizxda5JDE2mmtuWcy5PK8P1qAo8LwLy/preview?usp=drive_link",
+    "sections": [
+      {
+        "name": "section-5-1",
+        "title": "HPV Vaccination",
+        "description": "Why and when to get vaccinated.",
+        "order": 1,
+        "learningCards": [
+          {
+            "name": "section-4-1card-1",
+            "title": "Vaccine Types",
+            "content": "Human papillomavirus (HPV) is the most common sexually transmitted infection (STI). Cervical cancer is caused by high-risk types of HPV. There are currently vaccines that prevent infections from high-risk HPV types. Vaccinating girls before initiation of sexual activity is an important primary prevention intervention against cervical cancer.\n",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-4-1card-2",
+            "title": "Key WHO recommendations on HPV vaccines",
+            "content": "Eligible individuals for vaccination\n• Target group - girls aged 9–14 years\n • Other groups include:\n • Girls aged 15 years and older\n • Immunocompromised individuals, including those living with HIV",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-4-1card-3",
+            "title": "Appropriate dosing schedule and target population",
+            "content": "• For girls under 15 years at the first dose:\n  •A one or two-dose schedule is required.\n • The interval between the two doses should be 6 months.\n  • The maximum interval between the doses should not be more than 12–15 months.\n  • If the second dose is given less than 5 months after the first dose, then a third dose is required and should be given at least six months after the first dose.\n\n• For girls aged 15–20 years:\n  • A one- or two-dose schedule is needed.",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-4-1card-3b",
+            "title": "Appropriate dosing schedule and target population",
+            "content": "• For women older than 21 years:\n  • Two doses with a 6-month interval required.\n\n• For immunocompromised and/or HIV-infected individuals:\n  • A minimum of 2 doses and when feasible, 3 doses are necessary.\n  • The interval between the first and second dose should be 1–2 months.\n  • The third dose should be given 6 months after the first dose to be fully protected.",
+            "infographic": "/images/placeholder.svg",
+            "order": 4
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-5-2",
+        "title": "HPV Vaccines",
+        "description": "HPV Vaccines and how they work",
+        "order": 2,
+        "learningCards": [
+          {
+            "name": "section-4-2card-1",
+            "title": "WHO Recommendations",
+            "content": "The two high-risk HPV types that cause cervical cancer are types 16 and 18, which together are responsible for approximately 70% of cervical cancer cases around the world.\n\n",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-4-2card-2",
+            "title": "Licensed HPV vaccines",
+            "content": "As of June 2024, the WHO recognizes three licensed HPV vaccines that provide protection against high-risk HPV types 16 and 18.\nThese vaccines are:\ni. Bivalent HPV vaccines (Cervarix)\nii. Quadrivalent HPV vaccines (Gardasil/Silgard)\niii. Nonavalent HPV vaccines (Gardasil 9)\n",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-4-2card-3",
+            "title": "How HPV vaccines work",
+            "content": "i. HPV vaccines contain virus-like particles that mimic the external structure of HPV.\nii. These virus-like particle vaccines contain no virus; therefore, cannot cause an HPV infection.\niii. The vaccines trigger the development of antibodies against these virus-like particles.\niv. These antibodies then prevent HPV infection in case of later exposure.\n",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-4-2card-4",
+            "title": "When to vaccinate and why",
+            "content": "i. Vaccines should be given before a girl has become infected with HPV.\nii. HPV vaccination should occur before the onset of sexual activity – HPV infection can occur right after sexual debut so early vaccination is key.\n",
+            "infographic": "/images/placeholder.svg",
+            "order": 4
+          },
+          {
+            "name": "section-4-2card-5",
+            "title": "Contraindications to HPV vaccines",
+            "content": "i. HPV vaccines should not be given to persons who have experienced severe allergic reactions after a previous dose of the vaccine or after exposure to one of its components (e.g. yeast).\n• Such severe allergic reactions include: itching, rash, urticaria or blisters.\n\nii. Girls with severe febrile illness should not be vaccinated.",
+            "infographic": "/images/placeholder.svg",
+            "order": 5
+          },
+          {
+            "name": "section-4-2card-5b",
+            "title": "Contraindications to HPV vaccines",
+            "content": "iii. HPV vaccines are not currently recommended for use in women who are pregnant.\n• No intervention is necessary in the event that an HPV vaccine is given to a pregnant woman.\n• The remaining vaccine dose(s) should be postponed until after the pregnancy to be completed.",
+            "infographic": "/images/placeholder.svg",
+            "order": 6
+          },
+          {
+            "name": "section-4-2card-5c",
+            "title": "Important note on HPV vaccines",
+            "content": "• HPV vaccines are preventive and not curative.\n• The vaccines do not treat existing HPV infections or HPV-related diseases.\n• HPV vaccines can be administered at the same time as other non-live vaccines.",
+            "infographic": "/images/placeholder.svg",
+            "order": 7
+          }
+        ],
+        "quizzes": []
+      }
+    ],
+    "preTest": {
+      "name": "pretest-5",
+      "questions": [
+        {
+          "order": 1,
+          "question": "According to WHO, what is the ideal target group for primary HPV vaccination?",
+          "options": [
+            "A. Women over 30 years old",
+            "B. Girls aged 9 – 14 years",
+            "C. All boys under 10 years",
+            "D. Women during pregnancy"
+          ],
+          "correctAnswer": "B. Girls aged 9 – 14 years",
+          "explanation": "The primary target group for HPV vaccination is girls aged 9–14 years, ideally before the initiation of sexual activity."
+        },
+        {
+          "order": 2,
+          "question": "What is the minimum number of doses required for full HPV vaccination in girls under 15 years?",
+          "options": [
+            "A. One or two doses",
+            "B. Three doses only",
+            "C. Two doses with a 3-week interval",
+            "D. Four doses at any interval"
+          ],
+          "correctAnswer": "A. One or two doses",
+          "explanation": "For girls under 15, a one- or two-dose schedule is acceptable. If two doses are given, they should be 6 months apart."
+        },
+        {
+          "order": 3,
+          "question": "What is the appropriate HPV vaccination schedule for women older than 21 years?",
+          "options": [
+            "A. One dose only",
+            "B. Two doses with a 6-month interval",
+            "C. Three doses with 2-week intervals",
+            "D. No vaccination is recommended after 21"
+          ],
+          "correctAnswer": "B. Two doses with a 6-month interval",
+          "explanation": "Women older than 21 require two doses of the HPV vaccine, spaced 6 months apart."
+        },
+        {
+          "order": 4,
+          "question": "Which of the following is a valid contraindication to HPV vaccination?",
+          "options": [
+            "A. Mild cold symptoms, headaches and menstrual cramps",
+            "B. History of severe allergic reaction to a previous HPV dose",
+            "C. Having received another vaccine within the past month",
+            "D. Being under 15 years of age and sexually inactive girl"
+          ],
+          "correctAnswer": "B. History of severe allergic reaction to a previous HPV dose",
+          "explanation": "Severe allergic reactions to a previous HPV dose or any of its components (e.g. yeast) are a contraindication to vaccination."
+        }
+      ]
+    },
+    "postTest": {
+      "name": "posttest-5",
+      "questions": [
+        {
+          "order": 1,
+          "question": "According to WHO, what is the ideal target group for primary HPV vaccination?",
+          "options": [
+            "A. Women over 30 years old",
+            "B. Girls aged 9 – 14 years",
+            "C. All boys under 10 years",
+            "D. Women during pregnancy"
+          ],
+          "correctAnswer": "B. Girls aged 9 – 14 years",
+          "explanation": "The primary target group for HPV vaccination is girls aged 9–14 years, ideally before the initiation of sexual activity."
+        },
+        {
+          "order": 2,
+          "question": "What is the minimum number of doses required for full HPV vaccination in girls under 15 years?",
+          "options": [
+            "A. One or two doses",
+            "B. Three doses only",
+            "C. Two doses with a 3-week interval",
+            "D. Four doses at any interval"
+          ],
+          "correctAnswer": "A. One or two doses",
+          "explanation": "For girls under 15, a one- or two-dose schedule is acceptable. If two doses are given, they should be 6 months apart."
+        },
+        {
+          "order": 3,
+          "question": "What is the appropriate HPV vaccination schedule for women older than 21 years?",
+          "options": [
+            "A. One dose only",
+            "B. Two doses with a 6-month interval",
+            "C. Three doses with 2-week intervals",
+            "D. No vaccination is recommended after 21"
+          ],
+          "correctAnswer": "B. Two doses with a 6-month interval",
+          "explanation": "Women older than 21 require two doses of the HPV vaccine, spaced 6 months apart."
+        },
+        {
+          "order": 4,
+          "question": "Which of the following is a valid contraindication to HPV vaccination?",
+          "options": [
+            "A. Mild cold symptoms, headaches and menstrual cramps",
+            "B. History of severe allergic reaction to a previous HPV dose",
+            "C. Having received another vaccine within the past month",
+            "D. Being under 15 years of age and sexually inactive girl"
+          ],
+          "correctAnswer": "B. History of severe allergic reaction to a previous HPV dose",
+          "explanation": "Severe allergic reactions to a previous HPV dose or any of its components (e.g. yeast) are a contraindication to vaccination."
+        }
+      ]
+    }
+  },
+  {
+    "module": "module-6",
+    "name": "Module 5",
+    "completed": false,
+    "unlocked": false,
+    "icon": "Users",
+    "title": "Diagnosis and Staging of Cervical Cancer",
+    "description": "Understand the staging and diagnostic methods for cervical precancer.",
+    "order": 6,
+    "introVideo": "https://drive.google.com/file/d/1JBz22M3ozJoqJsYO68B6ESONwrqylUHz/preview?usp=drive_link",
+    "sections": [
+      {
+        "name": "section-6-1",
+        "title": "Diagnostic Tests",
+        "description": "Diagnostic Tests",
+        "order": 1,
+        "learningCards": [
+          {
+            "name": "section-5-1card-1",
+            "title": "Role of diagnostic tests",
+            "content": "• A diagnostic or confirmatory test is a medical test performed to aid in the diagnosis or detection of a disease.\n• Not all women with positive results on cervical screening tests actually have pre-cancer. As such, a subsequent diagnostic test is sometimes used for definitive diagnosis or confirmation of pre-cancer or cancer.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-5-1card-2",
+            "title": "Diagnostic tools",
+            "content": "The most commonly used diagnostic tests for cervical pre-cancer are colposcopy, biopsy and endocervical curettage (ECC).",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-5-1card-3a",
+            "title": "Diagnostic tools: Colposcopy",
+            "content": "This is a procedure used to closely examine the cervix, vagina, and vulva using a magnification tool and strong light.\n• It enables healthcare providers to observe surface tissue patterns and blood vessels in detail to detect abnormalities.",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-5-1card-3b",
+            "title": "• It is performed using a colposcope but specially designed video or digital cameras are being used of late.\n• Colposcopy is used on patients with positive screening results to:\n    i. Confirm the presence and severity of pre-cancer or cancer.",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-5-1card-3c",
+            "title": "ii. Guide biopsies of any areas that appear abnormal.\n\niii. Determine whether cryotherapy or loop electrosurgical excision procedure (LEEP) is the most appropriate treatment method.",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-5-1card-3d",
+            "title": "Diagnostic tools: Biopsy",
+            "content": "A biopsy is the removal of small samples of abnormal tissue from the cervix for examination under a microscope.\n• It helps to determine the degree of abnormality of the cell changes or to rule out cancer.\n• It is traditionally performed using special biopsy forceps.",
+            "infographic": "/images/placeholder.svg",
+            "order": 4
+          },
+          {
+            "name": "section-5-1card-3e",
+            "title": "Diagnostic tools: Endocervical curettage (ECC)",
+            "content": "ECC is a simple procedure used to collect cells from the endocervical canal.\n • It is usually conducted using a special thin instrument or spatula.\n  • It is used in the following circumstances:",
+            "infographic": "/images/placeholder.svg",
+            "order": 5
+          },
+          {
+            "name": "section-5-1card-3f",
+            "title": "Diagnostic tools: Endocervical curettage (ECC)",
+            "content": "i. Colposcopy shows nothing, but a screening test suggests a hidden pre-cancer or cancer.\nii. When a Pap smear shows glandular cell abnormalities, which may come from deep inside the canal.\niii. If screening and/or colposcopy were not adequate and cancer is suspected.",
+            "infographic": "/images/placeholder.svg",
+            "order": 6
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-6-2",
+        "title": "Cervical Cancer Staging",
+        "description": "Approaches depending on stage.",
+        "order": 2,
+        "learningCards": [
+          {
+            "name": "section-5-2card-1",
+            "title": "Systems",
+            "content": "Cervical cancer staging is done using one of the existing international staging systems.\n\n• Importance of cervical cancer staging\n • It is used to determine the extent of the cervical cancer invasion and the presence or absence of distant metastases.\n • It helps specialists choose the most suitable treatment for the patient.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-5-2card-2",
+            "title": "What is FIGO?",
+            "content": "Several systems exist, but the FIGO staging system is the most widely used. \nFIGO stands for International Federation of Gynaecology and Obstetrics\n  • This staging system classifies cancer based on tumour size, spread within the pelvis and spread to distant organs.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-5-2card-3",
+            "title": "Staging breakdown",
+            "content": "The FIGO system describes four stages of cervical cancer\nThese include:\n • Stage I: The disease is confined to the cervix.\n • Stage II: Cancer has spread beyond the cervix but not to the pelvic wall or lower part of the vagina.",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-5-2card-4",
+            "title": "Staging breakdown",
+            "content": "• Stage III: Cancer has spread to the pelvic wall and/or lower part of the vagina.\n• Stage IV: Cancer has spread to surrounding organs or distant tissue, such as the lungs and distant lymph nodes.",
+            "infographic": "/images/placeholder.svg",
+            "order": 4
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-6-3",
+        "title": "Factors Influencing Cervical Cancer Prognosis",
+        "description": "Approaches depending on stage.",
+        "order": 2,
+        "learningCards": [
+          {
+            "name": "section-5-3card-1",
+            "title": "Prognosis",
+            "content": "• The single most important predictor of long-term survival is the clinical stage of the disease when the disease is first diagnosed.\n• The following additional factors also influence the chances a woman will survive for more than five years after treatment:",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-5-3card-1b",
+            "title": "Prognosis",
+            "content": "• Access to treatment\n• Presence of cancer in the lymph nodes\n• Having other chronic or acute health problems\n• Overall health and nutritional status, including the presence of anaemia\n• Weakened immune system (e.g. HIV status).",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          }
+        ],
+        "quizzes": []
+      }
+    ],
+    "preTest": {
+      "name": "pretest-6",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Colposcopy is primarily used for",
+          "options": [
+            "A. Screening for cervical cancer in asymptomatic women",
+            "B. Confirming and evaluating abnormal cervical screening results",
+            "C. Treating cervical pre-cancerous lesions directly in all women",
+            "D. Detecting ovarian cancer in low-risk and high-risk women"
+          ],
+          "correctAnswer": "B. Confirming and evaluating abnormal cervical screening results",
+          "explanation": "Colposcopy is a diagnostic test, not a primary screening tool. It is performed to closely examine the cervix, vagina, and vulva when Pap smear or HPV test results are abnormal."
+        },
+        {
+          "order": 2,
+          "question": "A biopsy in cervical cancer diagnosis involves:",
+          "options": [
+            "A. Examining the cervix with a medical imaging instrument to detect changes",
+            "B. Freezing abnormal cells on the cervix as a method of prevention and treatment",
+            "C. Testing for the presence of human papillomavirus in cervical cells",
+            "D. Taking a small tissue sample from the cervix for histopathological analysis"
+          ],
+          "correctAnswer": "D. Taking a small tissue sample from the cervix for histopathological analysis",
+          "explanation": "A biopsy is the removal of small samples of abnormal tissue from the cervix for examination under a microscope. A cervical biopsy is done after abnormal screening results or colposcopy findings to confirm the presence of precancerous changes or cancer."
+        },
+        {
+          "order": 3,
+          "question": "Endocervical curettage is used to",
+          "options": [
+            "A. Collect tissue from the endocervical canal for microscopic evaluation",
+            "B. Visualize the cervix with magnification to detect abnormal changes",
+            "C. Remove visible precancerous lesions from the surface of the cervix",
+            "D. Test cervical cells for the presence of high-risk human papillomavirus"
+          ],
+          "correctAnswer": "A. Collect tissue from the endocervical canal for microscopic evaluation",
+          "explanation": "Endocervical curettage is a simple procedure used to collect cells from the endocervical canal. It is often performed during colposcopy when the transformation zone or lesion extends into the endocervical canal and cannot be fully visualized"
+        },
+        {
+          "order": 4,
+          "question": "Which of the following best describes Stage IV cervical cancer?",
+          "options": [
+            "A. Cancer is limited to the cervix and has not spread elsewhere.",
+            "B. Cancer has spread beyond the cervix into the upper vagina but not further.",
+            "C. Cancer has extended to the pelvic wall and may involve nearby organs.",
+            "D. Cancer has spread to other organs or distant tissues."
+          ],
+          "correctAnswer": "D. Cancer has spread to other organs or distant tissues.",
+          "explanation": "For Stage IV, the cancer has spread to surrounding organs or distant tissue, such as the lungs and distant lymph nodes."
+        }
+      ]
+    },
+    "postTest": {
+      "name": "posttest-6",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Colposcopy is primarily used for",
+          "options": [
+            "A. Screening for cervical cancer in asymptomatic women",
+            "B. Confirming and evaluating abnormal cervical screening results",
+            "C. Treating cervical pre-cancerous lesions directly in all women",
+            "D. Detecting ovarian cancer in low-risk and high-risk women"
+          ],
+          "correctAnswer": "B. Confirming and evaluating abnormal cervical screening results",
+          "explanation": "Colposcopy is a diagnostic test, not a primary screening tool. It is performed to closely examine the cervix, vagina, and vulva when Pap smear or HPV test results are abnormal."
+        },
+        {
+          "order": 2,
+          "question": "A biopsy in cervical cancer diagnosis involves:",
+          "options": [
+            "A. Examining the cervix with a medical imaging instrument to detect changes",
+            "B. Freezing abnormal cells on the cervix as a method of prevention and treatment",
+            "C. Testing for the presence of human papillomavirus in cervical cells",
+            "D. Taking a small tissue sample from the cervix for histopathological analysis"
+          ],
+          "correctAnswer": "D. Taking a small tissue sample from the cervix for histopathological analysis",
+          "explanation": "A biopsy is the removal of small samples of abnormal tissue from the cervix for examination under a microscope. A cervical biopsy is done after abnormal screening results or colposcopy findings to confirm the presence of precancerous changes or cancer."
+        },
+        {
+          "order": 3,
+          "question": "Endocervical curettage is used to",
+          "options": [
+            "A. Collect tissue from the endocervical canal for microscopic evaluation",
+            "B. Visualize the cervix with magnification to detect abnormal changes",
+            "C. Remove visible precancerous lesions from the surface of the cervix",
+            "D. Test cervical cells for the presence of high-risk human papillomavirus"
+          ],
+          "correctAnswer": "A. Collect tissue from the endocervical canal for microscopic evaluation",
+          "explanation": "Endocervical curettage is a simple procedure used to collect cells from the endocervical canal. It is often performed during colposcopy when the transformation zone or lesion extends into the endocervical canal and cannot be fully visualized"
+        },
+        {
+          "order": 4,
+          "question": "Which of the following best describes Stage IV cervical cancer?",
+          "options": [
+            "A. Cancer is limited to the cervix and has not spread elsewhere.",
+            "B. Cancer has spread beyond the cervix into the upper vagina but not further.",
+            "C. Cancer has extended to the pelvic wall and may involve nearby organs.",
+            "D. Cancer has spread to other organs or distant tissues."
+          ],
+          "correctAnswer": "D. Cancer has spread to other organs or distant tissues.",
+          "explanation": "For Stage IV, the cancer has spread to surrounding organs or distant tissue, such as the lungs and distant lymph nodes."
+        }
+      ]
+    }
+  },
+  {
+    "module": "module-7",
+    "name": "Module 6",
+    "completed": false,
+    "unlocked": false,
+    "icon": "Users",
+    "title": "Treatment and Palliative Care",
+    "description": "Learn how education, policy, and advocacy support cervical cancer prevention.",
+    "order": 7,
+    "introVideo": "https://drive.google.com/file/d/1QKz-1fcmgh3CtE77J2e0VvGVuMz0-P4J/preview?usp=drivesdk",
+    "sections": [
+      {
+        "name": "section-7-1",
+        "title": "Treatment Options",
+        "description": "The power of community education.",
+        "order": 1,
+        "learningCards": [
+          {
+            "name": "section-6-1card-1",
+            "title": "Choosing a Treatment Plan",
+            "content": "Choosing a treatment plan depends on:\n  • Stage of the cancer\n  • General health of the woman\n  • Availability of facilities and specialists",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-6-1card-1b",
+            "title": "Choosing a Treatment Plan",
+            "content": "Cervical cancer treatment options include surgery, radiotherapy and chemotherapy.\n• These may be used alone or in combination.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-6-1card-2a",
+            "title": "Surgery",
+            "content": "The most common treatment for early-stage cancer is surgery.\nIt consists of the removal of varying amounts of tissues from the area involved with cancer and its surroundings.",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-6-1card-2b",
+            "title": "Surgery",
+            "content": "i. Simple hysterectomy\n• Removes the uterus and cervix\n• Suitable for very early stages\n\nii. Radical hysterectomy\n• Removes the uterus, cervix, part of the vagina, and nearby tissues\n\niii. Trachelectomy\n• Removes the cervix and upper vagina but preserves the uterus\n• Fertility-sparing option for some early-stage patients\n\n",
+            "infographic": "/images/placeholder.svg",
+            "order": 4
+          },
+          {
+            "name": "section-6-1card-2c",
+            "title": "Surgery",
+            "content": "Side effects of surgery:\n  • Pain or discomfort in the abdomen or pelvic area\n  • An infection where the surgery was done\n  • Bleeding during or after surgery\n  • Possible injury to nearby organs like the bladder or bowel\n  • Blood clots in the legs if the patient stays in bed too long after surgery",
+            "infographic": "/images/placeholder.svg",
+            "order": 5
+          },
+          {
+            "name": "section-6-1card-3a",
+            "title": "Radiation therapy",
+            "content": "Radiation therapy uses high-energy rays to kill cancer cells or stop them from growing.\n• It can treat early cervical cancer but is often used after surgery if there’s a risk the cancer has spread.\n• It is also commonly used with chemotherapy to treat larger or more advanced cancers.\n• Whether you need radiation depends on your test results and stage of cancer.",
+            "infographic": "/images/placeholder.svg",
+            "order": 6
+          },
+          {
+            "name": "section-6-1card-3b",
+            "title": "Radiation therapy",
+            "content": "Types of radiation therapy:\ni. External beam radiation therapy (EBRT): It is a non-invasive procedure\n• The radiation is delivered from a machine (called a linear accelerator) outside the body\n\nii. Brachytherapy (internal radiation): \n• Radioactive material is placed directly inside or very close to the tumour\n• It allows a high dose of radiation to reach the cancer while limiting exposure to nearby healthy tissues\n\n",
+            "infographic": "/images/placeholder.svg",
+            "order": 7
+          },
+          {
+            "name": "section-6-1card-3c",
+            "title": "Radiation therapy",
+            "content": "Side effects of radiation therapy:\nRadiation for cervical cancer mainly affects the lower belly area, including the bladder, rectum, and nearby bones.\nSome common side effects may include:\n  • Changes in urination or bowel habits\n  • Discomfort during sex\n  • Tiredness\n  • Vaginal dryness, narrowing, or scarring\n  • Early menopause\n  • Infertility",
+            "infographic": "/images/placeholder.svg",
+            "order": 8
+          },
+          {
+            "name": "section-6-1card-4a",
+            "title": "Chemotherapy",
+            "content": "Chemotherapy is the use of drugs to kill cancer cells. It is usually given intravenously (injected into a vein). The drugs travel through the bloodstream to reach all parts of the body, which helps treat cancer that may have spread. Cisplatin is the most commonly used drug. It is often combined with radiation (chemoradiation).",
+            "infographic": "/images/placeholder.svg",
+            "order": 9
+          },
+          {
+            "name": "section-6-1card-4b",
+            "title": "Chemotherapy: Side effects",
+            "content": "Some common side effects include:\n  • Nausea or vomiting\n  • Loss of appetite\n  • Mouth sores\n  • Fatigue\n  • Hair loss\n  • Easy bruising or bleeding\n  • Higher chance of infections\n  • Constipation",
+            "infographic": "/images/placeholder.svg",
+            "order": 10
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-7-2",
+        "title": "Palliative care",
+        "description": "Support through systems.",
+        "order": 2,
+        "learningCards": [
+          {
+            "name": "section-6-2card-4a",
+            "title": "Palliative care",
+            "content": "Palliative care aims to improve the quality of life of patients and their families facing problems associated with life-threatening illnesses and conditions. It is not only end-of-life care, but also includes interventions applied throughout the disease trajectory.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-6-2card-4b",
+            "title": "Palliative care",
+            "content": "What it does:\n  • Eases pain and discomfort\n  • Manages other physical symptoms\n  • Supports emotional, mental, and spiritual well-being\n  • Helps families cope with the stress of illness\nPalliative care is necessary even though cervical cancer is a preventable and curable disease.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-6-2card-2",
+            "title": "Final thoughts",
+            "content": "Cervical cancer is preventable, treatable, and when caught early often curable. Through early screening, proper treatment, and supportive care, lives can be saved and the well-being of women and families improved.",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          }
+        ],
+        "quizzes": []
+      }
+    ],
+    "preTest": {
+      "name": "pretest-7",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Which factor is most important when choosing a treatment plan for cervical cancer?",
+          "options": [
+            "A. The woman’s general health and immune function",
+            "B. The stage of the cancer at the time of diagnosis",
+            "C. The availability of facilities and specialists",
+            "D. All of the above are considered important"
+          ],
+          "correctAnswer": "D. All of the above are considered important",
+          "explanation": "Choosing a treatment plan depends on: stage of the cancer, general health of the woman, availability of facilities and specialists."
+        },
+        {
+          "order": 2,
+          "question": "Which surgery is a fertility-sparing treatment for some early-stage cervical cancers?",
+          "options": [
+            "A. Simple hysterectomy",
+            "B. Radical hysterectomy",
+            "C. Trachelectomy",
+            "D. Prostatectomy"
+          ],
+          "correctAnswer": "C. Trachelectomy",
+          "explanation": "Trachelectomy removes the cervix and upper vagina but preserves the uterus, which is a fertility-sparing option for some early-stage patients."
+        },
+        {
+          "order": 3,
+          "question": "Which statement best describes external beam radiation therapy (EBRT)?",
+          "options": [
+            "A. It is a non-invasive treatment using a linear accelerator",
+            "B. It uses radioactive material placed inside the cervix",
+            "C. It requires removal of the uterus and nearby tissues",
+            "D. It is a drug treatment given through a patient’s vein"
+          ],
+          "correctAnswer": "A. It is a non-invasive treatment using a linear accelerator",
+          "explanation": "External beam radiation therapy (EBRT) is a non-invasive procedure. The radiation is delivered from a machine (called a linear accelerator) outside the body"
+        },
+        {
+          "order": 4,
+          "question": "Which of the following is a common side effect of chemotherapy?",
+          "options": [
+            "A. Changes in urination or bowel habits",
+            "B. Nausea, vomiting, and loss of appetite",
+            "C. Vaginal dryness, narrowing, or scarring",
+            "D. Pain or discomfort in the pelvic area"
+          ],
+          "correctAnswer": "B. Nausea, vomiting, and loss of appetite",
+          "explanation": "Chemotherapy is the use of drugs to kill cancer cells. Some common side effects include: nausea or vomiting, loss of appetite, mouth sores, fatigue, hair loss, easy bruising or bleeding, higher chance of infections and constipation"
+        },
+        {
+          "order": 5,
+          "question": "Which of the following best describes palliative care in cervical cancer?",
+          "options": [
+            "A. It is only for end-stage disease and terminal conditions",
+            "B. It manages pain and symptoms but not emotional support",
+            "C. It improves quality of life through physical and mental care",
+            "D. It replaces curative treatments like surgery or chemotherapy"
+          ],
+          "correctAnswer": "C. It improves quality of life through physical and mental care",
+          "explanation": "Palliative care aims to improve the quality of life of patients and their families facing problems associated with life-threatening illnesses and conditions. It is not only end-of-life care, but also includes interventions applied throughout the disease trajectory."
+        }
+      ]
+    },
+    "postTest": {
+      "name": "posttest-7",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Which factor is most important when choosing a treatment plan for cervical cancer?",
+          "options": [
+            "A. The woman’s general health and immune function",
+            "B. The stage of the cancer at the time of diagnosis",
+            "C. The availability of facilities and specialists",
+            "D. All of the above are considered important"
+          ],
+          "correctAnswer": "D. All of the above are considered important",
+          "explanation": "Choosing a treatment plan depends on: stage of the cancer, general health of the woman, availability of facilities and specialists."
+        },
+        {
+          "order": 2,
+          "question": "Which surgery is a fertility-sparing treatment for some early-stage cervical cancers?",
+          "options": [
+            "A. Simple hysterectomy",
+            "B. Radical hysterectomy",
+            "C. Trachelectomy",
+            "D. Prostatectomy"
+          ],
+          "correctAnswer": "C. Trachelectomy",
+          "explanation": "Trachelectomy removes the cervix and upper vagina but preserves the uterus, which is a fertility-sparing option for some early-stage patients."
+        },
+        {
+          "order": 3,
+          "question": "Which statement best describes external beam radiation therapy (EBRT)?",
+          "options": [
+            "A. It is a non-invasive treatment using a linear accelerator",
+            "B. It uses radioactive material placed inside the cervix",
+            "C. It requires removal of the uterus and nearby tissues",
+            "D. It is a drug treatment given through a patient’s vein"
+          ],
+          "correctAnswer": "A. It is a non-invasive treatment using a linear accelerator",
+          "explanation": "External beam radiation therapy (EBRT) is a non-invasive procedure. The radiation is delivered from a machine (called a linear accelerator) outside the body"
+        },
+        {
+          "order": 4,
+          "question": "Which of the following is a common side effect of chemotherapy?",
+          "options": [
+            "A. Changes in urination or bowel habits",
+            "B. Nausea, vomiting, and loss of appetite",
+            "C. Vaginal dryness, narrowing, or scarring",
+            "D. Pain or discomfort in the pelvic area"
+          ],
+          "correctAnswer": "B. Nausea, vomiting, and loss of appetite",
+          "explanation": "Chemotherapy is the use of drugs to kill cancer cells. Some common side effects include: nausea or vomiting, loss of appetite, mouth sores, fatigue, hair loss, easy bruising or bleeding, higher chance of infections and constipation"
+        },
+        {
+          "order": 5,
+          "question": "Which of the following best describes palliative care in cervical cancer?",
+          "options": [
+            "A. It is only for end-stage disease and terminal conditions",
+            "B. It manages pain and symptoms but not emotional support",
+            "C. It improves quality of life through physical and mental care",
+            "D. It replaces curative treatments like surgery or chemotherapy"
+          ],
+          "correctAnswer": "C. It improves quality of life through physical and mental care",
+          "explanation": "Palliative care aims to improve the quality of life of patients and their families facing problems associated with life-threatening illnesses and conditions. It is not only end-of-life care, but also includes interventions applied throughout the disease trajectory."
+        }
+      ]
+    }
+  }
+]

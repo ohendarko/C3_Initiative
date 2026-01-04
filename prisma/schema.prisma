@@ -1,0 +1,167 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String           @id @default(auto()) @map("_id") @db.ObjectId
+  email             String           @unique
+  firstName              String
+  lastName               String
+  name              String
+  password         String?
+  admin            Boolean @default(false)
+  moduleProgress    ModuleProgress[]
+  currentModule    String?          @default("module-1")
+  hasCompletedQuestionnaire   Boolean @default(false)
+  questionnaire     Questionnaire?
+  preTestCompleted  String[]         @default([])
+  postTestCompleted  String[]         @default([])
+  completedSections String[]         @default([])
+  completedModules  String[]         @default([])
+  certificate       Certificate?
+
+  @@map("users")
+}
+
+model ModuleSummary {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  order       Int
+  name        String? @unique
+  module      String? @unique
+  title       String
+  shortTitle  String
+  description String?
+  completed   Boolean @default(false)
+  unlocked    Boolean @default(false)
+  icon        String?
+  introVideo  String?
+  upDatedAt   DateTime? @default(now())
+
+  @@map("moduleSummary")
+}
+
+model Module {
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  module         String           @unique // e.g. "module-1"
+  name         String           @unique // e.g. "Module 1"
+  completed      Boolean          @default (false)
+  unlocked       Boolean          @default(false)
+  icon           String
+  title          String
+  description    String
+  order          Int
+  introVideo     String
+  sections       Json // raw array of section objects
+  preTest       Json // raw array of quiz objects
+  postTest       Json // raw array of quiz objects
+  updatedAt   DateTime? @default(now())
+  Section        Section[]
+  Quiz           Quiz[]
+  ModuleProgress ModuleProgress[]
+
+  @@map("modules") // maps to "modules" collection
+}
+
+model Section {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  name        String         @unique
+  title       String
+  description String
+  order       Int
+  moduleId    String         @db.ObjectId
+  module      Module         @relation(fields: [moduleId], references: [id])
+  cards       LearningCard[]
+  quizzes     Quiz[]
+}
+
+model LearningCard {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String  @unique
+  title       String
+  content     String
+  infographic String?
+  cardOrder   Int
+  sectionId   String  @db.ObjectId
+  section     Section @relation(fields: [sectionId], references: [id])
+  quiz        Quiz?   @relation("CardQuiz")
+  quizId      String? @unique @db.ObjectId
+}
+
+model Quiz {
+  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  name           String        @unique
+  question       String
+  options        String[] // e.g. ["A", "B", "C"]
+  correct        String
+  isPostTest     Boolean       @default(false)
+  sectionId      String?       @db.ObjectId
+  section        Section?      @relation(fields: [sectionId], references: [id])
+  moduleId       String?       @db.ObjectId
+  module         Module?       @relation(fields: [moduleId], references: [id])
+  learningCard   LearningCard? @relation("CardQuiz", fields: [learningCardId], references: [id])
+  learningCardId String?       @unique @db.ObjectId
+}
+
+model ModuleProgress {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String          @db.ObjectId
+  moduleId      String          @db.ObjectId
+  sectionStatus SectionStatus[]
+  postTestScore Int
+  passed        Boolean         @default(false)
+  user          User            @relation(fields: [userId], references: [id])
+  module        Module          @relation(fields: [moduleId], references: [id])
+}
+
+model SectionStatus {
+  id               String         @id @default(auto()) @map("_id") @db.ObjectId
+  moduleProgressId String         @db.ObjectId
+  sectionId        String         @db.ObjectId
+  completed        Boolean        @default(false)
+  moduleProgress   ModuleProgress @relation(fields: [moduleProgressId], references: [id])
+}
+
+model Certificate {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId   String   @unique @db.ObjectId
+  issuedAt DateTime @default(now())
+  user     User     @relation(fields: [userId], references: [id])
+  ownerName    String
+  ownerEmail   String @unique
+}
+
+model Questionnaire {
+  id                      String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId                  String    @unique @db.ObjectId
+  user                    User     @relation(fields: [userId], references: [id])
+  userEmail               String
+  age                     String
+  gender                  String
+  relationshipStatus      String
+  relationshipOther       String?
+  religion                String
+  religionOther           String?
+  programOfStudy          String
+  yearOfStudy             String
+  sexuallyActive          String
+  familyHistoryCancer     String
+  cancerType              String?
+  cervicalCancerEducation String
+  papSmearTest            String
+  hpvVaccine              String
+
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+}
