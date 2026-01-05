@@ -310,15 +310,15 @@ const handleLogout = async () => {
                           </div>
                         </CardHeader>
 
-                        <CardContent>
-                          <div className="flex items-center justify-between">
+                        <CardContent className="relative z-10">
+                          <div className="flex items-center justify-between z-20">
                             {/* <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">                          
                               <span>🎯 Interactive Learning</span>
                             </div> */}
 
                             {loading ? <Skeleton width={100} /> : moduleUnlocked(module.module) ? (
                               <Link href={`/learn/cervical-cancer/${module.module}`}>
-                                <Button className="gradient-orange-blue text-white hover-shadow-gradient group">
+                                <Button className="gradient-orange-blue text-white hover-shadow-gradient group !z-100">
                                   {moduleCompleted(module.module) ? "Review Module" : "Start Learning"}
                                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </Button>
