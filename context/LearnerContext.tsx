@@ -45,6 +45,7 @@ interface LearnerContextType {
 const LearnerContext = createContext<LearnerContextType | undefined>(undefined)
 
 export const LearnerProvider = ({ children }: { children: React.ReactNode }) => {
+  console.log("[LearnerProvider] RENDERED")
   const router = useRouter()
   const { data: session, status } = useSession()
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null)
@@ -52,9 +53,15 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
   const [moduleSummary, setModuleSummary] = useState<ModuleSummary[]>([])
   const [moduleProgress, setModuleProgress] = useState<ModuleProgress | null>(null)
   const [loading, setLoading] = useState(true)
+  const [refetchTrigger, setRefetchTrigger] = useState(0)
 
   const isLoggedIn = status === "authenticated" && !!userProfile
   const isLoggedOut = status === "unauthenticated"
+
+  const refetch = () => {
+    console.log("[LearnerContext] Manual refetch triggered")
+    setRefetchTrigger(prev => prev + 1)
+  }
 
   // Calculate module progress whenever userProfile or moduleSummary changes
   useEffect(() => {
@@ -62,6 +69,7 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
       setModuleProgress(null)
       return
     }
+    console.log("[LearnerContext] Calculating module progress")
 
     const progress: ModuleProgress = {}
     
@@ -80,8 +88,10 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
 
   useEffect(() => {
     let mounted = true
+    let abortController = new AbortController()
 
     const fetchModuleSummary = async (email: string) => {
+      console.log("[LearnerContext] Fetching module summary for:", email)
       console.log("Fetching module summary...")
       try {
         const cached = localStorage.getItem(`c3-moduleSummary-${email}`)
@@ -89,10 +99,13 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
           setModuleSummary(JSON.parse(cached))
         }
 
-        const res = await fetch(`/api/module-summary`)
+        const res = await fetch(`/api/module-summary`, { 
+          signal: abortController.signal 
+        })
         const data = await res.json()
 
         if (Array.isArray(data.summaries) && mounted) {
+          console.log("[LearnerContext] Module summary fetched:", data.summaries.length, "modules")
           setModuleSummary(data.summaries)
           localStorage.setItem(`c3-moduleSummary-${email}`, JSON.stringify(data.summaries))
         } else {
@@ -100,20 +113,25 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
           if (mounted) setModuleSummary([])
         }
       } catch (err) {
-        console.error("Error fetching module summary", err)
+        if ((err as Error).name !== 'AbortError') {
+          console.error("[LearnerContext] Error fetching module summary:", err)
+        }
         if (mounted) setModuleSummary([])
       }
     }
 
     const loadData = async () => {
+      console.log(`[LearnerContext] Status: ${status}, Email: ${session?.user?.email}`)
       // Handle NextAuth loading state
       if (status === "loading") {
+        console.log("[LearnerContext] Session loading, waiting...")
         setLoading(true)
         return
       }
 
       // Handle unauthenticated - clear everything
       if (status === "unauthenticated") {
+        console.log("[LearnerContext] User unauthenticated, clearing data")
         if (mounted) {
           setUserProfile(null)
           setModules([])
@@ -127,12 +145,15 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
 
       // Handle authenticated - fetch data
       if (status === "authenticated" && session?.user?.email) {
+        console.log(`[LearnerContext] User authenticated: ${session.user.email}, fetching data...`)
         setLoading(true)
         
         try {
           const [profileResult, modulesResult] = await Promise.allSettled([
             fetch(`/api/user/profile?email=${session.user.email}`),
-            fetch('/api/modules')
+            fetch('/api/modules', { 
+              signal: abortController.signal 
+            })
           ])
 
           if (!mounted) return
@@ -177,7 +198,7 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
     return () => {
       mounted = false
     }
-  }, [status, session?.user?.email, router])
+  }, [status, session?.user?.email])
 
   const canAccessModule = (moduleName: string) => {
     if (!userProfile) return false

@@ -8,6 +8,7 @@ import { useLearner, UserProfile } from "@/context/LearnerContext"
 import { useRouter } from "next/navigation"
 import { useSession } from "next-auth/react"
 import { useUser } from "@/context/UserContext"
+import UserAvatar from "./UserAvatar"
 
 export default function Header() {
   const router = useRouter()
@@ -126,9 +127,15 @@ const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-colors duratio
               </Link>
             )}
             {isLoggedIn && (
-              <div className={`${textClass} flex`}>
-                <User />
-                {userName}
+              <div className="flex items-center gap-2">
+                <UserAvatar 
+                  name={session?.user?.name} 
+                  email={session?.user?.email}
+                  size="md"
+                />
+                <span className={`${textClass} font-medium`}>
+                  {session?.user?.name || session?.user?.email?.split('@')[0]}
+                </span>
               </div>
             )}
 

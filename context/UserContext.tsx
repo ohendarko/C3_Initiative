@@ -31,7 +31,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 
     if (status === "authenticated" && session?.user?.email) {
       // Lightweight fetch - only admin status
-      fetch(`/api/user/admin-status?email=${session.user.email}`)
+      fetch(`/api/user/check/?email=${session.user.email}`)
         .then(res => res.json())
         .then(data => setIsAdmin(data.admin || false))
         .finally(() => setLoading(false))

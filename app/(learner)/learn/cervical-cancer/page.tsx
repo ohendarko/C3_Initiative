@@ -133,6 +133,7 @@ const handleLogout = async () => {
         setUserProfile((prev) =>
           prev ? { ...prev, currentModule: "certificate" } : prev
         )
+        console.log('Useeffect ran')
       } catch (err) {
         console.error("Error updating currentModule to certificate:", err)
       }
@@ -310,7 +311,7 @@ const handleLogout = async () => {
                           </div>
                         </CardHeader>
 
-                        <CardContent className="relative z-10">
+                        <CardContent className="relative z-">
                           <div className="flex items-center justify-between z-20">
                             {/* <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">                          
                               <span>🎯 Interactive Learning</span>
