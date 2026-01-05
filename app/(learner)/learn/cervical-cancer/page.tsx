@@ -26,6 +26,7 @@ import Spinner from "@/components/Spinner"
 import { useLearner } from "@/context/LearnerContext"
 import { clearUserCache } from "@/lib/clearCache"
 import QuestionnaireAlert from "@/components/QuestionnaireAlert"
+import pics from "@/assests/picture"
 
 
 const iconMap = {
@@ -226,7 +227,8 @@ const handleLogout = async () => {
               const IconComponent = iconMap[module.icon as keyof typeof iconMap] || BookOpen
 
               return (
-                <div key={module.order}>
+                <div key={module.order}
+                >
                   {loading ? <Skeleton height={600} /> : <div key={module.order} className="relative flex items-start">
                     {/* Path Node */}
                     <div
@@ -255,9 +257,18 @@ const handleLogout = async () => {
                             ? "hover-shadow-gradient cursor-pointer hover:scale-[1.02]"
                             : "opacity-50"
                         }`}
+                        
                       >
-                        <CardHeader>
-                          <div className="flex flex-col items-center justify-between">
+                        {/* Background Image */}
+                        <div 
+                          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                          style={{ backgroundImage: `url(${pics[index]?.src})` }}
+                        />
+                        {/* Dark Overlay */}
+                        <div className="absolute inset-0 bg-black/50" />
+                        {/* Content */}
+                        <CardHeader className="relative z-10">
+                          <div className="flex flex-col items-center justify-between text-white">
                             <div className="flex  items-center space-x-4">
                               {/* Mobile Path Node */}
                               <div
@@ -285,7 +296,7 @@ const handleLogout = async () => {
                             </div>
 
                             <div className="mt-4">
-                              {loading ? <Skeleton width={700} /> : <p className="text-gray-600 dark:text-gray-400 mt-1">{module.description}</p>}
+                              {loading ? <Skeleton width={700} /> : <p className="text-gray-300 dark:text-gray-100 mt-1">{module.description}</p>}
                             </div>
 
                             <div className="text-right space-y-2">
