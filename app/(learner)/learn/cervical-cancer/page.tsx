@@ -68,7 +68,10 @@ export default function CervicalCancerLearnPage() {
  
 
   const completedModules = moduleProgress ? Object.values(moduleProgress).filter((p) => p.completed).length : 0
-  const allModulesCompleted = userProfile?.completedModules.length === moduleSummary.length
+
+  const allModulesCompleted = 
+    moduleSummary.length > 0 && 
+    userProfile?.completedModules.length === moduleSummary.length && userProfile?.completedModules.length > 0  // Extra safety check
 
   // Prepare modules for progress bar
   // const progressModules = moduleSummary.map((module) => ({
@@ -116,6 +119,7 @@ const handleLogout = async () => {
     if (!userProfile) return
     if (!allModulesCompleted) return
     if (userProfile.currentModule === "certificate") return // prevent infinite loop
+    if (moduleSummary.length === 0) return //Don't update if modules not loaded
 
     const update = async () => {
       try {
@@ -221,7 +225,7 @@ const handleLogout = async () => {
         {/* Learning Path */}
         <div className="relative">
           {/* Pathline */}
-          <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 via-blue-500 to-pink-500 opacity-30 hidden md:block"></div>
+          <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 via-blue-500 to-pink-500 opacity-30 hidden md:block z-10"></div>
 
           <div className="space-y-8">
             {moduleSummary.map((module, index) => {
@@ -230,7 +234,7 @@ const handleLogout = async () => {
               return (
                 <div key={module.order}
                 >
-                  {loading ? <Skeleton height={600} /> : <div key={module.order} className="relative flex items-start">
+                  {loading ? <Skeleton height={600} /> : <div className="relative flex items-start">
                     {/* Path Node */}
                     <div
                       className={`relative z-10 w-16 h-16 rounded-full flex items-center justify-center border-4 mr-6 md:flex ${
@@ -251,22 +255,22 @@ const handleLogout = async () => {
                     </div>
 
                     {/* Module Card */}
-                    <div className="flex-1">
+                    <div className="flex-1 ">
                       <Card
-                        className={`transition-all duration-300 ${
+                        className={`transition-all duration-300 overflow-hidden ${
                           moduleUnlocked(module.module)
-                            ? "hover-shadow-gradient cursor-pointer hover:scale-[1.02]"
+                            ? "hover-shadow-gradient cursor-pointer hover:scale-[1.02] rounded-tl-[31px] rounded-br-[31px]"
                             : "opacity-50"
                         }`}
                         
                       >
                         {/* Background Image */}
                         <div 
-                          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                          className="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-tl-[31px] rounded-br-[31px]"
                           style={{ backgroundImage: `url(${pics[index]?.src})` }}
                         />
                         {/* Dark Overlay */}
-                        <div className="absolute inset-0 bg-black/50" />
+                        <div className="absolute rounded-tl-[31px] rounded-br-[31px] inset-0 bg-black/50" />
                         {/* Content */}
                         <CardHeader className="relative z-10">
                           <div className="flex flex-col items-center justify-between text-white">
@@ -311,7 +315,7 @@ const handleLogout = async () => {
                           </div>
                         </CardHeader>
 
-                        <CardContent className="relative z-">
+                        <CardContent className="relative">
                           <div className="flex items-center justify-between z-20">
                             {/* <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">                          
                               <span>🎯 Interactive Learning</span>
@@ -319,7 +323,7 @@ const handleLogout = async () => {
 
                             {loading ? <Skeleton width={100} /> : moduleUnlocked(module.module) ? (
                               <Link href={`/learn/cervical-cancer/${module.module}`}>
-                                <Button className="gradient-orange-blue text-white hover-shadow-gradient group !z-100">
+                                <Button className="gradient-orange-blue text-white hover-shadow-gradient group">
                                   {moduleCompleted(module.module) ? "Review Module" : "Start Learning"}
                                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </Button>

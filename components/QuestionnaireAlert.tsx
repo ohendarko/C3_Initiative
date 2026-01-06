@@ -1,12 +1,16 @@
 // components/QuestionnaireDialog.tsx
 "use client"
 
+import { toast } from "@/hooks/use-toast"
+import { clearUserCache } from "@/lib/clearCache"
 import * as AlertDialog from "@radix-ui/react-alert-dialog"
+import { signOut, useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 export default function QuestionnaireDialog({ shouldShow }: { shouldShow: boolean }) {
   const router = useRouter()
+    const { data: session, status } = useSession()
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -15,6 +19,26 @@ export default function QuestionnaireDialog({ shouldShow }: { shouldShow: boolea
     }
   }, [shouldShow])
 
+    const handleLogout = async () => {
+      if (!session?.user?.email) return
+      
+      try {
+        clearUserCache(session.user.email)
+        localStorage.setItem("isLoggingOut", "true")
+        
+        await signOut({ redirect: false })
+        
+        toast({
+          title: "Logged out",
+          description: "You have been signed out successfully.",
+        })
+        
+        window.location.href = "/learn"
+      } catch (error) {
+        console.error("Logout error:", error)
+      }
+    }
+  
   return (
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Portal>
@@ -31,6 +55,10 @@ export default function QuestionnaireDialog({ shouldShow }: { shouldShow: boolea
             <AlertDialog.Action
               onClick={() => window.location.reload()} className="px-4 py-2 text-sm border rounded-md">
               Refresh
+            </AlertDialog.Action>
+            <AlertDialog.Action
+              onClick={() => handleLogout()} className="px-4 py-2 text-sm text-red-500 border rounded-md">
+              Log Out
             </AlertDialog.Action>
             <AlertDialog.Action
               className="px-4 py-2 text-sm gradient-orange-blue text-white rounded-md hover:opacity-95"
