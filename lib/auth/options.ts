@@ -44,6 +44,10 @@ export const authOptions: NextAuthOptions = {
         if (!user) return null;
         if(!user.password) return null;
 
+        // if (!user.emailVerified) {
+        //   throw new Error("Please verify your email before logging in")
+        // }
+
         const isValid = await verifyPassword(credentials.password, user.password);
         if (!isValid) return null;
 

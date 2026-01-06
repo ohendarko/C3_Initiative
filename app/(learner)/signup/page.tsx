@@ -113,24 +113,24 @@ export default function SignUpPage() {
 
         toast({ title: "Account Created", description: "Your account has been successfully created!", variant: "success" });
         setIsLoading(false);
-        try {
-          const res = await signIn("credentials", {
-            redirect: false,
-            email: formData.email,
-            password: formData.password,
-          })
-          if (res?.error) {
-            console.error("[Login] Login failed:", res.error)
-            toast({
-              title: 'Something went wrong.',
-              description: "This should not have happened. Please contact support.",
-              variant: 'destructive',
-            })
-          }
-        } catch (error) {
-          console.error(error)
-        }
-        router.push('/questionnaire');
+        // try {
+        //   const res = await signIn("credentials", {
+        //     redirect: false,
+        //     email: formData.email,
+        //     password: formData.password,
+        //   })
+        //   if (res?.error) {
+        //     console.error("[Login] Login failed:", res.error)
+        //     toast({
+        //       title: 'Something went wrong.',
+        //       description: "This should not have happened. Please contact support.",
+        //       variant: 'destructive',
+        //     })
+        //   }
+        // } catch (error) {
+        //   console.error(error)
+        // }
+        router.push(`/pending-verification?email=${encodeURIComponent(formData.email)}`);
       } catch (err) {
         toast({ title: "Error", description: "Failed to create account", variant: "destructive" });
       } finally {

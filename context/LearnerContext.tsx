@@ -21,6 +21,7 @@ export interface UserProfile {
   admin?: boolean
   hasCompletedQuestionnaire?: boolean
   certificate?: boolean
+  emailVerified?: boolean
 }
 
 type ModuleProgress = {
@@ -145,7 +146,12 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
 
       // Handle authenticated - fetch data
       if (status === "authenticated" && session?.user?.email) {
-        console.log(`[LearnerContext] User authenticated: ${session.user.email}, fetching data...`)
+
+      if (userProfile && !userProfile.emailVerified) {
+          router.push(`/pending-verification?email=${encodeURIComponent(userProfile.email)}`);
+      }
+
+      console.log(`[LearnerContext] User authenticated: ${session.user.email}, fetching data...`)
         setLoading(true)
         
         try {
@@ -202,6 +208,7 @@ export const LearnerProvider = ({ children }: { children: React.ReactNode }) => 
 
   const canAccessModule = (moduleName: string) => {
     if (!userProfile) return false
+    if (!userProfile?.emailVerified) return false
     if (!userProfile.hasCompletedQuestionnaire) return false
 
     const currentIndex = parseInt(moduleName.split("-")[1], 10)

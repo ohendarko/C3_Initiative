@@ -117,6 +117,10 @@ const handleLogout = async () => {
 
   useEffect(() => {
     if (!userProfile) return
+    if (!userProfile.emailVerified) {
+      router.push(`/pending-verification?email=${encodeURIComponent(userProfile?.email)}`);
+      return
+    }
     if (!allModulesCompleted) return
     if (userProfile.currentModule === "certificate") return // prevent infinite loop
     if (moduleSummary.length === 0) return //Don't update if modules not loaded
