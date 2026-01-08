@@ -1,8 +1,8 @@
 // app/api/resend-verification/route.ts
 import { NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
-// import { sendVerificationEmail } from "@/lib/email"
-import { sendVerificationEmail } from "@/lib/email-test"
+import { sendVerificationEmail } from "@/lib/email"
+// import { sendVerificationEmail } from "@/lib/email-test"
 import { generateVerificationToken, getTokenExpiry } from "@/lib/verification"
 
 

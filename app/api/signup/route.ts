@@ -3,8 +3,8 @@ import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { prisma } from "@/lib/prisma"
 import { generateVerificationToken, getTokenExpiry } from '@/lib/verification';
-// import { sendVerificationEmail } from '@/lib/email';
-import { sendVerificationEmail } from "@/lib/email-test"
+import { sendVerificationEmail } from '@/lib/email';
+// import { sendVerificationEmail } from "@/lib/email-test"
 // import { PrismaClient } from '@/lib/generated/prisma';
 // const prisma = new PrismaClient();
 

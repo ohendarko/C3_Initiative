@@ -1,8 +1,8 @@
 // app/api/verify-email/route.ts
 import { NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
-// import { sendWelcomeEmail } from "@/lib/email"
-import { sendWelcomeEmail } from "@/lib/email-test"
+import { sendWelcomeEmail } from "@/lib/email"
+// import { sendWelcomeEmail } from "@/lib/email-test"
 
 export async function POST(req: Request) {
   try {
@@ -66,8 +66,8 @@ export async function POST(req: Request) {
     console.log('[Verify Email] Sending welcome email...')
     const emailResult = await sendWelcomeEmail(user.email, user.name)
     
-    if (emailResult.success && emailResult.previewUrl) {
-      console.log('🌐 Welcome email preview:', emailResult.previewUrl)
+    if (emailResult.success) {
+      console.log('✅ Welcome email sent successfully')
     }
 
     return NextResponse.json({
