@@ -39,7 +39,7 @@ export async function sendVerificationEmail(
       <body>
         <div class="container">
           <div class="header">
-            <h1>🎓 Welcome to C3 Initiative!</h1>
+            <h1>Welcome to C3 Initiative!</h1>
           </div>
           <div class="content">
             <h2>Hello ${name},</h2>

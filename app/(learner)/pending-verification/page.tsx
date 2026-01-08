@@ -102,7 +102,7 @@ function PendingVerificationContent() {
                 <li>Open the email we sent to your inbox</li>
                 <li>Click the "Verify Email Address" button</li>
                 <li>You'll be redirected to the login page</li>
-                <li>Log in and start learning! 🎓</li>
+                <li>Log in and start learning!</li>
               </ol>
             </div>
 
@@ -137,7 +137,7 @@ function PendingVerificationContent() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-orange-500">•</span>
-                  <span>Add <strong>noreply@yourdomain.com</strong> to your contacts</span>
+                  <span>Add <strong>noreply@c3-learning.com</strong> to your contacts</span>
                 </li>
               </ul>
 

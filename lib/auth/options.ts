@@ -2,7 +2,7 @@ import { NextAuthOptions, DefaultSession } from "next-auth";
 import Google from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-import { PrismaClient } from "@/lib/generated/prisma";
+import { prisma } from "@/lib/prisma";
 
 declare module "next-auth" {
   interface Session {
@@ -19,7 +19,6 @@ declare module "next-auth" {
   }
 }
 
-const prisma = new PrismaClient();
 
 async function findUserByEmail(email: string) {
   return prisma.user.findUnique({ where: { email } });
@@ -38,6 +37,7 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
+        console.log('[Auth] Login attempt for:', credentials?.email)
         if (!credentials?.email || !credentials?.password) return null;
 
         const user = await findUserByEmail(credentials.email);
@@ -55,7 +55,7 @@ export const authOptions: NextAuthOptions = {
           id: user.id,
           firstName: user.firstName,
           lastNmae: user.lastName,
-          name: user.firstName + user.lastName,
+          name: user.name,
           email: user.email,
         };
       },
@@ -98,26 +98,33 @@ export const authOptions: NextAuthOptions = {
       return true;
     },
 
-    async jwt({ token, account }) {
-      if (account) {
-        token.accessToken = account.access_token;
-        token.refreshToken = account.refresh_token;
-        token.expiresAt = account.expires_at;
-        token.id = account.providerAccountId;
-        token.email =
-          account.provider === "google"
-            ? (account.input as { email?: string })?.email ?? token.email
-            : token.email;
+    async jwt({ token, user, account }) {
+      // On sign in, add user data to token
+      if (user) {
+        token.id = user.id
+        token.name = user.name      // ✅ Add name to token
+        token.email = user.email    // ✅ Add email to token
       }
-      return token;
+
+      // For OAuth
+      if (account) {
+        token.accessToken = account.access_token
+        token.refreshToken = account.refresh_token
+        token.expiresAt = account.expires_at
+      }
+
+      return token
     },
 
     async session({ session, token }) {
-      session.user.id = token.id as string;
-      session.user.email = token.email as string;
-      session.user.accessToken = token.accessToken as string;
-      session.user.refreshToken = token.refreshToken as string;
-      return session;
+      if (session.user) {
+        session.user.id = token.id as string
+        session.user.name = token.name as string 
+        session.user.email = token.email as string  
+        session.user.accessToken = token.accessToken as string
+        session.user.refreshToken = token.refreshToken as string
+      }
+      return session
     },
   },
 };
