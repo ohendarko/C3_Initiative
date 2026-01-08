@@ -207,7 +207,7 @@ export default function LoginPage() {
                 }}
                 variant="outline"
                 className="flex-1 flex items-center justify-center gap-2"
-                disabled
+                disabled={loading || isLoading}
               >
                 {loading && <Spinner />}
                 <span>
