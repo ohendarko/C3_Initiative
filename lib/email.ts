@@ -110,7 +110,7 @@ export async function sendVerificationEmail(
       <body>
         <div class="container">
           <div class="header">
-            <h1>🎓 Welcome to C3 Initiative!</h1>
+            <h1>Welcome to C3 Initiative!</h1>
           </div>
           <div class="content">
             <h2>Hello ${name},</h2>
@@ -133,6 +133,7 @@ export async function sendVerificationEmail(
           <div class="footer">
             <p>&copy; ${new Date().getFullYear()} C3 Initiative. All rights reserved.</p>
             <p>Empowering communities through cervical cancer education.</p>
+            <p>Please do not reply to this email</p>
           </div>
         </div>
       </body>
