@@ -1,7 +1,7 @@
 // lib/email.ts
 import * as brevo from '@getbrevo/brevo'
+import { EMAIL_SENDERS } from './email-config'
 
-// Initialize Brevo API
 const apiInstance = new brevo.TransactionalEmailsApi()
 apiInstance.setApiKey(
   brevo.TransactionalEmailsApiApiKeys.apiKey,
@@ -17,10 +17,9 @@ export async function sendVerificationEmail(
 
   const sendSmtpEmail = new brevo.SendSmtpEmail()
   
-  sendSmtpEmail.sender = { 
-    name: 'C3 Initiative', 
-    email: process.env.BREVO_SENDER_EMAIL || 'noreply@yourdomain.com'
-  }
+  // ✅ Use noreply for verification
+  sendSmtpEmail.sender = EMAIL_SENDERS.NOREPLY
+  
   sendSmtpEmail.to = [{ email, name }]
   sendSmtpEmail.subject = 'Verify Your Email - C3 Initiative'
   sendSmtpEmail.htmlContent = `
@@ -28,112 +27,36 @@ export async function sendVerificationEmail(
     <html>
       <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-          body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-          }
-          .container {
-            max-width: 600px;
-            margin: 20px auto;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-          }
-          .header {
-            background: linear-gradient(135deg, #f97316 0%, #3b82f6 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-          }
-          .header h1 {
-            margin: 0;
-            font-size: 28px;
-          }
-          .content {
-            padding: 40px 30px;
-          }
-          .content h2 {
-            color: #333;
-            font-size: 22px;
-            margin-top: 0;
-          }
-          .content p {
-            color: #666;
-            margin: 15px 0;
-          }
-          .button-container {
-            text-align: center;
-            margin: 30px 0;
-          }
-          .button {
-            display: inline-block;
-            background: linear-gradient(135deg, #f97316 0%, #3b82f6 100%);
-            color: white !important;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 16px;
-          }
-          .link-text {
-            word-break: break-all;
-            color: #3b82f6;
-            font-size: 14px;
-            padding: 15px;
-            background: #f0f9ff;
-            border-radius: 5px;
-            margin: 20px 0;
-          }
-          .warning {
-            background: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 15px;
-            margin: 20px 0;
-          }
-          .footer {
-            background: #f9fafb;
-            padding: 20px 30px;
-            text-align: center;
-            font-size: 12px;
-            color: #666;
-            border-top: 1px solid #e5e7eb;
-          }
+          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+          .header { background: linear-gradient(135deg, #f97316 0%, #3b82f6 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+          .content { background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; }
+          .button { display: inline-block; background: linear-gradient(135deg, #f97316 0%, #3b82f6 100%); color: white !important; padding: 15px 40px; text-decoration: none; border-radius: 5px; }
+          .footer { text-align: center; margin-top: 20px; font-size: 12px; color: #666; }
         </style>
       </head>
       <body>
         <div class="container">
           <div class="header">
-            <h1>Welcome to C3 Initiative!</h1>
+            <h1>🎓 Welcome to C3 Initiative!</h1>
           </div>
           <div class="content">
             <h2>Hello ${name},</h2>
-            <p>Thank you for signing up for the C3 Initiative! We're excited to have you join our cervical cancer education community.</p>
-            <p>To get started, please verify your email address by clicking the button below:</p>
-            
-            <div class="button-container">
+            <p>Thank you for signing up! Please verify your email address to access your learning dashboard.</p>
+            <p style="text-align: center;">
               <a href="${verificationUrl}" class="button">Verify Email Address</a>
-            </div>
-            
+            </p>
             <p>Or copy and paste this link into your browser:</p>
-            <div class="link-text">${verificationUrl}</div>
-            
-            <div class="warning">
-              <strong>⏰ Important:</strong> This verification link will expire in 24 hours.
-            </div>
-            
-            <p>If you didn't create an account with C3 Initiative, you can safely ignore this email.</p>
+            <p style="word-break: break-all; color: #3b82f6;">${verificationUrl}</p>
+            <p><strong>This link will expire in 24 hours.</strong></p>
+            <p>If you didn't create an account, you can safely ignore this email.</p>
           </div>
           <div class="footer">
             <p>&copy; ${new Date().getFullYear()} C3 Initiative. All rights reserved.</p>
-            <p>Empowering communities through cervical cancer education.</p>
-            <p>Please do not reply to this email!</p>
+            <p style="color: #999; margin-top: 10px;">
+              This is an automated message. Please do not reply to this email.
+            </p>
           </div>
         </div>
       </body>
@@ -142,10 +65,10 @@ export async function sendVerificationEmail(
 
   try {
     const data = await apiInstance.sendTransacEmail(sendSmtpEmail)
-    console.log('[Email] Verification email sent via Brevo:', data.body.messageId)
+    console.log('[Brevo] ✅ Verification email sent via noreply@')
     return { success: true, messageId: data.body.messageId }
-  } catch (error) {
-    console.error('[Email] Brevo error:', error)
+  } catch (error: any) {
+    console.error('[Brevo] ❌ Failed to send verification email')
     return { success: false, error }
   }
 }
@@ -155,10 +78,9 @@ export async function sendWelcomeEmail(email: string, name: string) {
 
   const sendSmtpEmail = new brevo.SendSmtpEmail()
   
-  sendSmtpEmail.sender = { 
-    name: 'C3 Initiative', 
-    email: process.env.BREVO_SENDER_EMAIL || 'noreply@yourdomain.com'
-  }
+  // ✅ Use support for welcome (users might reply)
+  sendSmtpEmail.sender = EMAIL_SENDERS.SUPPORT
+  
   sendSmtpEmail.to = [{ email, name }]
   sendSmtpEmail.subject = 'Welcome to C3 Initiative! 🎉'
   sendSmtpEmail.htmlContent = `
@@ -166,77 +88,14 @@ export async function sendWelcomeEmail(email: string, name: string) {
     <html>
       <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-          body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-          }
-          .container {
-            max-width: 600px;
-            margin: 20px auto;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-          }
-          .header {
-            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-          }
-          .header h1 {
-            margin: 0;
-            font-size: 28px;
-          }
-          .content {
-            padding: 40px 30px;
-          }
-          .success-icon {
-            text-align: center;
-            font-size: 60px;
-            margin: 20px 0;
-          }
-          .button-container {
-            text-align: center;
-            margin: 30px 0;
-          }
-          .button {
-            display: inline-block;
-            background: linear-gradient(135deg, #f97316 0%, #3b82f6 100%);
-            color: white !important;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 16px;
-          }
-          .features {
-            background: #f0f9ff;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-          }
-          .features ul {
-            margin: 10px 0;
-            padding-left: 20px;
-          }
-          .features li {
-            margin: 8px 0;
-          }
-          .footer {
-            background: #f9fafb;
-            padding: 20px 30px;
-            text-align: center;
-            font-size: 12px;
-            color: #666;
-            border-top: 1px solid #e5e7eb;
-          }
+          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+          .header { background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+          .content { padding: 30px; }
+          .button { display: inline-block; background: linear-gradient(135deg, #f97316 0%, #3b82f6 100%); color: white !important; padding: 15px 40px; text-decoration: none; border-radius: 5px; }
+          .features { background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0; }
+          .footer { text-align: center; margin-top: 20px; font-size: 12px; color: #666; }
         </style>
       </head>
       <body>
@@ -245,7 +104,7 @@ export async function sendWelcomeEmail(email: string, name: string) {
             <h1>Email Verified Successfully!</h1>
           </div>
           <div class="content">
-            <div class="success-icon">✅</div>
+            <div style="text-align: center; font-size: 60px; margin: 20px 0;">✅</div>
             <h2 style="text-align: center; color: #10b981;">Welcome, ${name}!</h2>
             <p style="text-align: center;">Your email has been verified and your account is now active.</p>
             
@@ -259,18 +118,19 @@ export async function sendWelcomeEmail(email: string, name: string) {
               </ul>
             </div>
             
-            <div class="button-container">
+            <div style="text-align: center;">
               <a href="${dashboardUrl}" class="button">Start Learning Now</a>
             </div>
-            
-            <p style="text-align: center; color: #666; font-size: 14px;">
-              If you have any questions, feel free to reach out to our support team.
+
+            <p style="text-align: center; margin-top: 30px; color: #666;">
+              Have questions? Reply to this email and we'll help you out!
             </p>
           </div>
           <div class="footer">
             <p>&copy; ${new Date().getFullYear()} C3 Initiative. All rights reserved.</p>
-            <p>Empowering communities through cervical cancer education.</p>
-            <p>Please do not reply to this email!</p>
+            <p style="color: #3b82f6; margin-top: 10px;">
+              📧 Need help? Email us at support@c3-learning.com
+            </p>
           </div>
         </div>
       </body>
@@ -279,10 +139,39 @@ export async function sendWelcomeEmail(email: string, name: string) {
 
   try {
     const data = await apiInstance.sendTransacEmail(sendSmtpEmail)
-    console.log('[Email] Welcome email sent via Brevo:', data.body.messageId)
+    console.log('[Brevo] ✅ Welcome email sent via support@')
     return { success: true, messageId: data.body.messageId }
-  } catch (error) {
-    console.error('[Email] Brevo error:', error)
+  } catch (error: any) {
+    console.error('[Brevo] ❌ Failed to send welcome email')
+    return { success: false, error }
+  }
+}
+
+// ✅ Add password reset email (use noreply)
+export async function sendPasswordResetEmail(
+  email: string,
+  name: string,
+  resetToken: string
+) {
+  const resetUrl = `${process.env.NEXTAUTH_URL}/reset-password?token=${resetToken}`
+
+  const sendSmtpEmail = new brevo.SendSmtpEmail()
+  sendSmtpEmail.sender = EMAIL_SENDERS.NOREPLY
+  sendSmtpEmail.to = [{ email, name }]
+  sendSmtpEmail.subject = 'Reset Your Password - C3 Initiative'
+  sendSmtpEmail.htmlContent = `
+    <!-- Similar HTML structure -->
+    <p>Click the button below to reset your password:</p>
+    <a href="${resetUrl}" class="button">Reset Password</a>
+    <p><strong>This link will expire in 1 hour.</strong></p>
+  `
+
+  try {
+    const data = await apiInstance.sendTransacEmail(sendSmtpEmail)
+    console.log('[Brevo] ✅ Password reset email sent via noreply@')
+    return { success: true, messageId: data.body.messageId }
+  } catch (error: any) {
+    console.error('[Brevo] ❌ Failed to send password reset email')
     return { success: false, error }
   }
 }
