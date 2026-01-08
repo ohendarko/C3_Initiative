@@ -133,7 +133,7 @@ export async function sendVerificationEmail(
           <div class="footer">
             <p>&copy; ${new Date().getFullYear()} C3 Initiative. All rights reserved.</p>
             <p>Empowering communities through cervical cancer education.</p>
-            <p>Please do not reply to this email</p>
+            <p>Please do not reply to this email!</p>
           </div>
         </div>
       </body>
@@ -270,6 +270,7 @@ export async function sendWelcomeEmail(email: string, name: string) {
           <div class="footer">
             <p>&copy; ${new Date().getFullYear()} C3 Initiative. All rights reserved.</p>
             <p>Empowering communities through cervical cancer education.</p>
+            <p>Please do not reply to this email!</p>
           </div>
         </div>
       </body>

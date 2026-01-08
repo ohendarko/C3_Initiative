@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, XCircle, Loader2, Mail } from "lucide-react"
 import Link from "next/link"
+import { toast } from "@/hooks/use-toast"
 
 function VerifyEmailContent() {
   const searchParams = useSearchParams()
@@ -37,6 +38,11 @@ function VerifyEmailContent() {
         if (res.ok) {
           setStatus("success")
           setMessage(data.message)
+          toast({
+            title: "Verified Successfully",
+            description: "You will receive a comfirmation email.",
+            variant: "success"
+          })
         } else {
           if (data.error?.includes("expired")) {
             setStatus("expired")
@@ -66,7 +72,7 @@ function VerifyEmailContent() {
           }
           return prev - 1
         })
-      }, 1000)
+      }, 5000)
 
       return () => clearInterval(timer)
     }
