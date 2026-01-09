@@ -14,11 +14,19 @@ type Question = {
   explanation: string
 }
 
+export type QuestionResult = {
+  questionIndex: number
+  question: string
+  selectedAnswer: string
+  correctAnswer: string
+  isCorrect: boolean
+}
+
 type Props = {
   isOpen: boolean
-  mode: string
+  mode: "pretest" | "posttest"
   onClose: () => void
-  onComplete: (score: number, mode: string) => void
+  onComplete: (score: number, mode: "pretest" | "posttest", questionResults: QuestionResult[]) => void
   questions: Question[]
 }
 
@@ -36,7 +44,7 @@ export default function FullScreenQuizDialog({
   const [isLoading, setIsLoading] = useState(false)
   const [showExplanation, setShowExplanation] = useState(false)
   const [hasCheckedAnswer, setHasCheckedAnswer] = useState(false)
-  const { loading } = useLearner()
+  // const { loading } = useLearner()
 
   const currentQuestion = questions[currentQuestionIndex]
 
@@ -71,11 +79,30 @@ export default function FullScreenQuizDialog({
     setHasCheckedAnswer(false)
   }
 
-  const handlePrev = () => {
-    setCurrentQuestionIndex((i) => i - 1)
-    setShowExplanation(false)
-    setHasCheckedAnswer(false)
+    const generateQuestionResults = (): QuestionResult[] => {
+    return questions.map((q, index) => ({
+      questionIndex: index,
+      question: q.question,
+      selectedAnswer: selectedAnswers[index] || "",
+      correctAnswer: q.correctAnswer,
+      isCorrect: selectedAnswers[index] === q.correctAnswer,
+    }))
   }
+
+  // const handlePrev = () => {
+  //   setCurrentQuestionIndex((i) => i - 1)
+  //   setShowExplanation(false)
+  //   setHasCheckedAnswer(false)
+  // }
+
+    const handleComplete = () => {
+    setIsLoading(true)
+    const questionResults = generateQuestionResults()
+    
+    // ✅ Pass both score AND question results
+    onComplete(numCorrect, mode, questionResults)
+  }
+
 
   return (
     <Dialog open={isOpen} onClose={onClose} className="fixed inset-0 z-50">
@@ -117,7 +144,7 @@ export default function FullScreenQuizDialog({
                       key={oIndex}
                       className={`flex items-center p-2 border rounded-md ${
                         hasCheckedAnswer || isSubmitted 
-                          ? 'cursor-not-allowed opacity-60'  // ✅ Show disabled state
+                          ? 'cursor-not-allowed opacity-60'
                           : 'cursor-pointer'
                       } ${
                         selectedAnswers[currentQuestionIndex] === option
@@ -207,8 +234,7 @@ export default function FullScreenQuizDialog({
                 <Button
                   className="gradient-orange-blue text-white"
                   onClick={() => {
-                    setIsLoading(true)
-                    onComplete(numCorrect, mode)
+                    handleComplete()
                   }}
                   disabled={isLoading}
                 >

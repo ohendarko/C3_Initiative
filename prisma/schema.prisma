@@ -15,45 +15,46 @@ datasource db {
 }
 
 model User {
-  id                String           @id @default(auto()) @map("_id") @db.ObjectId
-  email             String           @unique
+  id                      String    @id @default(auto()) @map("_id") @db.ObjectId
+  email                   String    @unique
   // ✅ Email verification fields
-  emailVerified               Boolean   @default(false)
-  verificationToken           String?   @unique
-  verificationTokenExpiry     DateTime?
+  emailVerified           Boolean   @default(false)
+  verificationToken       String?   @unique
+  verificationTokenExpiry DateTime?
 
-   // ✅ Password reset
-  resetToken                  String?   @unique
-  resetTokenExpiry            DateTime?
+  // ✅ Password reset
+  resetToken       String?   @unique
+  resetTokenExpiry DateTime?
 
-  firstName              String
-  lastName               String
-  name              String
-  password         String?
-  admin            Boolean @default(false)
-  moduleProgress    ModuleProgress[]
-  currentModule    String?          @default("module-1")
-  hasCompletedQuestionnaire   Boolean @default(false)
-  questionnaire     Questionnaire?
-  preTestCompleted  String[]         @default([])
-  postTestCompleted  String[]         @default([])
-  completedSections String[]         @default([])
-  completedModules  String[]         @default([])
-  certificate       Certificate?
+  firstName                 String
+  lastName                  String
+  name                      String
+  password                  String?
+  admin                     Boolean          @default(false)
+  moduleProgress            ModuleProgress[]
+  currentModule             String?          @default("module-1")
+  hasCompletedQuestionnaire Boolean          @default(false)
+  questionnaire             Questionnaire?
+  preTestCompleted          String[]         @default([])
+  postTestCompleted         String[]         @default([])
+  completedSections         String[]         @default([])
+  completedModules          String[]         @default([])
+  certificate               Certificate?
+  UserProgress              UserProgress[]
 
   @@map("users")
 }
 
 model ModuleSummary {
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
   order       Int
-  name        String? @unique
-  module      String? @unique
+  name        String?   @unique
+  module      String?   @unique
   title       String
   shortTitle  String
   description String?
-  completed   Boolean @default(false)
-  unlocked    Boolean @default(false)
+  completed   Boolean   @default(false)
+  unlocked    Boolean   @default(false)
   icon        String?
   introVideo  String?
   upDatedAt   DateTime? @default(now())
@@ -64,8 +65,8 @@ model ModuleSummary {
 model Module {
   id             String           @id @default(auto()) @map("_id") @db.ObjectId
   module         String           @unique // e.g. "module-1"
-  name         String           @unique // e.g. "Module 1"
-  completed      Boolean          @default (false)
+  name           String           @unique // e.g. "Module 1"
+  completed      Boolean          @default(false)
   unlocked       Boolean          @default(false)
   icon           String
   title          String
@@ -73,9 +74,9 @@ model Module {
   order          Int
   introVideo     String
   sections       Json // raw array of section objects
-  preTest       Json // raw array of quiz objects
+  preTest        Json // raw array of quiz objects
   postTest       Json // raw array of quiz objects
-  updatedAt   DateTime? @default(now())
+  updatedAt      DateTime?        @default(now())
   Section        Section[]
   Quiz           Quiz[]
   ModuleProgress ModuleProgress[]
@@ -143,18 +144,18 @@ model SectionStatus {
 }
 
 model Certificate {
-  id       String   @id @default(auto()) @map("_id") @db.ObjectId
-  userId   String   @unique @db.ObjectId
-  issuedAt DateTime @default(now())
-  user     User     @relation(fields: [userId], references: [id])
-  ownerName    String
-  ownerEmail   String @unique
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String   @unique @db.ObjectId
+  issuedAt   DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id])
+  ownerName  String
+  ownerEmail String   @unique
 }
 
 model Questionnaire {
-  id                      String   @id @default(auto()) @map("_id") @db.ObjectId
-  userId                  String    @unique @db.ObjectId
-  user                    User     @relation(fields: [userId], references: [id])
+  id                      String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId                  String  @unique @db.ObjectId
+  user                    User    @relation(fields: [userId], references: [id])
   userEmail               String
   age                     String
   gender                  String
@@ -171,6 +172,31 @@ model Questionnaire {
   papSmearTest            String
   hpvVaccine              String
 
-  createdAt               DateTime @default(now())
-  updatedAt               DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model UserProgress {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  userId   String @db.ObjectId
+  moduleId String // "module-1", "module-2", etc.
+
+  // Scores
+  pretestScore  Int? // e.g., 7
+  posttestScore Int? // e.g., 9
+  totalQuestions Int? // e.g., 10
+  completed     Boolean @default(false)
+
+  // ✅ NEW: Individual question data
+  pretestAnswers  Json? // Array of question results
+  posttestAnswers Json? // Array of question results
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, moduleId])
+  @@map("user_progress")
 }

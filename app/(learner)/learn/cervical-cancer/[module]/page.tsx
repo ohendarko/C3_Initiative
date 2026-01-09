@@ -19,7 +19,7 @@ import SectionRenderer from "@/components/SectionRenderer"
 import { useProtectedModuleRoute } from "@/hooks/useProtectedModuleRoute"
 import { useLearner } from "@/context/LearnerContext"
 import { useSession } from "next-auth/react"
-import FullScreenQuizDialog from "@/components/FullScreenQuizDialog"
+import FullScreenQuizDialog, { QuestionResult } from "@/components/FullScreenQuizDialog"
 import { UserProfile } from "@/context/LearnerContext"
 
 
@@ -189,37 +189,67 @@ export default function ModulePage() {
   // console.log(lesson)
   // console.log('sectionprogress', sectionProgress)
 
-  const handleQuizComplete = async (mode: "pretest" | "posttest") => {
+// Update to receive score and questionResults
+// In your module page
+
+  const handleQuizComplete = async (
+    score: number,
+    mode: "pretest" | "posttest",
+    questionResults: QuestionResult[]
+  ) => {
     if (!lesson) return
+    
     try {
       const isPretest = mode === "pretest"
       const fieldToUpdate = isPretest ? "preTestCompleted" : "postTestCompleted"
-
       const updateValue = [`${mode}-${lesson?.order}`]
       const completedModule = `module-${lesson?.order}`
 
-      const body: any = {
+      // ✅ 1. Save to UserProgress (score + question data)
+      console.log('[Quiz] Saving progress data...')
+      const progressRes = await fetch("/api/progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          moduleId: `module-${lesson?.order}`,
+          mode: mode,
+          score: score,
+          totalQuestions: questionResults.length,
+          questionResults: questionResults,
+        }),
+      })
+
+      if (!progressRes.ok) {
+        console.error('[Quiz] Failed to save progress data')
+      } else {
+        console.log('[Quiz] ✅ Progress data saved')
+      }
+
+      // ✅ 2. Update User (completion status only)
+      console.log('[Quiz] Updating user completion status...')
+      const userBody: any = {
         email: userProfile?.email,
         [fieldToUpdate]: updateValue,
         addOn: true,
       }
 
-      // Always set next module
-      body.currentModule = `module-${lesson?.order + 1}`
-
-      // If it's a posttest, also add to completedModules
+      // If posttest, update completed modules
       if (!isPretest) {
-        body.completedModules = [completedModule]
+        userBody.completedModules = [completedModule]
+        userBody.currentModule = `module-${lesson?.order + 1}`
       }
 
-      const res = await fetch("/api/user/update", {
+      const userRes = await fetch("/api/user/update", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
+        body: JSON.stringify(userBody),
       })
 
-      if (!res.ok) throw new Error("Failed to update quiz status")
+      if (!userRes.ok) throw new Error("Failed to update user status")
 
+      console.log('[Quiz] ✅ User status updated')
+
+      // ✅ 3. Update local state
       if (isPretest) {
         setShowQuiz(false)
         setUserProfile((prev) =>
@@ -242,12 +272,12 @@ export default function ModulePage() {
             : prev
         )
       }
+      
+      console.log('[Quiz] ✅ All updates complete:', { mode, score })
     } catch (err) {
-      console.error("Error updating user profile:", err)
+      console.error("Error updating quiz data:", err)
     }
   }
-
-
 
 
   const saveProgressLocally = (sectionName: string, email: string) => {
@@ -431,7 +461,7 @@ export default function ModulePage() {
             onClose={() => setShowQuiz(false)}
             questions={pretestQuestions}
             mode = {"pretest"}
-            onComplete={() => handleQuizComplete("pretest")}
+            onComplete={handleQuizComplete}
           />
         ) : pretestCompleted && (allSectionsCompleted && !postTestCompleted) && (
           <FullScreenQuizDialog
@@ -439,7 +469,7 @@ export default function ModulePage() {
             onClose={() => setShowPostQuiz(false)}
             questions={postTestQuestions}
             mode={"posttest"}
-            onComplete={() => handleQuizComplete("posttest")}
+            onComplete={handleQuizComplete}
           />
         ) }
 
