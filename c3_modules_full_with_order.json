@@ -665,7 +665,7 @@
         "learningCards": [
           {
             "name": "section-3-1card-1",
-            "title": "VIA",
+            "title": "Risk Factors",
             "content": "• Human papillomavirus (HPV) infection\n• Weakened immune system – immunocompromised persons (eg. those living with HIV)",
             "infographic": "/images/placeholder.svg",
             "order": 1
@@ -1364,34 +1364,34 @@
             "name": "section-5-1card-3b",
             "title": "• It is performed using a colposcope but specially designed video or digital cameras are being used of late.\n• Colposcopy is used on patients with positive screening results to:\n    i. Confirm the presence and severity of pre-cancer or cancer.",
             "infographic": "/images/placeholder.svg",
-            "order": 3
+            "order": 4
           },
           {
             "name": "section-5-1card-3c",
             "title": "ii. Guide biopsies of any areas that appear abnormal.\n\niii. Determine whether cryotherapy or loop electrosurgical excision procedure (LEEP) is the most appropriate treatment method.",
             "infographic": "/images/placeholder.svg",
-            "order": 3
+            "order": 5
           },
           {
             "name": "section-5-1card-3d",
             "title": "Diagnostic tools: Biopsy",
             "content": "A biopsy is the removal of small samples of abnormal tissue from the cervix for examination under a microscope.\n• It helps to determine the degree of abnormality of the cell changes or to rule out cancer.\n• It is traditionally performed using special biopsy forceps.",
             "infographic": "/images/placeholder.svg",
-            "order": 4
+            "order": 6
           },
           {
             "name": "section-5-1card-3e",
             "title": "Diagnostic tools: Endocervical curettage (ECC)",
             "content": "ECC is a simple procedure used to collect cells from the endocervical canal.\n • It is usually conducted using a special thin instrument or spatula.\n  • It is used in the following circumstances:",
             "infographic": "/images/placeholder.svg",
-            "order": 5
+            "order": 7
           },
           {
             "name": "section-5-1card-3f",
             "title": "Diagnostic tools: Endocervical curettage (ECC)",
             "content": "i. Colposcopy shows nothing, but a screening test suggests a hidden pre-cancer or cancer.\nii. When a Pap smear shows glandular cell abnormalities, which may come from deep inside the canal.\niii. If screening and/or colposcopy were not adequate and cancer is suspected.",
             "infographic": "/images/placeholder.svg",
-            "order": 6
+            "order": 8
           }
         ],
         "quizzes": []

@@ -41,6 +41,7 @@ export default function FullScreenQuizDialog({
   const currentQuestion = questions[currentQuestionIndex]
 
   const handleOptionSelect = (option: string) => {
+    if (hasCheckedAnswer) return
     const updated = [...selectedAnswers]
     updated[currentQuestionIndex] = option
     setSelectedAnswers(updated)
@@ -96,6 +97,13 @@ export default function FullScreenQuizDialog({
                 You must complete the pretest before you start the module!
               </p>
             )}
+            <div className="mb-6">
+              <h2>Important!</h2>
+                <p className="text-xs text-gray-500">1. You CANNOT revisit a previously answered question</p>
+                <p className="text-xs text-gray-500">
+                  2. Please make sure you want to proceed with your selected answer before clicking the [Check Answer] button. Clicking [Check Answer] cannot be undone!. 
+                </p>
+              </div>
 
             {/* Question */}
             <SlideInQuestion keyId={currentQuestion?.question}>
@@ -107,9 +115,13 @@ export default function FullScreenQuizDialog({
                   {currentQuestion?.options.map((option, oIndex) => (
                     <label
                       key={oIndex}
-                      className={`flex items-center p-2 border rounded-md cursor-pointer ${
+                      className={`flex items-center p-2 border rounded-md ${
+                        hasCheckedAnswer || isSubmitted 
+                          ? 'cursor-not-allowed opacity-60'  // ✅ Show disabled state
+                          : 'cursor-pointer'
+                      } ${
                         selectedAnswers[currentQuestionIndex] === option
-                          ? "border-blue-600"
+                          ? "border-blue-600 bg-blue-50"
                           : "border-gray-300"
                       }`}
                     >
@@ -117,7 +129,7 @@ export default function FullScreenQuizDialog({
                         type="radio"
                         name={`question-${currentQuestionIndex}`}
                         value={option}
-                        disabled={isSubmitted}
+                        disabled={isSubmitted || hasCheckedAnswer}
                         checked={selectedAnswers[currentQuestionIndex] === option}
                         onChange={() => handleOptionSelect(option)}
                         className="mr-2"
@@ -142,14 +154,14 @@ export default function FullScreenQuizDialog({
             </SlideInQuestion>
 
             {/* Navigation */}
-            <div className="flex justify-between mt-6">
-              <Button
+            <div className="flex justify-end mt-6">
+              {/* <Button
                 variant="outline"
                 onClick={handlePrev}
                 disabled={currentQuestionIndex === 0}
               >
                 Previous
-              </Button>
+              </Button> */}
 
               {!hasCheckedAnswer ? (
                 <Button
@@ -182,7 +194,7 @@ export default function FullScreenQuizDialog({
                   You scored {numCorrect} out of {questions.length}
                 </p>
 
-                {mode === "posttest" && (
+                {/* {mode === "posttest" && (
                   <Button
                     variant="outline"
                     disabled={isLoading}
@@ -190,7 +202,7 @@ export default function FullScreenQuizDialog({
                   >
                     Retake Test
                   </Button>
-                )}
+                )} */}
 
                 <Button
                   className="gradient-orange-blue text-white"
