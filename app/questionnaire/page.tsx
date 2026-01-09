@@ -483,8 +483,8 @@ export default function QuestionnairePage() {
   )
 
   return (
-    <div className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-orange-50/30 to-blue-50/30 dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-700/30">
-      <div className="container mx-auto max-w-2xl">
+    <div className="min-h-screen pt-24 pb-16 px-2 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-orange-50/30 to-blue-50/30 dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-700/30">
+      <div className="container px-2 mx-auto max-w-2xl">
         <div className="text-center mb-8">
           <div className="w-16 h-16 gradient-orange-blue rounded-2xl flex items-center justify-center mx-auto mb-4">
             <FileText className="w-8 h-8 text-white" />
@@ -550,7 +550,7 @@ export default function QuestionnairePage() {
                         disabled={isSending}
                         onClick={handleSubmit} 
                         className="gradient-orange-blue text-white hover-shadow-gradient group">
-                      {isSending ? "Submitting" : "Complete Assessment"}
+                      {isSending ? "Submitting" : "Finish"}
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   )}
