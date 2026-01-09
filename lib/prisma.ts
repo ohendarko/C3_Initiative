@@ -25,7 +25,7 @@ export const prisma =
   })
 
 // Fields that should be encrypted
-const USER_ENCRYPTED_FIELDS = ['firstName', 'lastName', 'name']
+const USER_ENCRYPTED_FIELDS = ['firstName', 'lastName']
 const QUESTIONNAIRE_ENCRYPTED_FIELDS = [
   'age',
   'gender',
