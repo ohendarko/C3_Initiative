@@ -107,11 +107,11 @@ export const authOptions: NextAuthOptions = {
       }
 
       // For OAuth
-      if (account) {
-        token.accessToken = account.access_token
-        token.refreshToken = account.refresh_token
-        token.expiresAt = account.expires_at
-      }
+      // if (account) {
+      //   token.accessToken = account.access_token
+      //   token.refreshToken = account.refresh_token
+      //   token.expiresAt = account.expires_at
+      // }
 
       return token
     },
@@ -121,8 +121,8 @@ export const authOptions: NextAuthOptions = {
         session.user.id = token.id as string
         session.user.name = token.name as string 
         session.user.email = token.email as string  
-        session.user.accessToken = token.accessToken as string
-        session.user.refreshToken = token.refreshToken as string
+        // session.user.accessToken = token.accessToken as string
+        // session.user.refreshToken = token.refreshToken as string
       }
       return session
     },
