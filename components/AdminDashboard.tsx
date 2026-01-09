@@ -31,7 +31,7 @@ export function AdminDashboard({ onViewUsers, onViewModules }: AdminDashboardPro
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-orange-50/30 to-blue-50/30 dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-700/30">
+    <div className="min-h-screen mt-10 bg-gradient-to-br from-white via-orange-50/30 to-blue-50/30 dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-700/30">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,9 +40,9 @@ export function AdminDashboard({ onViewUsers, onViewModules }: AdminDashboardPro
               <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
               <p className="text-gray-600">Manage users and learning modules</p>
             </div>
-            <Button onClick={handleLogout} variant="outline" className="flex items-center gap-2">
+            <Button onClick={handleLogout} variant="outline" className="flex items-center gap-2 sm:mr-10 mt-5">
               <LogOut className="h-4 w-4" />
-              Logout
+              Log Out
             </Button>
           </div>
         </div>

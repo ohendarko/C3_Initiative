@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { useAdmin } from '@/context/AdminContext';
 import { Shield, Lock, User } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export function AdminLogin() {
   const router = useRouter()
@@ -33,7 +34,7 @@ export function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-pink-50 p-4">
+    <div className="min-h-screen mt-5 flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-pink-50 p-4">
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
           <div className="mx-auto h-16 w-16 bg-primary rounded-full flex items-center justify-center mb-4 gradient-orange-blue">
@@ -99,7 +100,11 @@ export function AdminLogin() {
               >
                 {loading ? 'Signing in...' : 'Sign In'}
               </Button>
-
+              <div className="flex items-center justify-between">
+                <Link href="/forgot-password" className="text-sm text-orange-500 hover:text-orange-600">
+                  Forgot password?
+                </Link>
+              </div>
               <div className="text-sm text-gray-500 text-center mt-4">
                 Demo credentials: admin@example.com / admin123
               </div>

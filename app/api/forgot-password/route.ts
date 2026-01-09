@@ -25,20 +25,20 @@ export async function POST(req: Request) {
     // Always return success even if user not found (security best practice)
     // This prevents email enumeration attacks
     if (!user) {
-      console.log('[Forgot Password] User not found, but returning success')
+      console.log('[Forgot Password] User not found, returning failure')
       return NextResponse.json({
-        success: true,
-        message: "If an account exists with this email, you will receive a password reset link.",
+        success: false,
+        message: "This account is absent in out records. Please create an account with this email",
       })
     }
 
     // Check if user has a password (might be OAuth only)
     if (!user.password) {
       console.log('[Forgot Password] User has no password (OAuth only)')
-      return NextResponse.json({
-        success: true,
-        message: "If an account exists with this email, you will receive a password reset link.",
-      })
+      // return NextResponse.json({
+      //   success: true,
+      //   message: "If an account exists with this email, you will receive a password reset link.",
+      // })
     }
 
     // Generate reset token (valid for 1 hour)

@@ -3,6 +3,7 @@ import Google from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
+import { sendWelcomeEmail } from "../email";
 
 declare module "next-auth" {
   interface Session {
@@ -91,9 +92,22 @@ export const authOptions: NextAuthOptions = {
             name: user.name ?? "",
             firstName: user.name?.split(" ")[0] ?? "",
             lastName: user.name?.split(" ")[1] ?? "",
+            emailVerified: true,  // ✅ Verified by Google
           },
         });
       }
+
+       // ✅ Send welcome email for new OAuth users
+      try {
+        console.log('[Auth] Sending welcome email...')
+        await sendWelcomeEmail(user.email, user.name ?? "")
+        console.log('[Auth] ✅ Welcome email sent')
+      } catch (error) {
+        console.error('[Auth] ❌ Failed to send welcome email:', error)
+        // Don't block sign in if email fails
+      }
+      
+      
 
       return true;
     },

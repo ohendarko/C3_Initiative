@@ -22,7 +22,6 @@ export async function POST(req: NextRequest) {
       const user = await prisma.user.findUnique({
         where: { email: session.user.email },
       })
-      console.log('Updating questionnaire completion status for', session.user.email)
 
       for (const key in fieldsToUpdate) {
         const incoming = fieldsToUpdate[key]

@@ -4,6 +4,7 @@
 import React from "react"
 import { SlideInFromBottom } from "./animations"
 import Image from "next/image"
+import { HeadphoneOffIcon, Headphones } from "lucide-react"
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -26,6 +27,9 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li><a href="/#about" className="hover:text-pharma-light-blue transition-colors">About Us</a></li>
                 <li><a href="/#features" className="hover:text-pharma-light-blue transition-colors">Features</a></li>
+                <li className="flex w-full"><a href="mailto:support@c3-learning.com" className="hover:text-pharma-light-blue transition-colors"> 
+                  <Headphones height={20} /> 
+                  Support</a></li>
               </ul>
             </div>
 
