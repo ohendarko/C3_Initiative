@@ -5,7 +5,7 @@ import { useState, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail, RefreshCw, ArrowRight, CheckCircle, Clock } from "lucide-react"
+import { Mail, RefreshCw, ArrowRight, CheckCircle, Clock, Ghost } from "lucide-react"
 import Link from "next/link"
 import Spinner from "@/components/Spinner"
 import { toast } from "@/hooks/use-toast"
@@ -35,7 +35,7 @@ function PendingVerificationContent() {
     if (!email) {
       toast({
         title: "Error",
-        description: "Email address not found. Please sign up again.",
+        description: "Email address not found. Please sign up or log in.",
         variant: "destructive",
       })
       return
@@ -167,6 +167,14 @@ function PendingVerificationContent() {
                   Used wrong email? Sign up again
                 </Button>
               </Link>
+              <div className="text-sm flex flex-col justify-center items-center">
+                <p>Still having issues?</p>
+                <Link href="mailto:support@c3-learning.com">
+                  <Button variant="outline" className="w-full border-blue-950">
+                    Contact <strong>support@c3-learning.com</strong>
+                  </Button>
+                </Link>
+              </div>
             </div>
           </CardContent>
         </Card>

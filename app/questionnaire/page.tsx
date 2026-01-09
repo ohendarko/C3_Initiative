@@ -180,7 +180,8 @@ export default function QuestionnairePage() {
 
       // ✅ Redirect to learning page
       router.push("/learn/cervical-cancer")
-      router.refresh()
+      window.location.href = "/learn/cervical-cancer"
+      // router.refresh()
     } catch (error) {
       console.error("Submission error:", error)
       toast({
