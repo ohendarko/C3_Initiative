@@ -1,294 +1,142 @@
-'use client'
+// app/forgot-password/page.tsx
+"use client"
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
-import { useRouter } from 'next/navigation';
+import { useState } from "react"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Mail, ArrowRight, CheckCircle, ArrowLeft } from "lucide-react"
+import Link from "next/link"
+import Spinner from "@/components/Spinner"
+import { toast } from "@/hooks/use-toast"
 
-const ForgotPassword = () => {
-  const router = useRouter();
-  const { toast } = useToast();
-  const [isLoading, setIsLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
-
-  const [errors, setErrors] = useState({
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
-
-  // Email validation
-  const validateEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email) return 'Email is required';
-    if (!emailRegex.test(email)) return 'Please enter a valid email address';
-    return '';
-  };
-
-  // Password validation
-  const validatePassword = (password: string) => {
-    if (!password) return 'Password is required';
-    if (password.length < 8) return 'Password must be at least 8 characters';
-    if (!/[a-z]/.test(password)) return 'Password must contain a lowercase letter';
-    if (!/\d/.test(password)) return 'Password must contain a number';
-    if (!/[@_()#^$!%*?&]/.test(password)) return 'Password must contain a special character (@_()#^$!%*?&)';
-    
-    return '';
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-
-    // Real-time validation
-    let error = '';
-    if (name === 'email') error = validateEmail(value);
-    if (name === 'password') error = validatePassword(value);
-    if (name === 'confirmPassword') {
-      if (!value) error = 'Please confirm your password';
-      else if (value !== formData.password) error = 'Passwords do not match';
-    }
-
-    setErrors(prev => ({ ...prev, [name]: error }));
-  };
+export default function ForgotPasswordPage() {
+  const [email, setEmail] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    // Validate all fields
-    const newErrors = {
-      email: validateEmail(formData.email),
-      password: validatePassword(formData.password),
-      confirmPassword:
-        formData.confirmPassword !== formData.password
-          ? "Passwords do not match"
-          : "",
-    };
-
-    setErrors(newErrors);
-
-    const hasErrors = Object.values(newErrors).some((error) => error !== "");
-    if (hasErrors) {
-      setIsLoading(false);
-      toast({
-        title: "Please fix the errors",
-        description: "Check the form for validation errors",
-        variant: "destructive",
-      });
-      return;
-    }
+    e.preventDefault()
+    setIsLoading(true)
 
     try {
-      // Step 1: Check if user exists
-      const checkUserRes = await fetch("/api/user/check", {
+      const res = await fetch("/api/forgot-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: formData.email }),
-      });
-
-      if (checkUserRes.status === 404) {
-        toast({
-          title: "User not found",
-          description: "No account with this email was found.",
-          variant: "destructive",
-        });
-        setIsLoading(false);
-        return;
-      }
-
-      if (!checkUserRes.ok) {
-        
-        throw new Error("Failed to verify user");
-        
-      }
-
-      // Step 2: Proceed with password update
-      const updateRes = await fetch("/api/user/update/password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
-
-      if (!updateRes.ok) {
-        toast({
-          title: "Password Reset Failed. Please Try Again Later",
-          description: "If this persists, please contact support",
-          variant: "destructive",
-        });
-        throw new Error("Failed to reset password");
-      }
-
-      toast({
-        title: "Password Reset Successful!",
-        description: "Your password has been updated successfully. Go Back to Log In",
-      });
-      setFormData({
-        email: '',
-        password: '',
-        confirmPassword: ''
+        body: JSON.stringify({ email }),
       })
-      // router.push("/login");
+
+      const data = await res.json()
+
+      if (res.ok) {
+        setSuccess(true)
+        toast({
+          title: "Email sent!",
+          description: data.message,
+        })
+      } else {
+        toast({
+          title: "Error",
+          description: data.error || "Failed to send reset email",
+          variant: "destructive",
+        })
+      }
     } catch (error) {
       toast({
         title: "Error",
-        description: (error as Error).message || "Something went wrong",
+        description: "An error occurred. Please try again.",
         variant: "destructive",
-      });
+      })
     } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
-  };
+  }
 
+  if (success) {
+    return (
+      <div className="min-h-screen pt-24 pb-16 px-4 bg-gradient-to-br from-white via-orange-50/30 to-blue-50/30 dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-700/30">
+        <div className="container mx-auto max-w-md">
+          <Card className="shadow-2xl">
+            <CardHeader>
+              <CardTitle className="text-center">Check Your Email</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center py-8">
+              <CheckCircle className="w-16 h-16 mx-auto text-green-600 mb-4" />
+              <h3 className="text-xl font-bold text-green-600 mb-2">
+                Reset Link Sent!
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                If an account exists with <strong>{email}</strong>, you will receive a password reset link shortly.
+              </p>
+              <p className="text-sm text-gray-500 mb-6">
+                Don't see the email? Check your spam folder.
+              </p>
+              <Link href="/learn">
+                <Button className="gradient-orange-blue text-white hover-shadow-gradient">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Back to Login
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-4 mt-10">
-      <div className="w-full max-w-md">
-        {/* Logo/Brand */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-slate-900 mb-2">C3 Initiative</h1>
-          <p className="text-slate-600">Reset your password</p>
-        </div>
-
-        <Card className="shadow-xl border-0">
-          <CardHeader className="text-center pb-4">
-            <CardTitle className="text-2xl font-semibold text-slate-900">Reset Password</CardTitle>
-            <CardDescription className="text-slate-600">
-              Enter your email and new password below
+    <div className="min-h-screen pt-24 pb-16 px-4 bg-gradient-to-br from-white via-orange-50/30 to-blue-50/30 dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-700/30">
+      <div className="container mx-auto max-w-md">
+        <Card className="shadow-2xl">
+          <CardHeader>
+            <div className="w-16 h-16 gradient-orange-blue rounded-full flex items-center justify-center mx-auto mb-4">
+              <Mail className="w-8 h-8 text-white" />
+            </div>
+            <CardTitle className="text-center">Forgot Password?</CardTitle>
+            <CardDescription className="text-center">
+              Enter your email address and we'll send you a link to reset your password
             </CardDescription>
           </CardHeader>
-          
-          <CardContent className="space-y-4">
+          <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Email */}
-              <div className="space-y-1">
-                <Label htmlFor="email" className="text-sm font-medium">Email Address <span className='text-red-600'>*</span></Label>
+              <div className="space-y-2">
+                <Label htmlFor="email">Email Address</Label>
                 <Input
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="john@example.com"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className={errors.email ? 'border-red-500' : ''}
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={isLoading}
+                  placeholder="your@email.com"
+                  className="focus:ring-orange-500 focus:border-orange-500"
                 />
-                {errors.email && <p className="text-xs text-red-500">{errors.email}</p>}
               </div>
 
-              {/* New Password */}
-              <div className="space-y-1">
-                <Label htmlFor="password" className="text-sm font-medium">New Password <span className='text-red-600'>*</span></Label>
-                <div className="relative">
-                  <Input
-                    id="password"
-                    name="password"
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Create a strong password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    className={`pr-10 ${errors.password ? 'border-red-500' : ''}`}
-                    required
-                  />
-                  <button
-                    type="button"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-700"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? (
-                      <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21" />
-                      </svg>
-                    ) : (
-                      <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                      </svg>
-                    )}
-                  </button>
-                </div>
-                {errors.password && <p className="text-xs text-red-500">{errors.password}</p>}
-              </div>
-
-              {/* Confirm Password */}
-              <div className="space-y-1">
-                <Label htmlFor="confirmPassword" className="text-sm font-medium">Confirm New Password <span className='text-red-600'>*</span></Label>
-                <div className="relative">
-                  <Input
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    type={showConfirmPassword ? "text" : "password"}
-                    placeholder="Confirm your new password"
-                    value={formData.confirmPassword}
-                    onChange={handleInputChange}
-                    className={`pr-10 ${errors.confirmPassword ? 'border-red-500' : ''}`}
-                    required
-                  />
-                  <button
-                    type="button"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-700"
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  >
-                    {showConfirmPassword ? (
-                      <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21" />
-                      </svg>
-                    ) : (
-                      <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                      </svg>
-                    )}
-                  </button>
-                </div>
-                {errors.confirmPassword && <p className="text-xs text-red-500">{errors.confirmPassword}</p>}
-              </div>
-
-              {/* Submit Button */}
               <Button
                 type="submit"
                 className="w-full gradient-orange-blue text-white hover-shadow-gradient group"
                 disabled={isLoading}
               >
-                {isLoading ? "Resetting Password..." : "Reset Password"}
+                {isLoading && <Spinner />}
+                Send Reset Link
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </form>
 
-            {/* Back to Login Link */}
-            <div className="text-center pt-4 border-t border-slate-100">
-              <p className="text-sm text-slate-600">
-                Remember your password?{' '}
-                <Link href="/learn" className="text-blue-600 hover:text-blue-800 font-medium">
-                  Back to Log In
+            <div className="mt-6 text-center">
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                Remember your password?{" "}
+                <Link href="/learn" className="text-orange-500 hover:text-orange-600 font-medium">
+                  Back to Login
                 </Link>
               </p>
             </div>
           </CardContent>
         </Card>
-
-        {/* Security Notice */}
-        {/* <div className="text-center mt-6">
-          <p className="text-xs text-slate-500">
-            🔒 Your information is secure and encrypted with SSL
-          </p>
-        </div> */}
       </div>
     </div>
-  );
-};
-
-export default ForgotPassword;
+  )
+}

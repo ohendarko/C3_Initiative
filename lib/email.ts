@@ -148,6 +148,7 @@ export async function sendWelcomeEmail(email: string, name: string) {
 }
 
 // ✅ Add password reset email (use noreply)
+
 export async function sendPasswordResetEmail(
   email: string,
   name: string,
@@ -156,14 +157,57 @@ export async function sendPasswordResetEmail(
   const resetUrl = `${process.env.NEXTAUTH_URL}/reset-password?token=${resetToken}`
 
   const sendSmtpEmail = new brevo.SendSmtpEmail()
-  sendSmtpEmail.sender = EMAIL_SENDERS.NOREPLY
+  
+  sendSmtpEmail.sender = EMAIL_SENDERS.NOREPLY  // Use noreply for security
   sendSmtpEmail.to = [{ email, name }]
   sendSmtpEmail.subject = 'Reset Your Password - C3 Initiative'
   sendSmtpEmail.htmlContent = `
-    <!-- Similar HTML structure -->
-    <p>Click the button below to reset your password:</p>
-    <a href="${resetUrl}" class="button">Reset Password</a>
-    <p><strong>This link will expire in 1 hour.</strong></p>
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="UTF-8">
+        <style>
+          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+          .header { background: linear-gradient(135deg, #f97316 0%, #3b82f6 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+          .content { background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; }
+          .button { display: inline-block; background: linear-gradient(135deg, #f97316 0%, #3b82f6 100%); color: white !important; padding: 15px 40px; text-decoration: none; border-radius: 5px; }
+          .warning { background: #fee2e2; border-left: 4px solid #ef4444; padding: 15px; margin: 20px 0; }
+          .footer { text-align: center; margin-top: 20px; font-size: 12px; color: #666; }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1>🔐 Reset Your Password</h1>
+          </div>
+          <div class="content">
+            <h2>Hello ${name},</h2>
+            <p>We received a request to reset your password for your C3 Initiative account.</p>
+            <p>Click the button below to create a new password:</p>
+            
+            <p style="text-align: center;">
+              <a href="${resetUrl}" class="button">Reset Password</a>
+            </p>
+            
+            <p>Or copy and paste this link into your browser:</p>
+            <p style="word-break: break-all; color: #3b82f6;">${resetUrl}</p>
+            
+            <div class="warning">
+              <strong>⏰ Important:</strong> This link will expire in 1 hour for security.
+            </div>
+            
+            <p><strong>Didn't request this?</strong> You can safely ignore this email. Your password will not be changed.</p>
+          </div>
+          <div class="footer">
+            <p>&copy; ${new Date().getFullYear()} C3 Initiative. All rights reserved.</p>
+            <p style="color: #999; margin-top: 10px;">
+              This is an automated security message. Please do not reply.
+            </p>
+          </div>
+        </div>
+      </body>
+    </html>
   `
 
   try {

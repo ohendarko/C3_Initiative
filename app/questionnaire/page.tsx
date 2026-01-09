@@ -171,17 +171,17 @@ export default function QuestionnairePage() {
       } catch (error) {
         console.error(error)
       }
+      
+      // ✅ Redirect to learning page
+      router.push("/learn/cervical-cancer")
+      window.location.href = "/learn/cervical-cancer"
+      // router.refresh()
       toast({
         title: "Submission Completed",
         description: "Your response has been recorded.",
         
       });
       console.log("Submission success:", data)
-
-      // ✅ Redirect to learning page
-      router.push("/learn/cervical-cancer")
-      window.location.href = "/learn/cervical-cancer"
-      // router.refresh()
     } catch (error) {
       console.error("Submission error:", error)
       toast({
