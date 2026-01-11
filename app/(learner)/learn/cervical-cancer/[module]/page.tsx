@@ -651,7 +651,14 @@ export default function ModulePage() {
                     Continue to Next Module
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>}
-                  <Button variant="outline" onClick={() => window.location.reload()}>
+                  <Button 
+                    variant="outline" 
+                    onClick={() => {
+                      setShowCompletionModal(false)
+                      setActiveSection(1)  // Go back to first section
+                      window.scrollTo({ top: 0, behavior: 'smooth' })  // Scroll to top
+                    }}
+                  >
                     Review Module
                   </Button>
                 </div>
