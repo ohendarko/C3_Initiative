@@ -20,15 +20,63 @@ const poppins = Poppins({
   variable: "--font-poppins",
 })
 
-
 export const metadata: Metadata = {
-  title: "C3 Initiative - Smart Cervical Cancer Education",
-  description: "C3 Initiative's e-learning platform for cervical cancer education and awareness",
-  verification: {
-    google: "zGMyfhH9SW9Q0rGib_uc7PpwuyuXaN6ZDu607DqwVyE",
+  metadataBase: new URL('https://c3-learning.com'),
+  title: {
+    default: 'C3 Initiative - Cervical Cancer Education',
+    template: '%s | C3 Initiative',
   },
-  
+  description: 'Free online cervical cancer education platform. Learn about prevention, screening, HPV, and treatment through interactive modules.',
+  keywords: ['cervical cancer', 'HPV', 'cancer prevention', 'health education', 'medical learning'],
+  authors: [{ name: 'C3 Initiative' }],
+  creator: 'C3 Initiative',
+  publisher: 'C3 Initiative',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://c3-learning.com',
+    title: 'C3 Initiative - Cervical Cancer Education',
+    description: 'Free online cervical cancer education platform',
+    siteName: 'C3 Initiative',
+    images: [
+      {
+        url: '/images/og-image.png', // Create this
+        width: 1200,
+        height: 630,
+        alt: 'C3 Initiative',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'C3 Initiative - Cervical Cancer Education',
+    description: 'Free online cervical cancer education platform',
+    images: ['/images/twitter-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'zGMyfhH9SW9Q0rGib_uc7PpwuyuXaN6ZDu607DqwVyE',
+  },
 }
+
+// export const metadata: Metadata = {
+//   title: "C3 Initiative - Smart Cervical Cancer Education",
+//   description: "C3 Initiative's e-learning platform for cervical cancer education and awareness",
+//   verification: {
+//     google: "zGMyfhH9SW9Q0rGib_uc7PpwuyuXaN6ZDu607DqwVyE",
+//   },
+  
+// }
 
 export default function RootLayout({
   children,
