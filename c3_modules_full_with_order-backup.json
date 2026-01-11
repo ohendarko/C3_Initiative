@@ -1,6 +1,7 @@
 [
   {
     "module": "module-1",
+    "name": "Module 1",
     "completed": false,
     "unlocked": true,
     "icon": "Users",
@@ -251,6 +252,7 @@
   },
   {
     "module": "module-2",
+    "name": "Module 2. Part 1",
     "completed": false,
     "unlocked": false,
     "icon": "Users",
@@ -357,89 +359,6 @@
           }
         ],
         "quizzes": []
-      },
-      {
-        "name": "section-2-5",
-        "title": "The Development Timeline of Cervical Cancer",
-        "description": "Cervical Cancer and HPV",
-        "order": 5,
-        "learningCards": [
-          {
-            "name": "section-2-5card-1",
-            "title": "Human Papilloma Virus",
-            "content": "Cervical cancer usually develops gradually, often over 10–20 years, as abnormal cells in the cervix progress to precancerous conditions like CIN (cervical intraepithelial neoplasia) and eventually to cancer.",
-            "infographic": "/images/placeholder.svg",
-            "order": 1
-          },
-          {
-            "name": "section-2-5card-2",
-            "title": "Human Papilloma Virus",
-            "content": "In some cases, especially with weakened immune systems, this process can be faster, taking 5–10 years.",
-            "infographic": "/images/placeholder.svg",
-            "order": 2
-          }
-        ],
-        "quizzes": []
-      },
-      {
-        "name": "section-2-6",
-        "title": "Routes Taken By Invasive Cancer Through The Body As It Progresses",
-        "description": "Cervical Cancer and HPV",
-        "order": 6,
-        "learningCards": [
-          {
-            "name": "section-2-6card-1",
-            "title": "Invasion Routes",
-            "content": "There are four, usually sequential, routes through which invasive cancer progresses.\n\nHow cervical cancer spreads:\n\na) Within the cervix: It can start small and gradually grow to cover the whole cervix, which may become as large as 8 cm. The cancer might form an open sore, grow outward, or spread inward.",
-            "infographic": "/images/placeholder.svg",
-            "order": 1
-          },
-          {
-            "name": "section-2-6card-2",
-            "title": "Invasion Routes",
-            "content": "b) To nearby organs: It can directly spread in all directions. It can spread downwards to the vagina, upwards into the uterus, sideways into the tissues supporting the uterus in the pelvis and the ureters, backwards to the rectum, and forwards to the bladder.",
-            "infographic": "/images/placeholder.svg",
-            "order": 2
-          },
-          {
-            "name": "section-2-6card-3",
-            "title": "Cancer Spread",
-            "content": "c) Through the lymph system: Even if the cancer is still in the cervix, it can spread to nearby lymph nodes in about 15% of cases. \nAs the cancer grows, it may spread to more distant nodes, even as far as the collarbone. \nIf cancer spreads to the lower vagina, the groin nodes may also be affected.",
-            "infographic": "/images/placeholder.svg",
-            "order": 3
-          },
-          {
-            "name": "section-2-6card-4",
-            "title": "Cancer Spread",
-            "content": "d) To distant parts of the body: Cancer cells can travel through the blood or lymph and reach places like the liver, bones, lungs, or brain.\n\nImportant note:\nInvasive cervical cancer can often be cured with proper treatment if caught early. But without treatment, it usually spreads and becomes life-threatening.",
-            "infographic": "/images/placeholder.svg",
-            "order": 4
-          }
-        ],
-        "quizzes": []
-      },
-      {
-        "name": "section-2-7",
-        "title": "Cervical Cancer And Human Immunodeficiency Virus (HIV) Infection",
-        "description": "Cervical Cancer and HIV",
-        "order": 7,
-        "learningCards": [
-          {
-            "name": "section-2-7card-1",
-            "title": "HIV",
-            "content": "Cervical cancer is one of the defining illnesses linked to AIDS in women with HIV. \nWomen with HIV (and others with weak immune systems) are more likely to get infected with HPV. \nThe weaker the immune system, the higher the risk.",
-            "infographic": "/images/placeholder.svg",
-            "order": 1
-          },
-          {
-            "name": "section-2-7card-2",
-            "title": "Human Papilloma Virus",
-            "content": "Because of this, women with HIV:\n• Are more likely to develop cervical pre-cancer or cancer at a younger age.\n• Can develop cervical cancer up to 10 years earlier than women without HIV.\n• Often have more advanced cancer by the time it’s diagnosed, reducing their chances of surviving by 5 years.",
-            "infographic": "/images/placeholder.svg",
-            "order": 2
-          }
-        ],
-        "quizzes": []
       }
     ],
     "preTest": {
@@ -492,42 +411,6 @@
           ],
           "correctAnswer": "C. Only certain types of HPV that persist in the body can cause abnormal cell changes.",
           "explanation": "Only specific types of HPV, and only in rare cases when the virus is not cleared by the body, can lead to cervical cancer through abnormal cell changes."
-        },
-        {
-          "order": 5,
-          "question": "Which group of individuals are most at risk of HPV infection?",
-          "options": [
-            "A. Only women who have had multiple sexual partners",
-            "B. Only men who engage in unprotected multiple sex",
-            "C. Sexually active individuals, regardless of gender.",
-            "D. Individuals with weakened immune systems only"
-          ],
-          "correctAnswer": "C. Sexually active individuals, regardless of gender.",
-          "explanation": "The passage states that HPV is very common and can affect both women and men. Anyone who has ever been sexually active could have HPV."
-        },
-        {
-          "order": 6,
-          "question": "What are the sequential ways by which cervical cancer can spread to other parts of the body?",
-          "options": [
-            "A. Cervix → nearby organs → lymph system → distant parts of the body",
-            "B. Cervix → lymph system → nearby organs → distant parts of the body",
-            "C. Cervix → distant parts of the body → lymph system → nearby organs",
-            "D. Cervix → lower vagina → blood vessels → distant parts of the body"
-          ],
-          "correctAnswer": "A. Cervix → nearby organs → lymph system → distant parts of the body",
-          "explanation": "Cervical cancer spreads within the cervix to nearby organs through the lymph system to distant parts of the body."
-        },
-        {
-          "order": 7,
-          "question": "How does HIV increase the risk of cervical cancer development in women?",
-          "options": [
-            "A. HIV directly mutates cervical cells",
-            "B. HIV weakens the immune system",
-            "C. HIV increases estrogen levels",
-            "D. HIV causes cervical cancer independently of HPV infection."
-          ],
-          "correctAnswer": "B. HIV weakens the immune system",
-          "explanation": "HIV compromises the immune system, which reduces the body's ability to fight off HPV infection. Persistent HPV infection increases the risk of cervical pre-cancer and cancer."
         }
       ]
     },
@@ -581,9 +464,110 @@
           ],
           "correctAnswer": "C. Only certain types of HPV that persist in the body can cause abnormal cell changes.",
           "explanation": "Only specific types of HPV, and only in rare cases when the virus is not cleared by the body, can lead to cervical cancer through abnormal cell changes."
-        },
+        }
+      ]
+    }
+  },
+  {
+    "module": "module-3",
+    "name": "Module 2. Part 2",
+    "completed": false,
+    "unlocked": false,
+    "icon": "Users",
+    "title": "Cervical Cancer: An Overview: 2",
+    "description": "Continue to learn how HPV infection leads to cervical cancer and how it's transmitted.",
+    "order": 3,
+    "introVideo": "https://drive.google.com/file/d/1MOHVNW985kgEmbBiU1xSBEnYMSNllilZ/preview?usp=drivesdk",
+    "sections": [
+      {
+        "name": "section-3-1",
+        "title": "The Development Timeline of Cervical Cancer",
+        "description": "Cervical Cancer and HPV",
+        "order": 1,
+        "learningCards": [
+          {
+            "name": "section-2-5card-1",
+            "title": "Human Papilloma Virus",
+            "content": "Cervical cancer usually develops gradually, often over 10–20 years, as abnormal cells in the cervix progress to precancerous conditions like CIN (cervical intraepithelial neoplasia) and eventually to cancer.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-2-5card-2",
+            "title": "Human Papilloma Virus",
+            "content": "In some cases, especially with weakened immune systems, this process can be faster, taking 5–10 years.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-3-2",
+        "title": "Routes Taken By Invasive Cancer Through The Body As It Progresses",
+        "description": "Cervical Cancer and HPV",
+        "order": 2,
+        "learningCards": [
+          {
+            "name": "section-2-6card-1",
+            "title": "Invasion Routes",
+            "content": "There are four, usually sequential, routes through which invasive cancer progresses.\n\nHow cervical cancer spreads:\n\na) Within the cervix: It can start small and gradually grow to cover the whole cervix, which may become as large as 8 cm. The cancer might form an open sore, grow outward, or spread inward.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-2-6card-2",
+            "title": "Invasion Routes",
+            "content": "b) To nearby organs: It can directly spread in all directions. It can spread downwards to the vagina, upwards into the uterus, sideways into the tissues supporting the uterus in the pelvis and the ureters, backwards to the rectum, and forwards to the bladder.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          },
+          {
+            "name": "section-2-6card-3",
+            "title": "Cancer Spread",
+            "content": "c) Through the lymph system: Even if the cancer is still in the cervix, it can spread to nearby lymph nodes in about 15% of cases. \nAs the cancer grows, it may spread to more distant nodes, even as far as the collarbone. \nIf cancer spreads to the lower vagina, the groin nodes may also be affected.",
+            "infographic": "/images/placeholder.svg",
+            "order": 3
+          },
+          {
+            "name": "section-2-6card-4",
+            "title": "Cancer Spread",
+            "content": "d) To distant parts of the body: Cancer cells can travel through the blood or lymph and reach places like the liver, bones, lungs, or brain.\n\nImportant note:\nInvasive cervical cancer can often be cured with proper treatment if caught early. But without treatment, it usually spreads and becomes life-threatening.",
+            "infographic": "/images/placeholder.svg",
+            "order": 4
+          }
+        ],
+        "quizzes": []
+      },
+      {
+        "name": "section-3-3",
+        "title": "Cervical Cancer And Human Immunodeficiency Virus (HIV) Infection",
+        "description": "Cervical Cancer and HIV",
+        "order": 3,
+        "learningCards": [
+          {
+            "name": "section-2-7card-1",
+            "title": "HIV",
+            "content": "Cervical cancer is one of the defining illnesses linked to AIDS in women with HIV. \nWomen with HIV (and others with weak immune systems) are more likely to get infected with HPV. \nThe weaker the immune system, the higher the risk.",
+            "infographic": "/images/placeholder.svg",
+            "order": 1
+          },
+          {
+            "name": "section-2-7card-2",
+            "title": "Human Papilloma Virus",
+            "content": "Because of this, women with HIV:\n• Are more likely to develop cervical pre-cancer or cancer at a younger age.\n• Can develop cervical cancer up to 10 years earlier than women without HIV.\n• Often have more advanced cancer by the time it’s diagnosed, reducing their chances of surviving by 5 years.",
+            "infographic": "/images/placeholder.svg",
+            "order": 2
+          }
+        ],
+        "quizzes": []
+      }
+    ],
+    "preTest": {
+      "name": "pretest-3",
+      "questions": [
         {
-          "order": 5,
+          "order": 1,
           "question": "Which group of individuals are most at risk of HPV infection?",
           "options": [
             "A. Only women who have had multiple sexual partners",
@@ -595,7 +579,7 @@
           "explanation": "The passage states that HPV is very common and can affect both women and men. Anyone who has ever been sexually active could have HPV."
         },
         {
-          "order": 6,
+          "order": 2,
           "question": "What are the sequential ways by which cervical cancer can spread to other parts of the body?",
           "options": [
             "A. Cervix → nearby organs → lymph system → distant parts of the body",
@@ -607,7 +591,48 @@
           "explanation": "Cervical cancer spreads within the cervix to nearby organs through the lymph system to distant parts of the body."
         },
         {
-          "order": 7,
+          "order": 3,
+          "question": "How does HIV increase the risk of cervical cancer development in women?",
+          "options": [
+            "A. HIV directly mutates cervical cells",
+            "B. HIV weakens the immune system",
+            "C. HIV increases estrogen levels",
+            "D. HIV causes cervical cancer independently of HPV infection."
+          ],
+          "correctAnswer": "B. HIV weakens the immune system",
+          "explanation": "HIV compromises the immune system, which reduces the body's ability to fight off HPV infection. Persistent HPV infection increases the risk of cervical pre-cancer and cancer."
+        }
+      ]
+    },
+    "postTest": {
+      "name": "posttest-3",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Which group of individuals are most at risk of HPV infection?",
+          "options": [
+            "A. Only women who have had multiple sexual partners",
+            "B. Only men who engage in unprotected multiple sex",
+            "C. Sexually active individuals, regardless of gender.",
+            "D. Individuals with weakened immune systems only"
+          ],
+          "correctAnswer": "C. Sexually active individuals, regardless of gender.",
+          "explanation": "The passage states that HPV is very common and can affect both women and men. Anyone who has ever been sexually active could have HPV."
+        },
+        {
+          "order": 2,
+          "question": "What are the sequential ways by which cervical cancer can spread to other parts of the body?",
+          "options": [
+            "A. Cervix → nearby organs → lymph system → distant parts of the body",
+            "B. Cervix → lymph system → nearby organs → distant parts of the body",
+            "C. Cervix → distant parts of the body → lymph system → nearby organs",
+            "D. Cervix → lower vagina → blood vessels → distant parts of the body"
+          ],
+          "correctAnswer": "A. Cervix → nearby organs → lymph system → distant parts of the body",
+          "explanation": "Cervical cancer spreads within the cervix to nearby organs through the lymph system to distant parts of the body."
+        },
+        {
+          "order": 3,
           "question": "How does HIV increase the risk of cervical cancer development in women?",
           "options": [
             "A. HIV directly mutates cervical cells",
@@ -622,24 +647,25 @@
     }
   },
   {
-    "module": "module-3",
+    "module": "module-4",
+    "name": "Module 3",
     "completed": false,
     "unlocked": false,
     "icon": "Users",
     "title": "Risk Factors, Signs, Symptoms And Screening Tests For Cervical Cancer",
     "description": "Understand the etiology of cervical cancer",
-    "order": 3,
+    "order": 4,
     "introVideo": "https://drive.google.com/file/d/1_IobZOZ1AMm2vmJZqi2Ds6QnhAXwllAD/preview?usp=drivesdk",
     "sections": [
       {
-        "name": "section-3-1",
+        "name": "section-4-1",
         "title": "Risk Factors",
         "description": "Learn about risk factors",
         "order": 1,
         "learningCards": [
           {
             "name": "section-3-1card-1",
-            "title": "VIA",
+            "title": "Risk Factors",
             "content": "• Human papillomavirus (HPV) infection\n• Weakened immune system – immunocompromised persons (eg. those living with HIV)",
             "infographic": "/images/placeholder.svg",
             "order": 1
@@ -662,7 +688,7 @@
         "quizzes": []
       },
       {
-        "name": "section-3-2",
+        "name": "section-4-2",
         "title": "Signs And Symptoms",
         "description": "Signs and Symptoms of Cervical Cancer",
         "order": 2,
@@ -706,7 +732,7 @@
         "quizzes": []
       },
       {
-        "name": "section-3-3",
+        "name": "section-4-3",
         "title": "Screening",
         "description": "Screening Tests",
         "order": 3,
@@ -826,7 +852,7 @@
           {
             "name": "section-3-3card-9b",
             "title": "Cytology-based screening methods",
-            "content": "In the laboratory, these cells are examined by experts under a microscope.\n• If abnormal cells are found, they are classified using a system called The Bethesda System.\n• ",
+            "content": "In the laboratory, these cells are examined by experts under a microscope.\n• If abnormal cells are found, they are classified using a system called The Bethesda System.\n",
             "infographic": "/images/placeholder.svg",
             "order": 17
           },
@@ -856,7 +882,7 @@
       }
     ],
     "preTest": {
-      "name": "pretest-3",
+      "name": "pretest-4",
       "questions": [
         {
           "order": 1,
@@ -969,7 +995,7 @@
       ]
     },
     "postTest": {
-      "name": "posttest-3",
+      "name": "posttest-4",
       "questions": [
         {
           "order": 1,
@@ -1083,17 +1109,18 @@
     }
   },
   {
-    "module": "module-4",
+    "module": "module-5",
+    "name": "Module 4",
     "completed": false,
     "unlocked": false,
     "icon": "Users",
     "title": "Prevention Strategies",
     "description": "Explore how vaccines, lifestyle, and safe practices help prevent cervical cancer.",
-    "order": 4,
-    "introVideo": "https://cdn.example.com/module-4-intro.mp4",
+    "order": 5,
+    "introVideo": "https://drive.google.com/file/d/1gizxda5JDE2mmtuWcy5PK8P1qAo8LwLy/preview?usp=drive_link",
     "sections": [
       {
-        "name": "section-4-1",
+        "name": "section-5-1",
         "title": "HPV Vaccination",
         "description": "Why and when to get vaccinated.",
         "order": 1,
@@ -1130,7 +1157,7 @@
         "quizzes": []
       },
       {
-        "name": "section-4-2",
+        "name": "section-5-2",
         "title": "HPV Vaccines",
         "description": "HPV Vaccines and how they work",
         "order": 2,
@@ -1189,7 +1216,7 @@
       }
     ],
     "preTest": {
-      "name": "pretest-4",
+      "name": "pretest-5",
       "questions": [
         {
           "order": 1,
@@ -1242,7 +1269,7 @@
       ]
     },
     "postTest": {
-      "name": "posttest-4",
+      "name": "posttest-5",
       "questions": [
         {
           "order": 1,
@@ -1296,17 +1323,18 @@
     }
   },
   {
-    "module": "module-5",
+    "module": "module-6",
+    "name": "Module 5",
     "completed": false,
     "unlocked": false,
     "icon": "Users",
     "title": "Diagnosis and Staging of Cervical Cancer",
     "description": "Understand the staging and diagnostic methods for cervical precancer.",
-    "order": 5,
-    "introVideo": "https://cdn.example.com/module-5-intro.mp4",
+    "order": 6,
+    "introVideo": "https://drive.google.com/file/d/1JBz22M3ozJoqJsYO68B6ESONwrqylUHz/preview?usp=drive_link",
     "sections": [
       {
-        "name": "section-5-1",
+        "name": "section-6-1",
         "title": "Diagnostic Tests",
         "description": "Diagnostic Tests",
         "order": 1,
@@ -1334,42 +1362,44 @@
           },
           {
             "name": "section-5-1card-3b",
-            "title": "• It is performed using a colposcope but specially designed video or digital cameras are being used of late.\n• Colposcopy is used on patients with positive screening results to:\n    i. Confirm the presence and severity of pre-cancer or cancer.",
+            "title": "Diagnostic tools: Colposcopy",
+            "content": "• It is performed using a colposcope but specially designed video or digital cameras are being used of late.\n• Colposcopy is used on patients with positive screening results to:\n    i. Confirm the presence and severity of pre-cancer or cancer.",
             "infographic": "/images/placeholder.svg",
-            "order": 3
+            "order": 4
           },
           {
             "name": "section-5-1card-3c",
-            "title": "ii. Guide biopsies of any areas that appear abnormal.\n\niii. Determine whether cryotherapy or loop electrosurgical excision procedure (LEEP) is the most appropriate treatment method.",
+            "title": "Colposcopy; continued",
+            "content": "ii. Guide biopsies of any areas that appear abnormal.\n\niii. Determine whether cryotherapy or loop electrosurgical excision procedure (LEEP) is the most appropriate treatment method.",
             "infographic": "/images/placeholder.svg",
-            "order": 3
+            "order": 5
           },
           {
             "name": "section-5-1card-3d",
             "title": "Diagnostic tools: Biopsy",
             "content": "A biopsy is the removal of small samples of abnormal tissue from the cervix for examination under a microscope.\n• It helps to determine the degree of abnormality of the cell changes or to rule out cancer.\n• It is traditionally performed using special biopsy forceps.",
             "infographic": "/images/placeholder.svg",
-            "order": 4
+            "order": 6
           },
           {
             "name": "section-5-1card-3e",
             "title": "Diagnostic tools: Endocervical curettage (ECC)",
             "content": "ECC is a simple procedure used to collect cells from the endocervical canal.\n • It is usually conducted using a special thin instrument or spatula.\n  • It is used in the following circumstances:",
             "infographic": "/images/placeholder.svg",
-            "order": 5
+            "order": 7
           },
           {
             "name": "section-5-1card-3f",
             "title": "Diagnostic tools: Endocervical curettage (ECC)",
             "content": "i. Colposcopy shows nothing, but a screening test suggests a hidden pre-cancer or cancer.\nii. When a Pap smear shows glandular cell abnormalities, which may come from deep inside the canal.\niii. If screening and/or colposcopy were not adequate and cancer is suspected.",
             "infographic": "/images/placeholder.svg",
-            "order": 6
+            "order": 8
           }
         ],
         "quizzes": []
       },
       {
-        "name": "section-5-2",
+        "name": "section-6-2",
         "title": "Cervical Cancer Staging",
         "description": "Approaches depending on stage.",
         "order": 2,
@@ -1406,10 +1436,10 @@
         "quizzes": []
       },
       {
-        "name": "section-5-3",
+        "name": "section-6-3",
         "title": "Factors Influencing Cervical Cancer Prognosis",
         "description": "Approaches depending on stage.",
-        "order": 2,
+        "order": 3,
         "learningCards": [
           {
             "name": "section-5-3card-1",
@@ -1430,26 +1460,125 @@
       }
     ],
     "preTest": {
-      "name": "pretest-5",
-      "questions": []
+      "name": "pretest-6",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Colposcopy is primarily used for",
+          "options": [
+            "A. Screening for cervical cancer in asymptomatic women",
+            "B. Confirming and evaluating abnormal cervical screening results",
+            "C. Treating cervical pre-cancerous lesions directly in all women",
+            "D. Detecting ovarian cancer in low-risk and high-risk women"
+          ],
+          "correctAnswer": "B. Confirming and evaluating abnormal cervical screening results",
+          "explanation": "Colposcopy is a diagnostic test, not a primary screening tool. It is performed to closely examine the cervix, vagina, and vulva when Pap smear or HPV test results are abnormal."
+        },
+        {
+          "order": 2,
+          "question": "A biopsy in cervical cancer diagnosis involves:",
+          "options": [
+            "A. Examining the cervix with a medical imaging instrument to detect changes",
+            "B. Freezing abnormal cells on the cervix as a method of prevention and treatment",
+            "C. Testing for the presence of human papillomavirus in cervical cells",
+            "D. Taking a small tissue sample from the cervix for histopathological analysis"
+          ],
+          "correctAnswer": "D. Taking a small tissue sample from the cervix for histopathological analysis",
+          "explanation": "A biopsy is the removal of small samples of abnormal tissue from the cervix for examination under a microscope. A cervical biopsy is done after abnormal screening results or colposcopy findings to confirm the presence of precancerous changes or cancer."
+        },
+        {
+          "order": 3,
+          "question": "Endocervical curettage is used to",
+          "options": [
+            "A. Collect tissue from the endocervical canal for microscopic evaluation",
+            "B. Visualize the cervix with magnification to detect abnormal changes",
+            "C. Remove visible precancerous lesions from the surface of the cervix",
+            "D. Test cervical cells for the presence of high-risk human papillomavirus"
+          ],
+          "correctAnswer": "A. Collect tissue from the endocervical canal for microscopic evaluation",
+          "explanation": "Endocervical curettage is a simple procedure used to collect cells from the endocervical canal. It is often performed during colposcopy when the transformation zone or lesion extends into the endocervical canal and cannot be fully visualized"
+        },
+        {
+          "order": 4,
+          "question": "Which of the following best describes Stage IV cervical cancer?",
+          "options": [
+            "A. Cancer is limited to the cervix and has not spread elsewhere.",
+            "B. Cancer has spread beyond the cervix into the upper vagina but not further.",
+            "C. Cancer has extended to the pelvic wall and may involve nearby organs.",
+            "D. Cancer has spread to other organs or distant tissues."
+          ],
+          "correctAnswer": "D. Cancer has spread to other organs or distant tissues.",
+          "explanation": "For Stage IV, the cancer has spread to surrounding organs or distant tissue, such as the lungs and distant lymph nodes."
+        }
+      ]
     },
     "postTest": {
-      "name": "posttest-5",
-      "questions": []
+      "name": "posttest-6",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Colposcopy is primarily used for",
+          "options": [
+            "A. Screening for cervical cancer in asymptomatic women",
+            "B. Confirming and evaluating abnormal cervical screening results",
+            "C. Treating cervical pre-cancerous lesions directly in all women",
+            "D. Detecting ovarian cancer in low-risk and high-risk women"
+          ],
+          "correctAnswer": "B. Confirming and evaluating abnormal cervical screening results",
+          "explanation": "Colposcopy is a diagnostic test, not a primary screening tool. It is performed to closely examine the cervix, vagina, and vulva when Pap smear or HPV test results are abnormal."
+        },
+        {
+          "order": 2,
+          "question": "A biopsy in cervical cancer diagnosis involves:",
+          "options": [
+            "A. Examining the cervix with a medical imaging instrument to detect changes",
+            "B. Freezing abnormal cells on the cervix as a method of prevention and treatment",
+            "C. Testing for the presence of human papillomavirus in cervical cells",
+            "D. Taking a small tissue sample from the cervix for histopathological analysis"
+          ],
+          "correctAnswer": "D. Taking a small tissue sample from the cervix for histopathological analysis",
+          "explanation": "A biopsy is the removal of small samples of abnormal tissue from the cervix for examination under a microscope. A cervical biopsy is done after abnormal screening results or colposcopy findings to confirm the presence of precancerous changes or cancer."
+        },
+        {
+          "order": 3,
+          "question": "Endocervical curettage is used to",
+          "options": [
+            "A. Collect tissue from the endocervical canal for microscopic evaluation",
+            "B. Visualize the cervix with magnification to detect abnormal changes",
+            "C. Remove visible precancerous lesions from the surface of the cervix",
+            "D. Test cervical cells for the presence of high-risk human papillomavirus"
+          ],
+          "correctAnswer": "A. Collect tissue from the endocervical canal for microscopic evaluation",
+          "explanation": "Endocervical curettage is a simple procedure used to collect cells from the endocervical canal. It is often performed during colposcopy when the transformation zone or lesion extends into the endocervical canal and cannot be fully visualized"
+        },
+        {
+          "order": 4,
+          "question": "Which of the following best describes Stage IV cervical cancer?",
+          "options": [
+            "A. Cancer is limited to the cervix and has not spread elsewhere.",
+            "B. Cancer has spread beyond the cervix into the upper vagina but not further.",
+            "C. Cancer has extended to the pelvic wall and may involve nearby organs.",
+            "D. Cancer has spread to other organs or distant tissues."
+          ],
+          "correctAnswer": "D. Cancer has spread to other organs or distant tissues.",
+          "explanation": "For Stage IV, the cancer has spread to surrounding organs or distant tissue, such as the lungs and distant lymph nodes."
+        }
+      ]
     }
   },
   {
-    "module": "module-6",
+    "module": "module-7",
+    "name": "Module 6",
     "completed": false,
     "unlocked": false,
     "icon": "Users",
     "title": "Treatment and Palliative Care",
     "description": "Learn how education, policy, and advocacy support cervical cancer prevention.",
-    "order": 6,
+    "order": 7,
     "introVideo": "https://drive.google.com/file/d/1QKz-1fcmgh3CtE77J2e0VvGVuMz0-P4J/preview?usp=drivesdk",
     "sections": [
       {
-        "name": "section-6-1",
+        "name": "section-7-1",
         "title": "Treatment Options",
         "description": "The power of community education.",
         "order": 1,
@@ -1528,7 +1657,7 @@
         "quizzes": []
       },
       {
-        "name": "section-6-2",
+        "name": "section-7-2",
         "title": "Palliative care",
         "description": "Support through systems.",
         "order": 2,
@@ -1559,12 +1688,134 @@
       }
     ],
     "preTest": {
-      "name": "pretest-6",
-      "questions": []
+      "name": "pretest-7",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Which factor is most important when choosing a treatment plan for cervical cancer?",
+          "options": [
+            "A. The woman’s general health and immune function",
+            "B. The stage of the cancer at the time of diagnosis",
+            "C. The availability of facilities and specialists",
+            "D. All of the above are considered important"
+          ],
+          "correctAnswer": "D. All of the above are considered important",
+          "explanation": "Choosing a treatment plan depends on: stage of the cancer, general health of the woman, availability of facilities and specialists."
+        },
+        {
+          "order": 2,
+          "question": "Which surgery is a fertility-sparing treatment for some early-stage cervical cancers?",
+          "options": [
+            "A. Simple hysterectomy",
+            "B. Radical hysterectomy",
+            "C. Trachelectomy",
+            "D. Prostatectomy"
+          ],
+          "correctAnswer": "C. Trachelectomy",
+          "explanation": "Trachelectomy removes the cervix and upper vagina but preserves the uterus, which is a fertility-sparing option for some early-stage patients."
+        },
+        {
+          "order": 3,
+          "question": "Which statement best describes external beam radiation therapy (EBRT)?",
+          "options": [
+            "A. It is a non-invasive treatment using a linear accelerator",
+            "B. It uses radioactive material placed inside the cervix",
+            "C. It requires removal of the uterus and nearby tissues",
+            "D. It is a drug treatment given through a patient’s vein"
+          ],
+          "correctAnswer": "A. It is a non-invasive treatment using a linear accelerator",
+          "explanation": "External beam radiation therapy (EBRT) is a non-invasive procedure. The radiation is delivered from a machine (called a linear accelerator) outside the body"
+        },
+        {
+          "order": 4,
+          "question": "Which of the following is a common side effect of chemotherapy?",
+          "options": [
+            "A. Changes in urination or bowel habits",
+            "B. Nausea, vomiting, and loss of appetite",
+            "C. Vaginal dryness, narrowing, or scarring",
+            "D. Pain or discomfort in the pelvic area"
+          ],
+          "correctAnswer": "B. Nausea, vomiting, and loss of appetite",
+          "explanation": "Chemotherapy is the use of drugs to kill cancer cells. Some common side effects include: nausea or vomiting, loss of appetite, mouth sores, fatigue, hair loss, easy bruising or bleeding, higher chance of infections and constipation"
+        },
+        {
+          "order": 5,
+          "question": "Which of the following best describes palliative care in cervical cancer?",
+          "options": [
+            "A. It is only for end-stage disease and terminal conditions",
+            "B. It manages pain and symptoms but not emotional support",
+            "C. It improves quality of life through physical and mental care",
+            "D. It replaces curative treatments like surgery or chemotherapy"
+          ],
+          "correctAnswer": "C. It improves quality of life through physical and mental care",
+          "explanation": "Palliative care aims to improve the quality of life of patients and their families facing problems associated with life-threatening illnesses and conditions. It is not only end-of-life care, but also includes interventions applied throughout the disease trajectory."
+        }
+      ]
     },
     "postTest": {
-      "name": "posttest-6",
-      "questions": []
+      "name": "posttest-7",
+      "questions": [
+        {
+          "order": 1,
+          "question": "Which factor is most important when choosing a treatment plan for cervical cancer?",
+          "options": [
+            "A. The woman’s general health and immune function",
+            "B. The stage of the cancer at the time of diagnosis",
+            "C. The availability of facilities and specialists",
+            "D. All of the above are considered important"
+          ],
+          "correctAnswer": "D. All of the above are considered important",
+          "explanation": "Choosing a treatment plan depends on: stage of the cancer, general health of the woman, availability of facilities and specialists."
+        },
+        {
+          "order": 2,
+          "question": "Which surgery is a fertility-sparing treatment for some early-stage cervical cancers?",
+          "options": [
+            "A. Simple hysterectomy",
+            "B. Radical hysterectomy",
+            "C. Trachelectomy",
+            "D. Prostatectomy"
+          ],
+          "correctAnswer": "C. Trachelectomy",
+          "explanation": "Trachelectomy removes the cervix and upper vagina but preserves the uterus, which is a fertility-sparing option for some early-stage patients."
+        },
+        {
+          "order": 3,
+          "question": "Which statement best describes external beam radiation therapy (EBRT)?",
+          "options": [
+            "A. It is a non-invasive treatment using a linear accelerator",
+            "B. It uses radioactive material placed inside the cervix",
+            "C. It requires removal of the uterus and nearby tissues",
+            "D. It is a drug treatment given through a patient’s vein"
+          ],
+          "correctAnswer": "A. It is a non-invasive treatment using a linear accelerator",
+          "explanation": "External beam radiation therapy (EBRT) is a non-invasive procedure. The radiation is delivered from a machine (called a linear accelerator) outside the body"
+        },
+        {
+          "order": 4,
+          "question": "Which of the following is a common side effect of chemotherapy?",
+          "options": [
+            "A. Changes in urination or bowel habits",
+            "B. Nausea, vomiting, and loss of appetite",
+            "C. Vaginal dryness, narrowing, or scarring",
+            "D. Pain or discomfort in the pelvic area"
+          ],
+          "correctAnswer": "B. Nausea, vomiting, and loss of appetite",
+          "explanation": "Chemotherapy is the use of drugs to kill cancer cells. Some common side effects include: nausea or vomiting, loss of appetite, mouth sores, fatigue, hair loss, easy bruising or bleeding, higher chance of infections and constipation"
+        },
+        {
+          "order": 5,
+          "question": "Which of the following best describes palliative care in cervical cancer?",
+          "options": [
+            "A. It is only for end-stage disease and terminal conditions",
+            "B. It manages pain and symptoms but not emotional support",
+            "C. It improves quality of life through physical and mental care",
+            "D. It replaces curative treatments like surgery or chemotherapy"
+          ],
+          "correctAnswer": "C. It improves quality of life through physical and mental care",
+          "explanation": "Palliative care aims to improve the quality of life of patients and their families facing problems associated with life-threatening illnesses and conditions. It is not only end-of-life care, but also includes interventions applied throughout the disease trajectory."
+        }
+      ]
     }
   }
 ]

@@ -1362,13 +1362,15 @@
           },
           {
             "name": "section-5-1card-3b",
-            "title": "• It is performed using a colposcope but specially designed video or digital cameras are being used of late.\n• Colposcopy is used on patients with positive screening results to:\n    i. Confirm the presence and severity of pre-cancer or cancer.",
+            "title": "Diagnostic tools: Colposcopy",
+            "content": "• It is performed using a colposcope but specially designed video or digital cameras are being used of late.\n• Colposcopy is used on patients with positive screening results to:\n    i. Confirm the presence and severity of pre-cancer or cancer.",
             "infographic": "/images/placeholder.svg",
             "order": 4
           },
           {
             "name": "section-5-1card-3c",
-            "title": "ii. Guide biopsies of any areas that appear abnormal.\n\niii. Determine whether cryotherapy or loop electrosurgical excision procedure (LEEP) is the most appropriate treatment method.",
+            "title": "Colposcopy; continued",
+            "content": "ii. Guide biopsies of any areas that appear abnormal.\n\niii. Determine whether cryotherapy or loop electrosurgical excision procedure (LEEP) is the most appropriate treatment method.",
             "infographic": "/images/placeholder.svg",
             "order": 5
           },
@@ -1437,7 +1439,7 @@
         "name": "section-6-3",
         "title": "Factors Influencing Cervical Cancer Prognosis",
         "description": "Approaches depending on stage.",
-        "order": 2,
+        "order": 3,
         "learningCards": [
           {
             "name": "section-5-3card-1",

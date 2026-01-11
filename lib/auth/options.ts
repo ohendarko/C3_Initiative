@@ -95,19 +95,19 @@ export const authOptions: NextAuthOptions = {
             emailVerified: true,  // ✅ Verified by Google
           },
         });
+        // ✅ Send welcome email for new OAuth users
+        try {
+          console.log('[Auth] Sending welcome email...')
+          await sendWelcomeEmail(user.email, user.name ?? "")
+          console.log('[Auth] ✅ Welcome email sent')
+        } catch (error) {
+          console.error('[Auth] ❌ Failed to send welcome email:', error)
+          // Don't block sign in if email fails
+        }
+      } else {
+        console.log('[Auth] Existing user signing in:', existingUser.id)
+        // ✅ No welcome email for existing users
       }
-
-       // ✅ Send welcome email for new OAuth users
-      try {
-        console.log('[Auth] Sending welcome email...')
-        await sendWelcomeEmail(user.email, user.name ?? "")
-        console.log('[Auth] ✅ Welcome email sent')
-      } catch (error) {
-        console.error('[Auth] ❌ Failed to send welcome email:', error)
-        // Don't block sign in if email fails
-      }
-      
-      
 
       return true;
     },
