@@ -21,6 +21,9 @@ export interface UserProfile {
   admin?: boolean
   hasCompletedQuestionnaire?: boolean
   certificate?: boolean
+  certificateIssueDate?: string
+  certificateUrl?: string
+  certificateId?: string
   emailVerified?: boolean
 }
 

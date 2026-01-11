@@ -5,7 +5,7 @@ import { QRCodeCanvas } from "qrcode.react"
 import { useEffect, useState } from "react"
 
 export default function CertificateQRCode() {
-  const verificationUrl = `https://c3initiative.vercel.app/verify`
+  const verificationUrl = `https://c3-learning.com/verify`
   const [qrSize, setQrSize] = useState(64)
 
   useEffect(() => {

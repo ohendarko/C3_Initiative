@@ -27,6 +27,7 @@ import { useLearner } from "@/context/LearnerContext"
 import { clearUserCache } from "@/lib/clearCache"
 import QuestionnaireAlert from "@/components/QuestionnaireAlert"
 import pics from "@/assests/picture"
+import { Certificate } from "crypto"
 
 
 const iconMap = {
@@ -133,6 +134,7 @@ const handleLogout = async () => {
           body: JSON.stringify({
             email: userProfile.email,
             currentModule: "certificate",
+            certificateIssued: true,
           }),
         })
 

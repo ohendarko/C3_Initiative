@@ -40,6 +40,10 @@ model User {
   completedSections         String[]         @default([])
   completedModules          String[]         @default([])
   certificate               Certificate?
+  certificateIssued         Boolean          @default(false)
+  certificateIssueDate DateTime?
+  certificateUrl            String?
+  certificateId             String?
   UserProgress              UserProgress[]
 
   @@map("users")

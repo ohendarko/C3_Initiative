@@ -106,8 +106,7 @@ export default function ModulePage() {
   const postTestCompleted = userProfile?.postTestCompleted?.includes(posttestKey) ?? false
   const [showQuiz, setShowQuiz] = useState(!pretestCompleted)
   const [showPostQuiz, setShowPostQuiz] = useState(!postTestCompleted)
-
-
+  const [isDataReady, setIsDataReady] = useState(false)
 
 
 
@@ -182,7 +181,65 @@ export default function ModulePage() {
     fetchModule()
   }, [module, userEmail])
 
+  useEffect(() => {
+    if (userEmail && lesson && userProfile && !isDataReady) {
+      console.log('[Data] All data loaded, ready to sync')
+      setIsDataReady(true)
+    }
+  }, [userEmail, lesson, userProfile, isDataReady])
 
+  useEffect(() => {
+    if (!isDataReady) return
+
+    console.log('[Sync] Data ready, starting sync')
+
+    const syncLocalSections = async () => {
+      const localSections = getLocalCompletedSections(userEmail!)
+      const remoteSections = userProfile?.completedSections || []
+
+      const unsyncedSections = localSections.filter(
+        (section) => !remoteSections.includes(section)
+      )
+
+      if (unsyncedSections.length > 0) {
+        console.log('[Sync] Syncing:', unsyncedSections)
+
+        try {
+          const res = await fetch("/api/user/update", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: userEmail,
+              completedSections: unsyncedSections,
+              addOn: true,
+            }),
+          })
+
+          if (res.ok) {
+            console.log('[Sync] ✅ Synced')
+            
+            setUserProfile((prev) =>
+              prev
+                ? {
+                    ...prev,
+                    completedSections: [
+                      ...prev.completedSections,
+                      ...unsyncedSections,
+                    ],
+                  }
+                : prev
+            )
+          }
+        } catch (error) {
+          console.error('[Sync] Error:', error)
+        }
+      } else {
+        console.log('[Sync] Nothing to sync')
+      }
+    }
+
+    syncLocalSections()
+  }, [isDataReady])
 
 
   // console.log('totalmodules',totalModules)
@@ -231,6 +288,7 @@ export default function ModulePage() {
         email: userProfile?.email,
         [fieldToUpdate]: updateValue,
         addOn: true,
+        totalModules: totalModules,
       }
 
       // If posttest, update completed modules
@@ -307,7 +365,7 @@ export default function ModulePage() {
 
 
   
-  const handleSectionComplete = (sectionId: number, nextSection?: number) => {
+  const handleSectionComplete = async (sectionId: number, nextSection?: number) => {
     if (!lesson || !userEmail) return
 
     const currentSection = lesson.sections.find((s) => s.order === sectionId)
@@ -326,6 +384,41 @@ export default function ModulePage() {
     // Move to next section
     if (nextSection && nextSection <= lesson.sections.length) {
       setActiveSection(nextSection)
+    }
+
+     // ✅ 2. Save to database
+    try {
+      console.log('[Syncing sections]')
+      console.log('[Section] Syncing to database...')
+      
+      const res = await fetch("/api/user/update", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: userEmail,
+          completedSections: [currentSection.name],
+          addOn: true,  // Merge with existing sections
+        }),
+      })
+
+      if (!res.ok) {
+        console.error('[Section] Failed to sync to database')
+      } else {
+        console.log('[Section] ✅ Synced to database')
+        
+        // ✅ Update local context
+        setUserProfile((prev) =>
+          prev
+            ? {
+                ...prev,
+                completedSections: [...prev.completedSections, currentSection.name],
+              }
+            : prev
+        )
+      }
+    } catch (error) {
+      console.error('[Section] Error syncing:', error)
+      // Don't block user - local save still works
     }
 
     // Check if all sections are completed
@@ -433,12 +526,12 @@ export default function ModulePage() {
     }
   }, [completedSections, lesson, hasShownCompletionModal])
 
-    useEffect(() => {
-      const allCompleted = completedSections === lesson?.sections.length
-      if (allCompleted && showPostTest === false) {
-        setShowPostQuiz(true)
-      }  
-    }, [allSectionsCompleted, completedSections])
+  useEffect(() => {
+    const allCompleted = completedSections === lesson?.sections.length
+    if (allCompleted && showPostTest === false) {
+      setShowPostQuiz(true)
+    }  
+  }, [allSectionsCompleted, completedSections])
 
 
   return (
