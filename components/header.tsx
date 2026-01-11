@@ -3,8 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState, useRef } from "react"
-import { Menu, X, BookOpen, LogOut, User as UserIcon, Settings } from "lucide-react"
-import { useRouter } from "next/navigation"
+import { Menu, X, BookOpen, LogOut } from "lucide-react"
 import { useSession, signOut } from "next-auth/react"
 import { useUser } from "@/context/UserContext"
 import UserAvatar from "@/components/UserAvatar"
@@ -12,7 +11,7 @@ import { clearUserCache } from "@/lib/clearCache"
 import { toast } from "@/hooks/use-toast"
 
 export default function Header() {
-  const router = useRouter()
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
   const { data: session, status } = useSession()

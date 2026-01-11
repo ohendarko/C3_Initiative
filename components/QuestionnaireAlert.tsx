@@ -5,12 +5,11 @@ import { toast } from "@/hooks/use-toast"
 import { clearUserCache } from "@/lib/clearCache"
 import * as AlertDialog from "@radix-ui/react-alert-dialog"
 import { signOut, useSession } from "next-auth/react"
-import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 export default function QuestionnaireDialog({ shouldShow }: { shouldShow: boolean }) {
-  const router = useRouter()
-    const { data: session, status } = useSession()
+  
+  const { data: session } = useSession()
   const [open, setOpen] = useState(false)
 
   useEffect(() => {

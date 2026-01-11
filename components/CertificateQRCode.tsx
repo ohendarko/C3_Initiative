@@ -1,4 +1,4 @@
-// components/CertificateQRCode.tsx
+
 'use client'
 
 import { QRCodeCanvas } from "qrcode.react"

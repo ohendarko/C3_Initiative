@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { useAdmin } from '@/context/AdminContext';
-import { Shield, Lock, User } from 'lucide-react';
+import { Lock, User } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 

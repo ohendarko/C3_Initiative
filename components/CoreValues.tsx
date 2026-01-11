@@ -1,6 +1,5 @@
 "use client"
-import React from 'react'
-import SlideInFromRight from "./SlideInFromRight"
+
 import { SlideInFromBottom } from "./animations"
 import Image from 'next/image'
 

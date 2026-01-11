@@ -1,4 +1,4 @@
-// animations.tsx
+
 import { motion } from "framer-motion"
 
 export const SlideInFromTop = ({ children }: { children: React.ReactNode }) => (

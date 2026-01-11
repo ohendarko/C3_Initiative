@@ -20,7 +20,7 @@ import { useProtectedModuleRoute } from "@/hooks/useProtectedModuleRoute"
 import { useLearner } from "@/context/LearnerContext"
 import { useSession } from "next-auth/react"
 import FullScreenQuizDialog, { QuestionResult } from "@/components/FullScreenQuizDialog"
-import { UserProfile } from "@/context/LearnerContext"
+// import { UserProfile } from "@/context/LearnerContext"
 
 
 type LearningCard = {

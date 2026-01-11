@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useAdmin } from '@/context/AdminContext';
-// import { Module, Section, LearningCard, PostTest } from '@/types/admin';
 import { Plus, Trash2, Save } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
-import { Module, Section, PreTest, PostTest, LearningCard, Question, newModule } from '@/lib/types';
+import { Section, PostTest, LearningCard, Question, newModule } from '@/lib/types';
 
 interface CreateModuleDialogProps {
   open: boolean;
@@ -16,7 +15,7 @@ interface CreateModuleDialogProps {
 }
 
 export function CreateModuleDialog({ open, onOpenChange }: CreateModuleDialogProps) {
-  const { addModule, modules, stats } = useAdmin();
+  const { addModule, stats } = useAdmin();
   const [loading, setLoading] = useState(false);
   const [totalModules, setTotalModules] = useState(stats.totalModules)
 
@@ -44,8 +43,8 @@ export function CreateModuleDialog({ open, onOpenChange }: CreateModuleDialogPro
   });
 
 
-  const [sections, setSections] = useState<Section[]>([]);
-  const [postTests, setPostTests] = useState<PostTest[]>([]);
+  // const [sections, setSections] = useState<Section[]>([]);
+  // const [postTests, setPostTests] = useState<PostTest[]>([]);
 
   useEffect(() => {
     if (stats?.totalModules !== undefined) {
@@ -353,7 +352,7 @@ export function CreateModuleDialog({ open, onOpenChange }: CreateModuleDialogPro
 
     setLoading(true);
     try {
-      const formatted = transformModuleForPrisma(moduleData);
+      // const formatted = transformModuleForPrisma(moduleData);
       const success = await addModule(moduleData);
       if (success && success.status === 'successful') {
         toast({

@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card"
+
 import { CheckCircle, Target, Heart, Lightbulb } from "lucide-react"
 import ScrollSlideUp from "./ScrollSlideUp"
 import ScrollFadeIn from "./ScrollFadeIn"

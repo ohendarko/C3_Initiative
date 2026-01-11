@@ -27,13 +27,6 @@ export default function SignUpPage() {
   })
   const router = useRouter()
 
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault()
-  //   // Here you would typically handle the signup logic
-  //   // For now, we'll redirect to the questionnaire
-  //   router.push("/questionnaire")
-  // }
-
     const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -90,7 +83,6 @@ export default function SignUpPage() {
       });
       return;
     }
-
 
     // Submit the form data to the server
 

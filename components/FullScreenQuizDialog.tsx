@@ -1,9 +1,9 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 import { Dialog } from "@headlessui/react"
 import { Button } from "./ui/button"
-import { useLearner } from "@/context/LearnerContext"
+
 import { useRouter } from "next/navigation"
 import SlideInQuestion from "./SlideInQuestion"
 

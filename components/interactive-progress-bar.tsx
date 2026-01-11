@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import {
   BookOpen,
@@ -12,8 +11,8 @@ import {
   Stethoscope,
   Users,
   Award,
-  ChevronLeft,
-  ChevronRight,
+  // ChevronLeft,
+  // ChevronRight,
   CheckCircle,
   Lock,
 } from "lucide-react"
@@ -25,12 +24,12 @@ interface Module {
   order: number;
   description: string;
   name: string;
-  module: string;         // e.g., "module-1"
+  module: string; 
   title: string;
   shortTitle: string;
   completed: boolean;
   unlocked: boolean;
-  icon: string;         // name of the Lucide icon (e.g., "Users", "Shield")
+  icon: string;         
   introVideo: string;
   current?: boolean
 }
@@ -124,18 +123,18 @@ export default function InteractiveProgressBar({
     }
   }
 
-  const scroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 200
-      const newScrollLeft =
-        scrollContainerRef.current.scrollLeft + (direction === "right" ? scrollAmount : -scrollAmount)
+  // const scroll = (direction: "left" | "right") => {
+  //   if (scrollContainerRef.current) {
+  //     const scrollAmount = 200
+  //     const newScrollLeft =
+  //       scrollContainerRef.current.scrollLeft + (direction === "right" ? scrollAmount : -scrollAmount)
 
-      scrollContainerRef.current.scrollTo({
-        left: newScrollLeft,
-        behavior: "smooth",
-      })
-    }
-  }
+  //     scrollContainerRef.current.scrollTo({
+  //       left: newScrollLeft,
+  //       behavior: "smooth",
+  //     })
+  //   }
+  // }
 
   useEffect(() => {
     checkScrollButtons()

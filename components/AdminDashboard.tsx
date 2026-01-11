@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useAdmin } from '@/context/AdminContext';
@@ -11,7 +11,6 @@ import {
   Plus,
   Eye,
   Settings,
-  BarChart3
 } from 'lucide-react';
 import { CreateModuleDialog } from './CreateModuleDialog';
 import EditModuleDialog from './EditModuleDialog';

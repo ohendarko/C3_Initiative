@@ -45,7 +45,7 @@ export default function CervicalCancerLearnPage() {
   const {data: session, status} = useSession()
   const { userProfile, setUserProfile, loading, moduleSummary, moduleProgress } = useLearner()
   const [localloading, setLoading] = useState(false)
-  const userEmail = session?.user?.email
+  // const userEmail = session?.user?.email
 
   const moduleUnlocked = (moduleName: string) => {
     // if (!moduleName) return
@@ -68,31 +68,22 @@ export default function CervicalCancerLearnPage() {
   const moduleCompleted = (moduleName: string) => userProfile?.completedModules?.includes(moduleName) ?? false
  
 
-  const completedModules = moduleProgress ? Object.values(moduleProgress).filter((p) => p.completed).length : 0
+  // const completedModules = moduleProgress ? Object.values(moduleProgress).filter((p) => p.completed).length : 0
 
   const allModulesCompleted = 
     moduleSummary.length > 0 && 
     userProfile?.completedModules.length === moduleSummary.length && userProfile?.completedModules.length > 0  // Extra safety check
-
-  // Prepare modules for progress bar
-  // const progressModules = moduleSummary.map((module) => ({
-  //   ...module,
-  //   completed: moduleProgress?.[module.order]?.completed || false,
-  //   unlocked: moduleProgress?.[module.order]?.unlocked || false,
-  // }));
-
-
 
   const handleModuleClick = (moduleId: string) => {
     router.push(`/learn/cervical-cancer/${moduleId}`)
     // console.log('module clicked: ',moduleId)
   }
 
-  const gotToModuleClick = (name: string, order: number) => {
-    if (moduleProgress && moduleProgress[order]?.unlocked) {
-      window.location.href = `/learn/cervical-cancer/${name}`
-    }
-  }
+  // const gotToModuleClick = (name: string, order: number) => {
+  //   if (moduleProgress && moduleProgress[order]?.unlocked) {
+  //     window.location.href = `/learn/cervical-cancer/${name}`
+  //   }
+  // }
 
 const handleLogout = async () => {
   if (!session?.user?.email) return

@@ -1,10 +1,8 @@
-// components/Footer.tsx
 "use client"
 
-import React from "react"
 import { SlideInFromBottom } from "./animations"
 import Image from "next/image"
-import { HeadphoneOffIcon, Headphones } from "lucide-react"
+import { Headphones } from "lucide-react"
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
