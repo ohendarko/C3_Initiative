@@ -159,10 +159,10 @@ export default function SignUpPage() {
           <CardHeader>
             <CardTitle>Create Your Account</CardTitle>
             <CardDescription>
-              <div>
+              <p>
                 Fill in your details to get started with our learning platform. {" "}
-              </div>
-              <div className="text-sm text-gray-500">Fields marked as <span className="text-red-700">*</span> are required</div>
+              </p>
+              <p className="text-sm text-gray-500">Fields marked as <span className="text-red-700">*</span> are required</p>
             </CardDescription>
           </CardHeader>
           <CardContent>
