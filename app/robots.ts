@@ -3,7 +3,7 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://c3-learning.com' // ✅ Replace with your domain
+  const baseUrl = 'https://c3-learning.com'
 
   return {
     rules: [

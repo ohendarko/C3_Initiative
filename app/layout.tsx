@@ -11,6 +11,7 @@ import SessionWrapper from "@/providers/SessionWrapper"
 import Header from "@/components/header"
 import { Poppins } from "next/font/google"
 import { UserProvider } from "@/context/UserContext"
+import { Analytics } from "@vercel/analytics/next"
 
 
 const inter = Inter({ subsets: ["latin"] })
@@ -97,6 +98,7 @@ export default function RootLayout({
               <main>
                 {children}
                 <Toaster />
+                <Analytics />
               </main>
               <Footer />
             </UserProvider>
