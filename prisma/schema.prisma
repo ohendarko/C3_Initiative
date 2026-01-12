@@ -184,6 +184,7 @@ model Questionnaire {
 model UserProgress {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
   userId   String @db.ObjectId
+  userEmail String?
   moduleId String // "module-1", "module-2", etc.
 
   // Scores

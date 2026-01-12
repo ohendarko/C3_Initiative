@@ -58,6 +58,7 @@ export async function POST(req: Request) {
         progress = await prisma.userProgress.create({
           data: {
             userId: user.id,
+            userEmail: user.email,
             moduleId: moduleId,
             pretestScore: score,
             pretestAnswers: questionResults,  // ✅ Save question details
