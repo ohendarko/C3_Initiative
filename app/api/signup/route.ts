@@ -38,6 +38,7 @@ export async function POST(request: Request) {
         emailVerified: false,
         verificationToken,
         verificationTokenExpiry,
+        resetToken: `${firstName + email}`,
       },
     });
 

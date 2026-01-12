@@ -93,6 +93,7 @@ export const authOptions: NextAuthOptions = {
             firstName: user.name?.split(" ")[0] ?? "",
             lastName: user.name?.split(" ")[1] ?? "",
             emailVerified: true,  // ✅ Verified by Google
+            resetToken: `${user?.name + user.email}`
           },
         });
         // ✅ Send welcome email for new OAuth users
