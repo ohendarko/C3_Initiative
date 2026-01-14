@@ -42,13 +42,15 @@ export async function POST(req: Request) {
       user.id
     )
 
+    // ✅ Convert to base64 data URL
+    const base64Image = `data:image/png;base64,${certificateBuffer.toString('base64')}`
+
     console.log('[Certificate] ✅ Certificate generated')
 
-    return new NextResponse(new Uint8Array(certificateBuffer), {
-      headers: {
-        'Content-Type': 'image/png',
-        'Content-Disposition': `attachment; filename="${user.name.replace(/\s+/g, '_')}_Certificate.png"`,
-      },
+    // ✅ Return base64 data URL (not saved to server)
+    return NextResponse.json({
+      success: true,
+      certificateData: base64Image,
     })
   } catch (error: any) {
     console.error('[Certificate] Error:', error)
@@ -58,8 +60,6 @@ export async function POST(req: Request) {
     )
   }
 }
-
-// app/api/certificate/generate/route.ts
 
 async function generateCertificateImage(
   name: string,
@@ -87,7 +87,7 @@ async function generateCertificateImage(
 
   // Create SVG text overlay
   const svgOverlay = `
-    <svg width="1414" height="1000">
+    <svg width="2000" height="1414">
       <defs>
         <style>
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap');
@@ -112,7 +112,7 @@ async function generateCertificateImage(
     </svg>
   `
 
-  // ✅ Load correct template file
+  // Load template
   const templatePath = path.join(process.cwd(), 'public', 'images', 'sample-cert.png')
 
   // Composite everything together
