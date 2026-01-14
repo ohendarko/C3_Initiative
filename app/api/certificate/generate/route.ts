@@ -4,9 +4,25 @@ import { NextResponse } from "next/server"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth/options"
 import { prisma } from "@/lib/prisma"
-import { createCanvas, loadImage } from "canvas"
+import { createCanvas, loadImage, registerFont } from "canvas"
 import path from "path"
 import QRCode from "qrcode"
+
+// registerFont('/C3_Initiative/public/fonts/Poppins-Regular.ttf', {
+//   family: 'Poppins',
+//   weight: 'normal',
+// })
+
+// registerFont('/C3_Initiative/public/fonts/Poppins-Regular.ttf', {
+//   family: 'Poppins',
+//   weight: '600',
+// })
+
+// registerFont('/C3_Initiative/public/fonts/Poppins-Regular.ttf', {
+//   family: 'Poppins',
+//   weight: 'bold',
+// })
+
 
 export async function POST(req: Request) {
   try {
@@ -88,7 +104,7 @@ async function generateCertificateImage(
   ctx.drawImage(background, 0, 0, width, height)
 
   // ✅ Draw name (position: top 47%, left 10.5%)
-  ctx.font = '600 48px Poppins, sans-serif'
+  ctx.font = 'bold 40px "DejaVu Sans", sans-serif'
   ctx.fillStyle = '#1e40af'  // Blue-800
   ctx.textAlign = 'left'
   ctx.textBaseline = 'top'
@@ -102,7 +118,7 @@ async function generateCertificateImage(
     month: 'long',
     year: 'numeric',
   })
-  ctx.font = '20px Poppins, sans-serif'
+  ctx.font = '20px "DejaVu Sans", sans-serif'
   ctx.fillStyle = '#1f2937'  // Gray-800
   const dateX = width * 0.10  // 10%
   const dateY = height * 0.71  // 71% (100% - 29%)
