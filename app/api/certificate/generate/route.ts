@@ -4,25 +4,9 @@ import { NextResponse } from "next/server"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth/options"
 import { prisma } from "@/lib/prisma"
-import { createCanvas, loadImage, registerFont } from "canvas"
+import sharp from "sharp"
 import path from "path"
-import QRCode from "qrcode"
-
-// registerFont('/C3_Initiative/public/fonts/Poppins-Regular.ttf', {
-//   family: 'Poppins',
-//   weight: 'normal',
-// })
-
-// registerFont('/C3_Initiative/public/fonts/Poppins-Regular.ttf', {
-//   family: 'Poppins',
-//   weight: '600',
-// })
-
-// registerFont('/C3_Initiative/public/fonts/Poppins-Regular.ttf', {
-//   family: 'Poppins',
-//   weight: 'bold',
-// })
-
+import QRCode from "qrcode-svg"
 
 export async function POST(req: Request) {
   try {
@@ -34,7 +18,6 @@ export async function POST(req: Request) {
 
     console.log('[Certificate] Generate request for:', session.user.email)
 
-    // Find user
     const user = await prisma.user.findUnique({
       where: { email: session.user.email },
     })
@@ -43,20 +26,16 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "User not found" }, { status: 404 })
     }
 
-    // Check if all modules completed
     const totalModules = 7
     if (!user.completedModules || user.completedModules.length < totalModules) {
       return NextResponse.json(
-        { 
-          error: `Complete all ${totalModules} modules first. You have completed ${user.completedModules?.length || 0}.` 
-        },
+        { error: `Complete all modules first` },
         { status: 400 }
       )
     }
 
-    console.log('[Certificate] Generating certificate image...')
+    console.log('[Certificate] Generating certificate with Sharp...')
 
-    // ✅ Generate certificate image
     const certificateBuffer = await generateCertificateImage(
       user.name,
       user.certificateIssueDate || new Date(),
@@ -65,10 +44,6 @@ export async function POST(req: Request) {
 
     console.log('[Certificate] ✅ Certificate generated')
 
-    // ✅ Return image directly as download
-// app/api/certificate/generate/route.ts
-
-    // Convert Buffer to Uint8Array
     return new NextResponse(new Uint8Array(certificateBuffer), {
       headers: {
         'Content-Type': 'image/png',
@@ -78,75 +53,98 @@ export async function POST(req: Request) {
   } catch (error: any) {
     console.error('[Certificate] Error:', error)
     return NextResponse.json(
-      { error: "Failed to generate certificate" },
+      { error: "Failed to generate certificate", details: error.message },
       { status: 500 }
     )
   }
 }
 
-// ✅ Generate certificate image using canvas
+// app/api/certificate/generate/route.ts
+
 async function generateCertificateImage(
   name: string,
   issueDate: Date,
   userId: string
 ): Promise<Buffer> {
-  // Certificate dimensions
-  const width = 1414
-  const height = 1000
-
-  // Create canvas
-  const canvas = createCanvas(width, height)
-  const ctx = canvas.getContext('2d')
-
-  // ✅ Load background template
-  const templatePath = path.join(process.cwd(), 'public', 'images', 'sample-cert.png')
-  const background = await loadImage(templatePath)
-  ctx.drawImage(background, 0, 0, width, height)
-
-  // ✅ Draw name (position: top 47%, left 10.5%)
-  ctx.font = 'bold 40px sans-serif'
-  ctx.fillStyle = '#1e40af'  // Blue-800
-  ctx.textAlign = 'left'
-  ctx.textBaseline = 'top'
-  const nameX = width * 0.105  // 10.5%
-  const nameY = height * 0.47  // 47%
-  ctx.fillText(name, nameX, nameY)
-
-  // ✅ Draw date (position: bottom 29%, left 10%)
+  
+  // Format date
   const formattedDate = issueDate.toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
   })
-  ctx.font = '20px sans-serif'
-  ctx.fillStyle = '#1f2937'  // Gray-800
-  const dateX = width * 0.10  // 10%
-  const dateY = height * 0.71  // 71% (100% - 29%)
-  ctx.fillText(`Awarded ${formattedDate}`, dateX, dateY)
 
-  // ✅ Generate QR code (position: bottom 1.5%, right 4%, size 8%)
-  try {
-    const certificateUrl = `${process.env.NEXTAUTH_URL}/verify/${userId}`
-    const qrSize = Math.floor(width * 0.08)  // 8% of width
-    
-    const qrBuffer = await QRCode.toBuffer(certificateUrl, {
-      width: qrSize,
-      margin: 0,
-      color: {
-        dark: '#000000',
-        light: '#FFFFFF',
+  // Generate QR code as SVG
+  const qrCode = new QRCode({
+    content: `${process.env.NEXTAUTH_URL}/verify/${userId}`,
+    width: 150,
+    height: 150,
+    color: "#000000",
+    background: "#ffffff",
+    ecl: "M",
+  })
+  const qrSvg = qrCode.svg()
+
+  // Create SVG text overlay
+  const svgOverlay = `
+    <svg width="1414" height="1000">
+      <defs>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap');
+          
+          .name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 80px;
+            font-weight: 600;
+            fill: #1e40af;
+          }
+          .date {
+            font-family: 'Poppins', sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            fill: #1f2937;
+          }
+        </style>
+      </defs>
+      
+      <text x="220" y="745" class="name">${escapeXml(name)}</text>
+      <text x="220" y="990" class="date">Awarded ${escapeXml(formattedDate)}</text>
+    </svg>
+  `
+
+  // ✅ Load correct template file
+  const templatePath = path.join(process.cwd(), 'public', 'images', 'sample-cert.png')
+
+  // Composite everything together
+  const result = await sharp(templatePath)
+    .composite([
+      {
+        input: Buffer.from(svgOverlay),
+        top: 0,
+        left: 0,
       },
-    })
+      {
+        input: Buffer.from(qrSvg),
+        top: 1225,
+        left: 1820,
+      },
+    ])
+    .png()
+    .toBuffer()
 
-    const qrImage = await loadImage(qrBuffer)
-    const qrX = width * 0.96 - qrSize  // Right 4%
-    const qrY = height * 0.985 - qrSize  // Bottom 1.5%
-    ctx.drawImage(qrImage, qrX, qrY, qrSize, qrSize)
-  } catch (qrError) {
-    console.error('[Certificate] QR code generation failed:', qrError)
-    // Continue without QR code
-  }
+  return result
+}
 
-  // Convert to buffer
-  return canvas.toBuffer('image/png')
+// Helper to escape XML special characters
+function escapeXml(unsafe: string): string {
+  return unsafe.replace(/[<>&'"]/g, (c) => {
+    switch (c) {
+      case '<': return '&lt;'
+      case '>': return '&gt;'
+      case '&': return '&amp;'
+      case "'": return '&apos;'
+      case '"': return '&quot;'
+      default: return c
+    }
+  })
 }
