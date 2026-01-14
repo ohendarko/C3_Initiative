@@ -104,7 +104,7 @@ async function generateCertificateImage(
   ctx.drawImage(background, 0, 0, width, height)
 
   // ✅ Draw name (position: top 47%, left 10.5%)
-  ctx.font = 'bold 40px "DejaVu Sans", sans-serif'
+  ctx.font = 'bold 40px sans-serif'
   ctx.fillStyle = '#1e40af'  // Blue-800
   ctx.textAlign = 'left'
   ctx.textBaseline = 'top'
@@ -118,7 +118,7 @@ async function generateCertificateImage(
     month: 'long',
     year: 'numeric',
   })
-  ctx.font = '20px "DejaVu Sans", sans-serif'
+  ctx.font = '20px sans-serif'
   ctx.fillStyle = '#1f2937'  // Gray-800
   const dateX = width * 0.10  // 10%
   const dateY = height * 0.71  // 71% (100% - 29%)
