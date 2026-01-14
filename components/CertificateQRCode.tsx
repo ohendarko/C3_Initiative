@@ -27,9 +27,6 @@ export default function CertificateQRCode() {
   return (
     <div className="flex flex-col items-center text-nowrap">
       <QRCodeCanvas value={verificationUrl} size={qrSize} />
-      <p className="text-[8px] sm:text-xs mt-1 sm:mt-2 text-white bg-blue-800 px-1 py-0.5 rounded">
-        Scan to verify
-      </p>
     </div>
   )
 }
