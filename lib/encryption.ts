@@ -13,6 +13,8 @@ const ENCRYPTED_POSITION = TAG_POSITION + TAG_LENGTH
  */
 function getKey(): string {
   const key = process.env.ENCRYPTION_KEY
+  // Temporary debug - remove after confirming it works
+  console.log('[Encryption] Key loaded:', key ? '✅ Yes' : '❌ No', `(length: ${key?.length || 0})`)
   if (!key) {
     throw new Error('ENCRYPTION_KEY environment variable is not set')
   }

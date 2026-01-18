@@ -12,11 +12,14 @@ type AdminView = 'dashboard' | 'users' | 'userDetails' | 'modules';
 export default function AdminPage() {
   // const router = useRouter()
   const { isAuthenticated } = useAdmin();
+  const router = useRouter()
   // const [currentView, setCurrentView] = useState<AdminView>('dashboard');
   // const [selectedUserId, setSelectedUserId] = useState<string>('');
 
   if (!isAuthenticated) {
     return <AdminLogin />;
+  } else {
+    router.push('/instructor/manage')
   }
 
 }

@@ -25,6 +25,8 @@ export interface UserProfile {
   certificateUrl?: string
   certificateId?: string
   emailVerified?: boolean
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 type ModuleProgress = {

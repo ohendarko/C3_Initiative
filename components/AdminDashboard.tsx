@@ -17,10 +17,11 @@ import EditModuleDialog from './EditModuleDialog';
 
 interface AdminDashboardProps {
   onViewUsers: () => void;
+  onViewAnalytics: () => void;
   onViewModules: () => void;
 }
 
-export function AdminDashboard({ onViewUsers, onViewModules }: AdminDashboardProps) {
+export function AdminDashboard({ onViewUsers, onViewModules, onViewAnalytics }: AdminDashboardProps) {
   const { stats, logout, modules } = useAdmin();
   const [showCreateModule, setShowCreateModule] = useState(false);
   const [showEditModule, setShowEditModule] = useState(false);
@@ -124,6 +125,30 @@ export function AdminDashboard({ onViewUsers, onViewModules }: AdminDashboardPro
                 <Button variant="outline" className="flex items-center gap-2">
                   <Eye className="h-4 w-4" />
                   View All
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={onViewAnalytics}>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Users className="h-5 w-5 text-blue-600" />
+                User Analytics
+              </CardTitle>
+              <CardDescription>
+                View and track their progress.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-2xl font-bold text-gray-900">{stats.totalUsers}</p>
+                  <p className="text-sm text-gray-600">Total Records</p>
+                </div>
+                <Button variant="outline" className="flex items-center gap-2">
+                  <Eye className="h-4 w-4" />
+                  Progress
                 </Button>
               </div>
             </CardContent>

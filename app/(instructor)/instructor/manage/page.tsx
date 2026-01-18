@@ -5,8 +5,9 @@ import React, { useState } from 'react';
 import { AdminDashboard } from '@/components/AdminDashboard';
 import { UsersManagement } from '@/components/UsersManagement';
 import { UserDetails } from '@/components/UserDetails';
+import AnalyticsDashboard from '@/components/UserAnalytics';
 
-type AdminView = 'dashboard' | 'users' | 'userDetails' | 'modules';
+type AdminView = 'dashboard' | 'users' | 'userDetails' | 'userAnalytics' | 'modules';
 
 export default function AdminPage() {
   // const { isAuthenticated } = useAdmin();
@@ -24,6 +25,9 @@ export default function AdminPage() {
   const handleViewUser = (userId: string) => {
     setSelectedUserId(userId);
     setCurrentView('userDetails');
+  };
+  const handleViewAnalytics = () => {
+    setCurrentView('userAnalytics');
   };
 
   const handleBackToDashboard = () => {
@@ -56,11 +60,18 @@ export default function AdminPage() {
           onBack={handleBackToUsers}
         />
       );
+    case 'userAnalytics':
+      return (
+        <AnalyticsDashboard
+          onBack={handleBackToDashboard}
+        />
+      );
     case 'modules':
       // Could add a ModulesManagement component here
       return (
         <AdminDashboard 
           onViewUsers={handleViewUsers}
+          onViewAnalytics={handleViewAnalytics}
           onViewModules={handleViewModules}
         />
       );
@@ -69,6 +80,7 @@ export default function AdminPage() {
         <AdminDashboard 
           onViewUsers={handleViewUsers}
           onViewModules={handleViewModules}
+          onViewAnalytics={handleViewAnalytics}
         />
       );
   }
