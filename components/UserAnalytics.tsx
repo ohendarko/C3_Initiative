@@ -1,5 +1,3 @@
-// app/dashboard/analytics/page.tsx
-
 'use client'
 
 import { useEffect, useState } from 'react'
@@ -24,8 +22,10 @@ type AnalyticsData = {
     totalQuestionnaires: number
     avgImprovement: number
     moduleStats: Array<{
-      moduleId: string
-      moduleName: string
+      moduleId: string // "module-6"
+      moduleName: string // "Module 5"
+      moduleTitle: string // "Diagnosis and Staging of Cervical Cancer"
+      moduleShortTitle: string // "Diagnosis"
       totalAttempts: number
       completedCount: number
       avgPretestScore: number
@@ -36,6 +36,8 @@ type AnalyticsData = {
       userEmail: string
       userName: string
       moduleId: string
+      moduleName: string
+      moduleTitle: string
       pretestScore: number | null
       posttestScore: number | null
       improvement: number | null
@@ -60,18 +62,16 @@ type AnalyticsData = {
     hpvVaccine: string
     createdAt: string
   }>
+   modules: Array<{
+    moduleId: string
+    name: string
+    title: string
+    shortTitle: string
+  }>
 }
 
 const COLORS = ['#f97316', '#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899']
-const MODULE_NAMES = [
-  'Anatomy & Physiology',
-  'HPV & Risk Factors', 
-  'Screening Methods',
-  'Prevention Strategies',
-  'Treatment Options',
-  'Patient Communication',
-  'Case Studies'
-]
+
 
 interface AnalyticsDashboardProps {
   onBack: () => void
@@ -81,7 +81,6 @@ export default function AnalyticsDashboard({ onBack }: AnalyticsDashboardProps) 
   const [data, setData] = useState<AnalyticsData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [selectedModule, setSelectedModule] = useState<string | null>(null)
 
   useEffect(() => {
     fetchAnalytics()
@@ -262,7 +261,7 @@ export default function AnalyticsDashboard({ onBack }: AnalyticsDashboardProps) 
           </Button>
           
           <div className="text-center flex-1">
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-blue-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold bg-pink-800 bg-clip-text text-transparent">
               C3 Initiative Analytics
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-2">
@@ -381,7 +380,7 @@ export default function AnalyticsDashboard({ onBack }: AnalyticsDashboardProps) 
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <TrendingUp className="h-5 w-5 text-green-500" />
-                    Score Improvement by Module
+                    Average Score Improvement by Module
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -619,9 +618,10 @@ export default function AnalyticsDashboard({ onBack }: AnalyticsDashboardProps) 
               {data.stats.moduleStats.map((module, index) => (
                 <Card key={module.moduleId} className="hover:shadow-lg transition-shadow">
                   <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center justify-between">
-                      <span className="text-lg">{MODULE_NAMES[index]}</span>
-                      <BookOpen className="h-5 w-5 text-orange-500" />
+                    <CardTitle className="flex flex-col items-center justify-between">
+                      <span className="text-lg">{module.moduleName}</span>
+                      <span className="text-lg">{module.moduleTitle}</span>
+                      {/* <BookOpen className="h-5 w-5 text-orange-500" /> */}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
@@ -684,7 +684,7 @@ export default function AnalyticsDashboard({ onBack }: AnalyticsDashboardProps) 
                     <div key={module.moduleId} className="p-4 bg-red-50 dark:bg-red-950 rounded-lg">
                       <div className="flex justify-between items-center">
                         <div>
-                          <p className="font-semibold">{MODULE_NAMES[parseInt(module.moduleId.split('-')[1]) - 1]}</p>
+                          <p className="font-semibold">{module.moduleName}</p>
                           <p className="text-sm text-gray-600">Post-test average: {module.avgPosttestScore}%</p>
                         </div>
                         <div className="text-right">

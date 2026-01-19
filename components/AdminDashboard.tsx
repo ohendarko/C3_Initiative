@@ -11,6 +11,8 @@ import {
   Plus,
   Eye,
   Settings,
+  TrendingUpIcon,
+  TrendingUpDown,
 } from 'lucide-react';
 import { CreateModuleDialog } from './CreateModuleDialog';
 import EditModuleDialog from './EditModuleDialog';
@@ -133,7 +135,7 @@ export function AdminDashboard({ onViewUsers, onViewModules, onViewAnalytics }: 
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={onViewAnalytics}>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-blue-600" />
+                <TrendingUpIcon />
                 User Analytics
               </CardTitle>
               <CardDescription>
@@ -141,13 +143,13 @@ export function AdminDashboard({ onViewUsers, onViewModules, onViewAnalytics }: 
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="flex items-center justify-between">
-                <div>
+              <div className="flex items-center justify-end">
+                {/* <div>
                   <p className="text-2xl font-bold text-gray-900">{stats.totalUsers}</p>
                   <p className="text-sm text-gray-600">Total Records</p>
-                </div>
+                </div> */}
                 <Button variant="outline" className="flex items-center gap-2">
-                  <Eye className="h-4 w-4" />
+                  <TrendingUpDown className="h-4 w-4" />
                   Progress
                 </Button>
               </div>

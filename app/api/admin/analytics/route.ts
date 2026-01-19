@@ -1,9 +1,9 @@
+// app/api/admin/analytics/route.ts
 
 import { NextResponse } from "next/server"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth/options"
 import { prisma } from "@/lib/prisma"
-
 
 export async function GET(req: Request) {
   try {
@@ -15,7 +15,25 @@ export async function GET(req: Request) {
 
     console.log('[Analytics] Fetching data...')
 
-    // ✅ 1. Get all user progress with user details
+    // ✅ 1. Get module summaries first
+    const moduleSummaries = await prisma.moduleSummary.findMany({
+      orderBy: { order: 'asc' } // Sort by order field
+    })
+
+    // Create a map for easy lookup: module -> title
+    const moduleNameMap = moduleSummaries
+      .filter(mod => mod.module !== null) // Filter out nulls
+      .reduce((acc, mod) => {
+        acc[mod.module!] = { // Use non-null assertion since we filtered
+          title: mod.title || '',
+          name: mod.name || '',
+          shortTitle: mod.shortTitle || ''
+        }
+        return acc
+      }, {} as Record<string, { title: string; name: string; shortTitle: string }>)
+
+
+    // ✅ 2. Get all user progress with user details
     const allProgress = await prisma.userProgress.findMany({
       include: {
         user: {
@@ -30,7 +48,7 @@ export async function GET(req: Request) {
       orderBy: { updatedAt: 'desc' },
     })
 
-    // ✅ 2. Get all questionnaires - ALREADY DECRYPTED BY PRISMA MIDDLEWARE!
+    // ✅ 3. Get all questionnaires
     const allQuestionnaires = await prisma.questionnaire.findMany({
       include: {
         user: {
@@ -44,13 +62,11 @@ export async function GET(req: Request) {
       orderBy: { createdAt: 'desc' },
     })
 
-    // ✅ 3. NO DECRYPTION NEEDED - just format the data
     const formattedQuestionnaires = allQuestionnaires.map(q => ({
       id: q.id,
       userId: q.user.id,
       userEmail: q.user.email,
       userName: q.user.name,
-      // ✅ Data is already decrypted by Prisma middleware
       age: q.age || 'N/A',
       gender: q.gender || 'N/A',
       relationshipStatus: q.relationshipStatus || 'N/A',
@@ -68,10 +84,9 @@ export async function GET(req: Request) {
       createdAt: q.createdAt.toISOString(),
     }))
 
-    // ✅ 4. Calculate module statistics
-    const moduleStats = Array.from({ length: 7 }, (_, i) => {
-      const moduleId = `module-${i + 1}`
-      const moduleProgress = allProgress.filter(p => p.moduleId === moduleId)
+    // ✅ 4. Calculate module statistics with REAL names
+    const moduleStats = moduleSummaries.map(mod => {
+      const moduleProgress = allProgress.filter(p => p.moduleId === mod.module)
       
       const pretestScores = moduleProgress
         .map(p => p.pretestScore)
@@ -82,8 +97,10 @@ export async function GET(req: Request) {
         .filter((score): score is number => score !== null)
       
       return {
-        moduleId,
-        moduleName: `Module ${i + 1}`,
+        moduleId: mod.module, // e.g., "module-6"
+        moduleName: mod.name, // e.g., "Module 5"
+        moduleTitle: mod.title, // e.g., "Diagnosis and Staging of Cervical Cancer"
+        moduleShortTitle: mod.shortTitle, // e.g., "Diagnosis"
         totalAttempts: moduleProgress.length,
         completedCount: moduleProgress.filter(p => p.completed).length,
         avgPretestScore: pretestScores.length > 0
@@ -102,6 +119,8 @@ export async function GET(req: Request) {
       userEmail: p.user.email,
       userName: p.user.name,
       moduleId: p.moduleId,
+      moduleName: moduleNameMap[p.moduleId]?.name || p.moduleId,
+      moduleTitle: moduleNameMap[p.moduleId]?.title || p.moduleId,
       pretestScore: p.pretestScore,
       posttestScore: p.posttestScore,
       improvement: p.posttestScore !== null && p.pretestScore !== null
@@ -136,6 +155,12 @@ export async function GET(req: Request) {
       success: true,
       stats,
       questionnaires: formattedQuestionnaires,
+      modules: moduleSummaries.map(m => ({
+        moduleId: m.module,
+        name: m.name,
+        title: m.title,
+        shortTitle: m.shortTitle,
+      })),
     })
 
   } catch (error: any) {
