@@ -9,6 +9,7 @@ import { useUser } from "@/context/UserContext"
 import UserAvatar from "@/components/UserAvatar"
 import { clearUserCache } from "@/lib/clearCache"
 import { toast } from "@/hooks/use-toast"
+import Image from "next/image"
 
 export default function Header() {
 
@@ -69,12 +70,12 @@ export default function Header() {
 
   const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
     isScrolled
-      ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700"
+      ? "bg-gray-800/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700"
       : "bg-white/30"
   }`
 
   const textClass = isScrolled
-    ? "text-gray-700 dark:text-gray-300"
+    ? "text-white dark:text-gray-300"
     : "text-gray-800 dark:text-white"
 
   const iconClass = isScrolled 
@@ -86,12 +87,12 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2 flex-shrink-0" title="C3 Initiative">
-            <div className="w-8 h-8 gradient-orange-blue rounded-lg flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-white" />
-            </div>
-            <span className={`${textClass} text-xl font-bold`}>
-              C3 Initiative
-            </span>
+            <Image
+             src='/logo.png'
+             width={100}
+             height={100}
+             alt="C3 Logo"
+            />
           </Link>
 
           {/* Desktop Navigation */}
