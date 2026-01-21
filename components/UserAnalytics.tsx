@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { generateParticipantId } from '@/lib/analytics-utils'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { 
   Loader2, Users, BookOpen, FileText, TrendingUp, Download, 
@@ -14,6 +15,14 @@ import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
   AreaChart, Area
 } from 'recharts'
+
+type QuestionAnswer = {
+  questionIndex: number
+  question: string
+  selectedAnswer: string
+  correctAnswer: string
+  isCorrect: boolean
+}
 
 type AnalyticsData = {
   stats: {
@@ -32,7 +41,7 @@ type AnalyticsData = {
       avgPosttestScore: number
     }>
     userPerformance: Array<{
-      id: string
+       id: string
       userEmail: string
       userName: string
       moduleId: string
@@ -40,9 +49,31 @@ type AnalyticsData = {
       moduleTitle: string
       pretestScore: number | null
       posttestScore: number | null
+      totalQuestions: number | null
+      pretestPercentage: number | null
+      posttestPercentage: number | null
       improvement: number | null
       completed: boolean
       lastUpdated: string
+      pretestAnswers: QuestionAnswer[] | null // ✅ Full details
+      posttestAnswers: QuestionAnswer[] | null // ✅ Full details
+    }>
+    questionStats: Array<{ // ✅ NEW
+      key: string
+      moduleId: string
+      moduleName: string
+      testType: 'pretest' | 'posttest'
+      questionIndex: number
+      question: string
+      correctAnswer: string
+      totalAttempts: number
+      correctCount: number
+      successRate: number
+      wrongAnswers: Array<{
+        answer: string
+        count: number
+        percentage: number
+      }>
     }>
   }
   questionnaires: Array<{
@@ -100,41 +131,123 @@ export default function AnalyticsDashboard({ onBack }: AnalyticsDashboardProps) 
     }
   }
 
-  const exportToCSV = () => {
-    if (!data) return
+const exportToCSV = () => {
+  if (!data) return
 
-    const csvData = [
-      ['=== USER PERFORMANCE ==='],
-      ['User Email', 'User Name', 'Module', 'Pretest', 'Posttest', 'Improvement', 'Completed', 'Last Updated'],
-      ...data.stats.userPerformance.map(p => [
-        p.userEmail, p.userName, p.moduleId,
-        p.pretestScore?.toString() || '', 
-        p.posttestScore?.toString() || '',
-        p.improvement?.toString() || '',
-        p.completed.toString(),
-        p.lastUpdated
-      ]),
-      [''],
-      ['=== QUESTIONNAIRE DATA ==='],
-      ['Email', 'Name', 'Age', 'Gender', 'Relationship', 'Religion', 'Program', 'Year', 
-       'Sexually Active', 'Family History Cancer', 'Prior Education', 'Had Pap Smear', 'HPV Vaccine', 'Date'],
-      ...data.questionnaires.map(q => [
-        q.userEmail, q.userName, q.age, q.gender, q.relationshipStatus, q.religion,
-        q.programOfStudy, q.yearOfStudy, q.sexuallyActive, q.familyHistoryCancer,
-        q.cervicalCancerEducation, q.papSmearTest, q.hpvVaccine,
-        new Date(q.createdAt).toLocaleDateString()
-      ])
-    ]
+  const csvData = [
+    ['=== MODULE SUMMARY ==='],
+    ['Module ID', 'Module Name', 'Total Attempts', 'Completed', 'Avg Pretest %', 'Avg Posttest %', 'Avg Improvement'],
+    ...data.stats.moduleStats.map(m => [
+      m.moduleId,
+      m.moduleName,
+      m.totalAttempts,
+      m.completedCount,
+      m.avgPretestScore,
+      m.avgPosttestScore,
+      (m.avgPosttestScore - m.avgPretestScore).toFixed(1)
+    ]),
+    [''],
+    
+    ['=== USER PERFORMANCE SUMMARY ==='],
+    ['User Email', 'User Name', 'Module', 'Pretest Score', 'Pretest %', 'Posttest Score', 'Posttest %', 'Improvement', 'Completed', 'Date'],
+    ...data.stats.userPerformance.map(p => [
+      p.userEmail,
+      p.userName,
+      p.moduleName,
+      p.pretestScore || '',
+      p.pretestPercentage || '',
+      p.posttestScore || '',
+      p.posttestPercentage || '',
+      p.improvement || '',
+      p.completed,
+      new Date(p.lastUpdated).toLocaleDateString()
+    ]),
+    [''],
 
-    const csv = csvData.map(row => row.join(',')).join('\n')
-    const blob = new Blob([csv], { type: 'text/csv' })
-    const url = window.URL.createObjectURL(blob)
-    const link = document.createElement('a')
-    link.href = url
-    link.download = `c3_analytics_${new Date().toISOString().split('T')[0]}.csv`
-    link.click()
-  }
+    ['=== DETAILED QUESTION-BY-QUESTION ANALYSIS ==='],
+    ['User Email', 'User Name', 'Module', 'Test Type', 'Q#', 'Question', 'Selected Answer', 'Correct Answer', 'Result'],
+    ...data.stats.userPerformance.flatMap(p => {
+      const rows: any[] = []
+      
+      // Export pretest answers
+      if (p.pretestAnswers) {
+        p.pretestAnswers.forEach(answer => {
+          rows.push([
+            p.userEmail,
+            p.userName,
+            p.moduleName,
+            'Pretest',
+            answer.questionIndex + 1,
+            answer.question,
+            answer.selectedAnswer,
+            answer.correctAnswer,
+            answer.isCorrect ? 'Correct' : 'Wrong'
+          ])
+        })
+      }
+      
+      // Export posttest answers
+      if (p.posttestAnswers) {
+        p.posttestAnswers.forEach(answer => {
+          rows.push([
+            p.userEmail,
+            p.userName,
+            p.moduleName,
+            'Posttest',
+            answer.questionIndex + 1,
+            answer.question,
+            answer.selectedAnswer,
+            answer.correctAnswer,
+            answer.isCorrect ? 'Correct' : 'Wrong'
+          ])
+        })
+      }
+      
+      return rows
+    }),
+    [''],
 
+    ['=== QUESTION DIFFICULTY ANALYSIS ==='],
+    ['Module', 'Test Type', 'Q#', 'Question', 'Success Rate %', 'Total Attempts', 'Correct Count', 'Most Common Wrong Answer', 'Wrong Count'],
+    ...data.stats.questionStats.map(q => [
+      q.moduleName,
+      q.testType,
+      q.questionIndex + 1,
+      q.question,
+      q.successRate,
+      q.totalAttempts,
+      q.correctCount,
+      q.wrongAnswers[0]?.answer || 'N/A',
+      q.wrongAnswers[0]?.count || 0
+    ]),
+    [''],
+
+    ['=== QUESTIONNAIRE DATA ==='],
+    ['C3-id', 'Age', 'Gender', 'Relationship', 'Religion', 'Program', 'Year', 
+     'Sexually Active', 'Family History Cancer', 'Prior Education', 'Had Pap Smear', 'HPV Vaccine', 'Date'],
+    ...data.questionnaires.map(q => [
+      generateParticipantId(q.userName), q.age, q.gender, q.relationshipStatus, q.religion,
+      q.programOfStudy, q.yearOfStudy, q.sexuallyActive, q.familyHistoryCancer,
+      q.cervicalCancerEducation, q.papSmearTest, q.hpvVaccine,
+      new Date(q.createdAt).toLocaleDateString()
+    ])
+  ]
+
+  const csv: string = csvData.map((row: (string | number | boolean)[]): string => 
+    row.map((cell: string | number | boolean): string => {
+      // Escape commas and quotes in cell content
+      const cellStr: string = String(cell).replace(/"/g, '""')
+      return cellStr.includes(',') || cellStr.includes('\n') ? `"${cellStr}"` : cellStr
+    }).join(',')
+  ).join('\n')
+  
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' })
+  const url = window.URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.download = `c3_complete_analytics_${new Date().toISOString().split('T')[0]}.csv`
+  link.click()
+}
   // Calculate demographic insights
   const getDemographics = () => {
     if (!data?.questionnaires.length) return null
@@ -340,6 +453,7 @@ export default function AnalyticsDashboard({ onBack }: AnalyticsDashboardProps) 
             <TabsTrigger value="performance">Learning Outcomes</TabsTrigger>
             <TabsTrigger value="demographics">Demographics</TabsTrigger>
             <TabsTrigger value="modules">Module Details</TabsTrigger>
+            <TabsTrigger value="questions">Question Analysis</TabsTrigger>
             <TabsTrigger value="users">User Data</TabsTrigger>
           </TabsList>
 
@@ -773,7 +887,7 @@ export default function AnalyticsDashboard({ onBack }: AnalyticsDashboardProps) 
             {/* Questionnaire Responses */}
             <Card>
               <CardHeader>
-                <CardTitle>Participant Demographics (Decrypted)</CardTitle>
+                <CardTitle>Participant Demographics (Decrypted, De-identified)</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="overflow-x-auto">
@@ -796,8 +910,8 @@ export default function AnalyticsDashboard({ onBack }: AnalyticsDashboardProps) 
                         <tr key={q.id} className={i % 2 === 0 ? 'bg-gray-50 dark:bg-gray-800' : ''}>
                           <td className="p-3">
                             <div>
-                              <div className="font-medium">{q.userName}</div>
-                              <div className="text-xs text-gray-500">{q.userEmail}</div>
+                              <div className="font-medium">{generateParticipantId(q.userName)}</div>
+                              {/* <div className="text-xs text-gray-500">{q.userEmail}</div> */}
                             </div>
                           </td>
                           <td className="p-3">{q.age}</td>
@@ -824,7 +938,158 @@ export default function AnalyticsDashboard({ onBack }: AnalyticsDashboardProps) 
               </CardContent>
             </Card>
           </TabsContent>
+
+          {/* ✅ NEW: QUESTION ANALYSIS TAB */}
+          <TabsContent value="questions" className="space-y-6">
+            {/* Hardest Questions */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Activity className="h-5 w-5 text-red-500" />
+                  Hardest Questions (Lowest Success Rate)
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {data.stats.questionStats
+                    .sort((a, b) => a.successRate - b.successRate)
+                    .slice(0, 10)
+                    .map((q, index) => (
+                      <div key={q.key} className="p-4 bg-red-50 dark:bg-red-950 rounded-lg">
+                        <div className="flex justify-between items-start mb-2">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="inline-block px-2 py-1 bg-red-600 text-white text-xs rounded font-semibold">
+                                #{index + 1} Hardest
+                              </span>
+                              <span className="text-xs text-gray-600">
+                                {q.moduleName} - {q.testType}
+                              </span>
+                            </div>
+                            <p className="font-semibold text-sm">{q.question}</p>
+                            <p className="text-xs text-green-600 mt-1">
+                              ✓ Correct: {q.correctAnswer}
+                            </p>
+                          </div>
+                          <div className="text-right ml-4">
+                            <div className="text-2xl font-bold text-red-600">
+                              {q.successRate}%
+                            </div>
+                            <div className="text-xs text-gray-500">
+                              {q.correctCount}/{q.totalAttempts} correct
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Show most common wrong answers */}
+                        {q.wrongAnswers.length > 0 && (
+                          <div className="mt-3 pt-3 border-t border-red-200">
+                            <p className="text-xs font-semibold text-gray-700 mb-2">
+                              Common Wrong Answers:
+                            </p>
+                            <div className="space-y-1">
+                              {q.wrongAnswers.slice(0, 3).map((wa, i) => (
+                                <div key={i} className="flex justify-between text-xs">
+                                  <span className="text-red-700">✗ {wa.answer}</span>
+                                  <span className="text-gray-600">
+                                    {wa.count} students ({wa.percentage}%)
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Easiest Questions */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Award className="h-5 w-5 text-green-500" />
+                  Easiest Questions (Highest Success Rate)
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {data.stats.questionStats
+                    .sort((a, b) => b.successRate - a.successRate)
+                    .slice(0, 6)
+                    .map((q) => (
+                      <div key={q.key} className="p-4 bg-green-50 dark:bg-green-950 rounded-lg">
+                        <div className="flex justify-between items-start">
+                          <div className="flex-1">
+                            <div className="text-xs text-gray-600 mb-1">
+                              {q.moduleName} - {q.testType}
+                            </div>
+                            <p className="font-semibold text-sm">{q.question}</p>
+                          </div>
+                          <div className="text-right ml-4">
+                            <div className="text-xl font-bold text-green-600">
+                              {q.successRate}%
+                            </div>
+                            <div className="text-xs text-gray-500">
+                              {q.correctCount}/{q.totalAttempts}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Question Performance by Module */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Question Performance by Module</CardTitle>
+              </CardHeader>
+              <CardContent>
+                {data.modules.map(module => {
+                  const moduleQuestions = data.stats.questionStats.filter(
+                    q => q.moduleId === module.moduleId
+                  )
+                  
+                  if (moduleQuestions.length === 0) return null
+                  
+                  return (
+                    <div key={module.moduleId} className="mb-6">
+                      <h3 className="font-semibold text-lg mb-3">{module.name}: {module.title}</h3>
+                      <div className="space-y-2">
+                        {moduleQuestions
+                          .sort((a, b) => a.questionIndex - b.questionIndex)
+                          .map(q => (
+                            <div key={q.key} className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded">
+                              <div className="flex-shrink-0 w-16 text-center">
+                                <div className="text-xs text-gray-500">{q.testType}</div>
+                                <div className="text-xs text-gray-500">Q{q.questionIndex + 1}</div>
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <p className="text-sm truncate">{q.question}</p>
+                              </div>
+                              <div className="flex-shrink-0 w-20 text-right">
+                                <div className={`text-lg font-bold ${
+                                  q.successRate >= 80 ? 'text-green-600' :
+                                  q.successRate >= 60 ? 'text-yellow-600' :
+                                  'text-red-600'
+                                }`}>
+                                  {q.successRate}%
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                  )
+                })}
+              </CardContent>
+            </Card>
+          </TabsContent>
         </Tabs>
+
       </div>
     </div>
   )
