@@ -6,7 +6,7 @@ export default function PrivacyPolicyPage() {
       <div className="flex justify-between">
         <div>
           <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
-          <p className="text-sm text-gray-500 mb-4">Effective Date: 1st July, 2025</p>
+          <p className="text-sm text-gray-500 mb-4">Effective Date: 20th January, 2025</p>
         </div>
         <div>
           <DownloadButton
@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
         <div>
           <h2 className="text-xl font-semibold">1. Information We Collect</h2>
           <ul className="list-disc list-inside ml-4 mt-2">
-            <li><strong>Personal Information:</strong> Name, email, phone, credentials.</li>
+            <li><strong>Personal Information:</strong> Name, email, phone, credentials, sensitive information such as medical history, sexual history etc.</li>
             <li><strong>Learning Data:</strong> Progress, quiz scores, course status.</li>
             <li><strong>Technical Data:</strong> Device info, IP address, cookies.</li>
           </ul>
@@ -47,10 +47,11 @@ export default function PrivacyPolicyPage() {
         <div>
           <h2 className="text-xl font-semibold">3. How We Share Your Information</h2>
           <p className="mt-2">
-            We do <strong>not</strong> sell your data. We only share it with:
+            We do <strong>not</strong> sell your data. Your sensitive data is <strong>encrypted</strong>  in our database and cannot be seen by anyone including our developers. When required your information will be decrypted for analytical purposes. But you will be <strong>de-identified</strong>  and any exposed information cannot be traced back to you. We only share it with:
           </p>
           <ul className="list-disc list-inside ml-4">
             <li>Service providers (e.g., hosting, analytics)</li>
+            <li>Authorized Researchers</li>
             <li>Government/legal authorities when required</li>
           </ul>
         </div>
@@ -59,14 +60,14 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-xl font-semibold">4. Your Rights</h2>
           <p className="mt-2">
             You may access, update, or delete your data by contacting us at{" "}
-            <span className="text-blue-600 underline">ohendarko@gmail.com</span>.
+            <span className="text-blue-600 underline">support@c3-learning.com</span>.
           </p>
         </div>
 
         <div>
           <h2 className="text-xl font-semibold">5. Data Security</h2>
           <p className="mt-2">
-            We use encryption and access controls to safeguard your information.
+            We use encryption, de-identification and access controls to safeguard your information.
           </p>
         </div>
 
