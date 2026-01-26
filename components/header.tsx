@@ -71,12 +71,12 @@ export default function Header() {
   const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
     isScrolled
       ? "bg-gray-800/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700"
-      : "bg-white/30"
+      : "bg-gray-900/40"
   }`
 
   const textClass = isScrolled
     ? "text-white dark:text-gray-300"
-    : "text-gray-800 dark:text-white"
+    : "text-white dark:text-white"
 
   const iconClass = isScrolled 
     ? "text-gray-800 dark:text-white" 
