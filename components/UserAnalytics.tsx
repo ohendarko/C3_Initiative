@@ -224,12 +224,11 @@ const exportToCSV = () => {
 
     ['=== QUESTIONNAIRE DATA ==='],
     ['C3-id', 'Age', 'Gender', 'Relationship', 'Religion', 'Program', 'Year', 
-     'Sexually Active', 'Family History Cancer', 'Prior Education', 'Had Pap Smear', 'HPV Vaccine', 'Date'],
+     'Sexually Active', 'Family History Cancer', 'Prior Education', 'Had Pap Smear', 'HPV Vaccine'],
     ...data.questionnaires.map(q => [
       generateParticipantId(q.userName), q.age, q.gender, q.relationshipStatus, q.religion,
       q.programOfStudy, q.yearOfStudy, q.sexuallyActive, q.familyHistoryCancer,
-      q.cervicalCancerEducation, q.papSmearTest, q.hpvVaccine,
-      new Date(q.createdAt).toLocaleDateString()
+      q.cervicalCancerEducation, q.papSmearTest, q.hpvVaccine
     ])
   ]
 
