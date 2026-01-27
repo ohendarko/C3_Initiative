@@ -182,6 +182,16 @@ export default function LoginPage() {
                   Forgot password?
                 </Link>
               </div>
+              <div className="text-sm">
+                By clicking Sign In, You agree to our {""}
+                <Link href="/terms" className="text-sm text-blue-500 hover:text-blue-600">
+                  terms of service
+                </Link>
+                {""} and {""}
+                <Link href="/privacy" className="text-sm text-blue-500 hover:text-blue-600">
+                  privacy policy
+                </Link>
+              </div>
 
               <Button 
                 type="submit" 

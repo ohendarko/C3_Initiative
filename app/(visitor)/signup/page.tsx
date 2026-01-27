@@ -12,11 +12,13 @@ import { ArrowRight, BookOpen, Eye, EyeOff } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { toast } from "@/hooks/use-toast"
 import Spinner from "@/components/Spinner"
+import { Checkbox } from "@/components/ui/checkbox"
 
 export default function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [isChecked, setIsChecked] = useState(false)
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -27,7 +29,11 @@ export default function SignUpPage() {
   })
   const router = useRouter()
 
-    const handleSubmit = (e: React.FormEvent) => {
+const handleCheckChange = () => {
+  setIsChecked(!isChecked)
+}
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -274,7 +280,30 @@ export default function SignUpPage() {
                 </div>
               </div>
 
-              <Button type="submit" className="w-full gradient-orange-blue text-white hover-shadow-gradient group " disabled={isLoading}>
+              <div className="flex items-center space-x-2 pt-2">
+                <Checkbox
+                id="terms-check"
+                checked={isChecked}
+                onCheckedChange={handleCheckChange}
+                required
+                className="border border-black"
+                />
+                <label htmlFor="terms-check" 
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                  <span>
+                    I agree to the {""}
+                    <Link href="/terms" className="text-sm text-blue-500 hover:text-blue-600">
+                      terms of service
+                    </Link>
+                    {""} and {""}
+                    <Link href="/privacy" className="text-sm text-blue-500 hover:text-blue-600">
+                      privacy policy
+                    </Link>
+                  </span>
+                </label>
+              </div>
+
+              <Button type="submit" className="w-full gradient-orange-blue text-white hover-shadow-gradient group " disabled={isLoading || !isChecked}>
                 {isLoading && <Spinner />}
                 Create Account
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
