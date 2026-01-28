@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation"
 import Spinner from "@/components/Spinner"
 import { signIn, useSession, getSession } from "next-auth/react"
 import { toast } from "@/hooks/use-toast"
+import Image from "next/image"
 
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
@@ -117,8 +118,13 @@ export default function LoginPage() {
     <div className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-orange-50/30 to-blue-50/30 dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-700/30">
       <div className="container mx-auto max-w-md">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 gradient-orange-blue rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <BookOpen className="w-8 h-8 text-white" />
+          <div className="w-100 h-100 gradient-blue-orange rounded flex items-center justify-center mx-auto mb-4">
+            <Image
+              src='/logo.png'
+              width={150}
+              height={150}
+              alt="C3 Logo"
+            />
           </div>
           <h1 className="text-3xl font-bold">
             Welcome Back to the{" "}
